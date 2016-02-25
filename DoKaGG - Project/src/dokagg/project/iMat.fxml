@@ -4,6 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -28,169 +29,6 @@
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="pane1" fx:id="accountPane" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="accountView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="75.0">
-                     <children>
-                        <Rectangle fx:id="accountGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="accountDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="accountHSeparator" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" />
-                              <Separator fx:id="accountVSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
-                              <Pane fx:id="accountLogIn" layoutX="-1.0" layoutY="-1.0" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountLogInLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountLogInButton" layoutX="240.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountLogInLabelEmail" layoutX="71.0" layoutY="79.0" text="Email:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInLabelPassword" layoutX="30.0" layoutY="116.0" text="Lösenord:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="78.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="email@adress.com">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="**************">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="accountPayment" layoutX="-1.0" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountPaymentLabel" layoutX="136.0" text="Betalningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountPaymentButton" layoutX="251.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountPaymentCardLabel" layoutX="30.0" layoutY="63.0" text="Kortnummer:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentDateLabel" layoutX="75.0" layoutY="100.0" text="Giltig till:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentCard" layoutX="183.0" layoutY="62.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="*****-*****-*****-4567">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentDate" layoutX="183.0" layoutY="99.0" prefHeight="37.0" prefWidth="68.0" style="-fx-border-color: dfdfdf;" text="12/17">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="accountAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountAdressButton" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="accountNameLabel" layoutX="331.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="accountInfoLabel" layoutX="341.0" layoutY="54.0" text="Här hittar du information om ditt konto." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="file:/C:/Users/Martin-610/Documents/Chalmers/Design/iMat/imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
             <AnchorPane id="pane1" fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
@@ -404,6 +242,169 @@
                   </Pane>
                </children>
             </AnchorPane>
+            <AnchorPane id="pane1" fx:id="accountPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="accountView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="75.0">
+                     <children>
+                        <Rectangle fx:id="accountGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="accountDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="accountHSeparator" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" />
+                              <Separator fx:id="accountVSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
+                              <Pane fx:id="accountLogIn" layoutX="-1.0" layoutY="-1.0" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountLogInLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountLogInButton" layoutX="240.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountLogInLabelEmail" layoutX="71.0" layoutY="79.0" text="Email:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInLabelPassword" layoutX="30.0" layoutY="116.0" text="Lösenord:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="78.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="email@adress.com">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="**************">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="accountPayment" layoutX="-1.0" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountPaymentLabel" layoutX="136.0" text="Betalningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountPaymentButton" layoutX="251.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountPaymentCardLabel" layoutX="30.0" layoutY="63.0" text="Kortnummer:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentDateLabel" layoutX="75.0" layoutY="100.0" text="Giltig till:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentCard" layoutX="183.0" layoutY="62.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="*****-*****-*****-4567">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentDate" layoutX="183.0" layoutY="99.0" prefHeight="37.0" prefWidth="68.0" style="-fx-border-color: dfdfdf;" text="12/17">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="accountAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountAdressButton" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="accountNameLabel" layoutX="331.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="accountInfoLabel" layoutX="341.0" layoutY="54.0" text="Här hittar du information om ditt konto." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="file:/C:/Users/Martin-610/Documents/Chalmers/Design/iMat/imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
             <AnchorPane id="pane1" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -595,99 +596,302 @@
                         </VBox>
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="790.0" style="-fx-background-color: d31146; -fx-background-radius: 5;" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="158.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0">
                      <children>
-                        <TextField layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
-                           <font>
-                              <Font name="Calibri" size="14.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="200.0">
-                     <children>
-                        <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                        <Button fx:id="offersRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                        <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label fx:id="offersShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Button fx:id="offersLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                        <HBox fx:id="offersProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="favoritesView" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="465.0">
-                     <children>
-                        <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                        <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                        <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                        <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="590.0" prefWidth="840.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="590.0" prefWidth="840.0" spacing="20.0">
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;">
+                                       <children>
+                                          <TextField layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
+                                             <font>
+                                                <Font name="Calibri" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Button fx:id="offersRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <effect>
+                                                <ImageInput>
+                                                   <source>
+                                                      <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
+                                                   </source>
+                                                </ImageInput>
+                                             </effect>
+                                          </Button>
+                                          <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Label>
+                                          <Label fx:id="offersShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Label>
+                                          <Button fx:id="offersLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <effect>
+                                                <ImageInput>
+                                                   <source>
+                                                      <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
+                                                   </source>
+                                                </ImageInput>
+                                             </effect>
+                                          </Button>
+                                          <HBox fx:id="offersProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="favoritesView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                       <children>
+                                          <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <effect>
+                                                <ImageInput>
+                                                   <source>
+                                                      <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
+                                                   </source>
+                                                </ImageInput>
+                                             </effect>
+                                          </Button>
+                                          <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Label>
+                                          <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Label>
+                                          <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <effect>
+                                                <ImageInput>
+                                                   <source>
+                                                      <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
+                                                   </source>
+                                                </ImageInput>
+                                             </effect>
+                                          </Button>
+                                          <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
+                                       </children>
+                                    </Pane>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Pane fx:id="savedListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                             <children>
+                                                <Label fx:id="savedListNameLabel" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Calibri" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox fx:id="savedListHBox" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                   <children>
+                                                      <Text fx:id="savedListVaraText" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListAntalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListStyckprisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListPrisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <Separator fx:id="savedListSeparator" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                <ScrollPane fx:id="savedListScrollPane" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                   <content>
+                                                      <AnchorPane fx:id="savedListAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                         <children>
+                                                            <TableView fx:id="savedListTableView" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="savedListTableViewVara" prefWidth="70.0" text="Vara" />
+                                                                  <TableColumn fx:id="savedListTableViewAntal" prefWidth="50.0" text="Antal" />
+                                                                  <TableColumn fx:id="savedListTableViewStyckpris" text="Styckpris" />
+                                                                  <TableColumn fx:id="savedListTableViewTotalt" prefWidth="60.0" text="Totalt" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </ScrollPane>
+                                                <VBox fx:id="savedListVBox" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                   <children>
+                                                      <Button fx:id="savedListBuyButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Calibri" size="14.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="savedListPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                             <children>
+                                                <Label fx:id="savedListNameLabel1" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Calibri" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox fx:id="savedListHBox1" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                   <children>
+                                                      <Text fx:id="savedListVaraText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListAntalText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListStyckprisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListPrisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <Separator fx:id="savedListSeparator1" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                <ScrollPane fx:id="savedListScrollPane1" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                   <content>
+                                                      <AnchorPane fx:id="savedListAnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                         <children>
+                                                            <TableView fx:id="savedListTableView1" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="savedListTableViewVara1" prefWidth="70.0" text="Vara" />
+                                                                  <TableColumn fx:id="savedListTableViewAntal1" prefWidth="50.0" text="Antal" />
+                                                                  <TableColumn fx:id="savedListTableViewStyckpris1" text="Styckpris" />
+                                                                  <TableColumn fx:id="savedListTableViewTotalt1" prefWidth="60.0" text="Totalt" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </ScrollPane>
+                                                <VBox fx:id="savedListVBox1" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                   <children>
+                                                      <Button fx:id="savedListBuyButton1" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Calibri" size="14.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="savedListPane11" layoutX="280.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                             <children>
+                                                <Label fx:id="savedListNameLabel11" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Calibri" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox fx:id="savedListHBox11" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                   <children>
+                                                      <Text fx:id="savedListVaraText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListAntalText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListStyckprisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="savedListPrisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                         <font>
+                                                            <Font name="Calibri" size="12.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets right="15.0" />
+                                                   </padding>
+                                                </HBox>
+                                                <Separator fx:id="savedListSeparator11" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                <ScrollPane fx:id="savedListScrollPane11" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                   <content>
+                                                      <AnchorPane fx:id="savedListAnchorPane11" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                         <children>
+                                                            <TableView fx:id="savedListTableView11" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="savedListTableViewVara11" prefWidth="70.0" text="Vara" />
+                                                                  <TableColumn fx:id="savedListTableViewAntal11" prefWidth="50.0" text="Antal" />
+                                                                  <TableColumn fx:id="savedListTableViewStyckpris11" text="Styckpris" />
+                                                                  <TableColumn fx:id="savedListTableViewTotalt11" prefWidth="60.0" text="Totalt" />
+                                                               </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </content>
+                                                </ScrollPane>
+                                                <VBox fx:id="savedListVBox11" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                   <children>
+                                                      <Button fx:id="savedListBuyButton11" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Calibri" size="14.0" />
+                                                         </font>
+                                                      </Button>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
                      </children>
                   </Pane>
                   <GridPane fx:id="cartPane" layoutX="985.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
