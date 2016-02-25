@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="accountPayment" prefHeight="230.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="accountPaymentLabel" layoutX="136.0" text="Betalningsuppgifter" underline="true">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Button fx:id="accountPaymentButtonDone" layoutX="432.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="accountPaymentCardLabel" layoutX="30.0" layoutY="63.0" text="Kortnummer:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="accountPaymentDateLabel" layoutX="75.0" layoutY="100.0" text="Giltig till:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="accountPaymentSlash" layoutX="226.0" layoutY="99.0" prefHeight="37.0" prefWidth="12.0" style="-fx-border-color: dfdfdf;" text="/">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="accountPaymentCardField" layoutX="183.0" layoutY="62.0" prefHeight="37.0" prefWidth="244.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="accountPaymentMonthField" layoutX="183.0" layoutY="101.0" prefHeight="39.0" prefWidth="41.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="accountPaymentYearField" layoutX="240.0" layoutY="101.0" prefHeight="39.0" prefWidth="41.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="accountPaymentSecurityField" layoutX="185.0" layoutY="140.0" prefHeight="39.0" prefWidth="94.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="accountPaymentSecurityLabel" layoutX="26.0" layoutY="142.0" text="Säkerhetskod:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
