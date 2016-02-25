@@ -18,6 +18,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <FlowPane layoutY="45.0" prefWidth="790.0" />
+      <FlowPane layoutY="45.0" prefWidth="790.0" prefWrapLength="790.0" />
    </children>
 </Pane>
