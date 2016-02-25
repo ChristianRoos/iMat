@@ -28,7 +28,307 @@
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="pane1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <AnchorPane id="pane1" fx:id="accountPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="accountView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="75.0">
+                     <children>
+                        <Rectangle fx:id="accountGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="accountDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="accountHSeparator" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" />
+                              <Separator fx:id="accountVSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
+                              <Pane fx:id="accountLogIn" layoutX="-1.0" layoutY="-1.0" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountLogInLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountLogInButton" layoutX="240.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountLogInLabelEmail" layoutX="71.0" layoutY="79.0" text="Email:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInLabelPassword" layoutX="30.0" layoutY="116.0" text="Lösenord:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="78.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="email@adress.com">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="**************">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="accountPayment" layoutX="-1.0" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountPaymentLabel" layoutX="136.0" text="Betalningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountPaymentButton" layoutX="251.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountPaymentCardLabel" layoutX="30.0" layoutY="63.0" text="Kortnummer:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentDateLabel" layoutX="75.0" layoutY="100.0" text="Giltig till:">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentCard" layoutX="183.0" layoutY="62.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="*****-*****-*****-4567">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountPaymentDate" layoutX="183.0" layoutY="99.0" prefHeight="37.0" prefWidth="68.0" style="-fx-border-color: dfdfdf;" text="12/17">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="accountAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="accountAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="accountAdressButton" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="accountNameLabel" layoutX="331.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="accountInfoLabel" layoutX="341.0" layoutY="54.0" text="Här hittar du information om ditt konto." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="file:/C:/Users/Martin-610/Documents/Chalmers/Design/iMat/imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="pane1" fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
+                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" onAction="#createAccountButton" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="@../../../../../../GitHub/iMat/imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="pane1" fx:id="loginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
                   <Pane fx:id="registerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="250.0">
                      <children>
@@ -104,7 +404,7 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane id="pane1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+            <AnchorPane id="pane1" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -123,7 +423,7 @@
                                     <Font name="AR HERMANN" size="45.0" />
                                  </font>
                               </Label>
-                              <Label contentDisplay="CENTER" text="namn">
+                              <Label fx:id="topUserName" contentDisplay="CENTER" text="namn">
                                  <font>
                                     <Font name="AR HERMANN" size="45.0" />
                                  </font>
@@ -151,7 +451,7 @@
                         </VBox>
                         <Pane id="loggaUt" fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="50.0">
                            <children>
-                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga ut" textFill="WHITE">
+                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" onAction="#mainWindowLogoutButton" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga ut" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -164,7 +464,7 @@
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Kontouppgifter" textFill="WHITE">
+                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" onAction="#mainWindowAccButton" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Kontouppgifter" textFill="WHITE">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -474,382 +774,6 @@
                         </Pane>
                      </children>
                   </GridPane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="accountView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="75.0">
-                     <children>
-                        <Rectangle fx:id="accountGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="accountDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="accountHSeparator" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" />
-                              <Separator fx:id="accountVSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
-                              <Pane fx:id="accountLogIn" layoutX="-1.0" layoutY="-1.0" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountLogInLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountLogInButton" layoutX="240.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountLogInLabelEmail" layoutX="71.0" layoutY="79.0" text="Email:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInLabelPassword" layoutX="30.0" layoutY="116.0" text="Lösenord:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="78.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="email@adress.com">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" style="-fx-border-color: dfdfdf;" text="**************">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="accountPayment" layoutX="-1.0" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountPaymentLabel" layoutX="136.0" text="Betalningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountPaymentButton" layoutX="251.0" layoutY="177.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountPaymentCardLabel" layoutX="30.0" layoutY="63.0" text="Kortnummer:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentDateLabel" layoutX="75.0" layoutY="100.0" text="Giltig till:">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentCard" layoutX="183.0" layoutY="62.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="*****-*****-*****-4567">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountPaymentDate" layoutX="183.0" layoutY="99.0" prefHeight="37.0" prefWidth="68.0" style="-fx-border-color: dfdfdf;" text="12/17">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="accountAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="accountAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="accountAdressButton" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="accountNameLabel" layoutX="331.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="accountInfoLabel" layoutX="341.0" layoutY="54.0" text="Här hittar du information om ditt konto." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="file:/C:/Users/Martin-610/Documents/Chalmers/Design/iMat/imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="registerView1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="200.0">
-                     <children>
-                        <Rectangle fx:id="registerGraphic1" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
-                        <Pane fx:id="registerLoginDetails1" layoutY="100.0" prefHeight="250.0" prefWidth="500.0">
-                           <children>
-                              <Label fx:id="registerLoginLabel1" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                 <font>
-                                    <Font size="32.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="registerLoginEmailLabel1" layoutX="79.0" layoutY="97.0" text="Email:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="registerLoginPassLabel1" layoutX="47.0" layoutY="146.0" text="Lösenord:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="registerLoginEmailField1" layoutX="135.0" layoutY="91.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <TextField fx:id="registerLoginPassField1" layoutX="135.0" layoutY="140.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <Button fx:id="registerButton1" layoutX="340.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Label fx:id="erbjudandeShowAll1" layoutX="135.0" layoutY="203.0" text="Glömt lösenord..." textFill="#d31145" underline="true">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Label fx:id="registerTitleLabel1" layoutX="47.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="registerInfoLabel1" layoutX="80.0" layoutY="61.0" text="Fyll i din information för att logga in." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="registerCloseButton1" layoutX="438.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
-                     <children>
-                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
-                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../../GitHub/iMat/imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
                </children>
             </AnchorPane>
          </children>
