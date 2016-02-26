@@ -27,16 +27,19 @@
       </Button>
       <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Calibri Bold" size="24.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
+      <Label fx:id="favoritesShowAll" layoutX="722.0" layoutY="235.0" text="Visa alla" textFill="#d31145" underline="true">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
       </Label>
       <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
          <cursor>

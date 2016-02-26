@@ -17,17 +17,17 @@
          <children>
             <Label fx:id="registerLoginLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
                <font>
-                  <Font size="32.0" />
+                  <Font name="Calibri" size="34.0" />
                </font>
             </Label>
             <Label fx:id="registerLoginEmailLabel" layoutX="79.0" layoutY="97.0" text="Email:">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Calibri" size="20.0" />
                </font>
             </Label>
             <Label fx:id="registerLoginPassLabel" layoutX="47.0" layoutY="146.0" text="Lösenord:">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Calibri" size="20.0" />
                </font>
             </Label>
             <TextField fx:id="registerLoginEmailField" layoutX="135.0" layoutY="91.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
@@ -42,7 +42,7 @@
             </TextField>
             <Button fx:id="registerButton" layoutX="340.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Calibri" size="20.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -53,19 +53,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="System Italic" size="18.0" />
+                  <Font name="Calibri" size="20.0" />
                </font>
             </Label>
          </children>
       </Pane>
       <Label fx:id="registerTitleLabel" layoutX="47.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="Calibri Bold" size="40.0" />
          </font>
       </Label>
       <Label fx:id="registerInfoLabel" layoutX="80.0" layoutY="61.0" text="Fyll i din information för att logga in." textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Calibri" size="20.0" />
          </font>
       </Label>
       <Button fx:id="registerCloseButton" layoutX="438.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
