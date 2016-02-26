@@ -2,43 +2,39 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="230.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="590.0" prefWidth="230.0">
+      <VBox alignment="TOP_CENTER" prefHeight="590.0" prefWidth="230.0" spacing="2.0">
          <children>
-            <Pane prefHeight="42.0" prefWidth="230.0">
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button layoutY="1.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="230.0" text="Start Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#d31145" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #d31145;" text="Min Startsida">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="80.0" layoutY="13.0" text="Min Startsida" />
                </children>
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Mina Favoriter">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="77.0" layoutY="12.0" text="Mina Favoriter" />
                </children>
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Button">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="81.0" layoutY="12.0" text="Tidigare Köp" />
                </children>
                <VBox.margin>
                   <Insets top="1.0" />
@@ -46,12 +42,11 @@
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Sparade Listor">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="77.0" layoutY="12.0" text="Sparade Listor" />
                </children>
                <VBox.margin>
                   <Insets top="1.0" />
@@ -59,12 +54,11 @@
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Kött &amp; Chark">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="81.0" layoutY="12.0" text="Kött &amp; Chark" />
                </children>
                <VBox.margin>
                   <Insets top="25.0" />
@@ -72,12 +66,11 @@
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Fisk &amp; Skaldjur">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="76.0" layoutY="12.0" text="Fisk &amp; Skaldjur" />
                </children>
                <VBox.margin>
                   <Insets top="1.0" />
@@ -85,25 +78,11 @@
             </Pane>
             <Pane prefHeight="40.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Frukt &amp; Grönt">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="78.0" layoutY="12.0" text="Frukt &amp; Grönt" />
-               </children>
-               <VBox.margin>
-                  <Insets top="1.0" />
-               </VBox.margin>
-            </Pane>
-            <Pane prefHeight="40.0" prefWidth="230.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
-                  </Button>
-                  <Label layoutX="67.0" layoutY="12.0" text="Mejeri, Ägg &amp; Ost" />
                </children>
                <VBox.margin>
                   <Insets top="1.0" />
@@ -111,16 +90,54 @@
             </Pane>
             <Pane prefHeight="42.0" prefWidth="230.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                     <effect>
-                        <ColorInput height="235.7" paint="#e5e5e5" width="225.0" x="2.5" />
-                     </effect>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Skafferi">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
                   </Button>
-                  <Label layoutX="79.0" layoutY="12.0" text="Bröd &amp; Kakor" />
                </children>
                <VBox.margin>
                   <Insets top="1.0" />
                </VBox.margin>
+            </Pane>
+            <Pane prefHeight="40.0" prefWidth="230.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Mejeri, Ägg &amp; Ost">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="1.0" />
+               </VBox.margin>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="363.0" prefHeight="42.0" prefWidth="230.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Bröd &amp; Kakor">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="421.0" prefHeight="42.0" prefWidth="230.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Dryck">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="465.0" prefHeight="42.0" prefWidth="230.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #e5e5e5;" text="Godis">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
             </Pane>
          </children>
       </VBox>

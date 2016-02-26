@@ -21,47 +21,47 @@
                <children>
                   <Label fx:id="registerLoginLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
                      <font>
-                        <Font size="32.0" />
+                        <Font name="Calibri" size="34.0" />
                      </font>
                   </Label>
                   <Label fx:id="registerLoginEmailLabel" layoutX="108.0" layoutY="122.0" text="Email:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="registerLoginPassLabel" layoutX="77.0" layoutY="218.0" text="Lösenord:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="registerLoginEmailField" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerLoginPassField" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -70,12 +70,12 @@
                <children>
                   <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
                      <font>
-                        <Font size="32.0" />
+                        <Font name="Calibri" size="34.0" />
                      </font>
                   </Label>
                   <Button fx:id="registerButton" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -83,37 +83,37 @@
                   </Button>
                   <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Calibri" size="20.0" />
                      </font>
                   </TextField>
                </children>
@@ -122,12 +122,12 @@
       </Pane>
       <Label fx:id="registerTitleLabel" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="Calibri Bold" size="40.0" />
          </font>
       </Label>
       <Label fx:id="registerInfoLabel" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="Calibri" size="20.0" />
          </font>
       </Label>
       <Button fx:id="registerCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">

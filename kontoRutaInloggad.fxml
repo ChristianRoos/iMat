@@ -13,12 +13,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font size="18.0" />
+            <Font name="Calibri" size="20.0" />
          </font>
       </Button>
       <Label fx:id="kontoRutaName" layoutX="27.0" layoutY="6.0" text="Förnamn Efternamn" underline="true">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font name="Calibri Bold" size="30.0" />
          </font>
       </Label>
       <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Kontouppgifter" textFill="WHITE">
@@ -26,7 +26,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font size="18.0" />
+            <Font name="Calibri" size="20.0" />
          </font>
       </Button>
    </children>

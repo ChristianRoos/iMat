@@ -13,7 +13,7 @@
       <Rectangle fx:id="productGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
       <Label fx:id="productCategory" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="PRODUKTENS KATEGORI" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Calibri Bold" size="22.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -24,12 +24,12 @@
             <ImageView fx:id="productImage" fitHeight="240.0" fitWidth="360.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" />
             <Label fx:id="productName" layoutX="395.0" layoutY="14.0" prefHeight="53.0" prefWidth="394.0" text="Produktnamn" underline="true">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Calibri" size="45.0" />
                </font>
             </Label>
             <Button fx:id="productBuyButton" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="360.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Calibri" size="36.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -37,7 +37,7 @@
             </Button>
             <Button fx:id="productFavoriteButton" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="360.0" style="-fx-background-color: d31145;" text="Lägg till favorit" textFill="WHITE">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Calibri" size="36.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -45,22 +45,22 @@
             </Button>
             <Label fx:id="productPrice" layoutX="395.0" layoutY="82.0" text="Pris">
                <font>
-                  <Font name="System Bold" size="36.0" />
+                  <Font name="Calibri Bold" size="36.0" />
                </font>
             </Label>
             <Label fx:id="productPriceDiscount" layoutX="561.0" layoutY="82.0" text="Pris" textFill="RED">
                <font>
-                  <Font name="System Bold" size="36.0" />
+                  <Font name="Calibri Bold" size="36.0" />
                </font>
             </Label>
             <Label fx:id="productOffer" layoutX="395.0" layoutY="134.0" text="Ev. erbjudande 3 för 5" textFill="RED">
                <font>
-                  <Font size="24.0" />
+                  <Font name="Calibri" size="24.0" />
                </font>
             </Label>
             <Label fx:id="productInformation" alignment="TOP_LEFT" layoutX="395.0" layoutY="169.0" prefHeight="270.0" prefWidth="360.0" text="Information om produkten" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Calibri" size="20.0" />
                </font>
             </Label>
          </children>
