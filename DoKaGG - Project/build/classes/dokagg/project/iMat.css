@@ -1,0 +1,15 @@
+.pane-background {
+    -fx-background-color: -fx-background;
+}
+
+#mainView_Startpage{
+    -fx-background-color: #ffffff;
+}
+
+#pane1{
+    -fx-background-color: #ffffff;
+}
+
+#cartEmpty{
+    -fx-background-color: #ffffff;
+}
