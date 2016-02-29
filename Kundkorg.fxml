@@ -23,7 +23,7 @@
       <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <StackPane GridPane.rowIndex="1">
+      <StackPane prefWidth="295.0" GridPane.rowIndex="1">
          <children>
             <AnchorPane id="pane1">
                <children>
@@ -46,6 +46,15 @@
                   </Text>
                </children>
             </AnchorPane>
+            <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="296.0" StackPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" layoutX="80.0" layoutY="355.0" mnemonicParsing="false" style="-fx-background-color: d31145;" text="Spara varukorg" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
       <Pane prefHeight="69.0" prefWidth="295.0" style="-fx-background-color: d31145;">
@@ -64,23 +73,23 @@
                   <Font name="Calibri" size="32.0" />
                </font>
             </Button>
-            <Text fill="RED" layoutX="95.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
+            <Text fill="RED" layoutX="140.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="68.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
+            <Text layoutX="100.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
             </Text>
-            <Line endX="90.0" layoutX="195.0" layoutY="45.0" startX="-100.0" />
-            <Text fill="RED" layoutX="179.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10,75 kr">
+            <Line endX="79.0" layoutX="195.0" layoutY="47.0" startX="-70.0" />
+            <Text fill="RED" layoutX="222.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10,75 kr">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="148.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="195,79 kr">
+            <Text layoutX="183.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="195,79 kr">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

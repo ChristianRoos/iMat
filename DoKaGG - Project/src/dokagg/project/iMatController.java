@@ -15,14 +15,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.paint.Color;
 import se.chalmers.ait.dat215.project.*;
 
 /**
@@ -83,7 +85,47 @@ public class iMatController implements Initializable {
     
     // Checkout-Page
     @FXML private AnchorPane checkoutPane;
+    @FXML private Pane checkoutStep1;
+    @FXML private Pane checkoutStep2;
+    @FXML private Pane checkoutStep3;
+    @FXML private Label step1TopLabel;
+    @FXML private Label step2TopLabel;
+    @FXML private Label step3TopLabel;
+    
+    
+    // Checkout Step1
+    @FXML private ScrollPane step1SPane;
     @FXML private Button checkoutGoBackButton;
+    @FXML private Button step1Forward;
+    @FXML private Label step1TotSum;
+    @FXML private GridPane step1Grid;
+    
+    // Checkout Step2
+    @FXML private Pane step2Pane;
+    @FXML private Button step2Forward;
+    @FXML private Button step2Back;
+    @FXML private Button step2GetAddButton;
+    @FXML private TextField step2PNumber;
+    @FXML private TextField step2FirstName;
+    @FXML private TextField step2LastName;
+    @FXML private TextField step2Address;
+    @FXML private TextField step2PostalCode;
+    @FXML private TextField step2City;
+    @FXML private TextField step2Email;
+    @FXML private TextField step2Phone;
+    
+    // Checkout Step3
+    @FXML private Pane step3Pane;
+    @FXML private Button step3Back;
+    @FXML private Button step3Finish;
+    @FXML private RadioButton step3RadioButton1;
+    @FXML private RadioButton step3RadioButton2;
+    @FXML private RadioButton step3RadioButton3;
+    @FXML private RadioButton step3RadioButton4;
+    @FXML private Label step3TotSum;
+    
+    
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {        
@@ -111,6 +153,7 @@ public class iMatController implements Initializable {
     // Login window
     @FXML
     private void loginButton(){
+        
         mainPane.toFront();
     }
     
@@ -182,7 +225,61 @@ public class iMatController implements Initializable {
         
         mainPane.toFront();
     }
+    //
+    // Step 1
     
+    @FXML
+    private void step1Forward(){
+        step2Pane.toFront();
+        checkoutStep1.setStyle("#checkoutPaneColourWhite");
+        step1TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep2.setStyle("#niceColour");
+        step2TopLabel.setTextFill(Color.WHITE);
+        
+    }
+    
+    @FXML
+    private void step2Forward(){
+        step3Pane.toFront();
+        checkoutStep2.setStyle("#checkoutPaneColourWhite");
+        step2TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep3.setStyle("#niceColour");
+        step3TopLabel.setTextFill(Color.WHITE);
+        
+    }
+    
+    @FXML
+    private void step2Back(){
+        step1SPane.toFront();
+        checkoutStep2.setStyle("#checkoutPaneColourWhite");
+        step2TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep1.setStyle("#niceColour");
+        step1TopLabel.setTextFill(Color.WHITE);
+        
+    }
+    
+    @FXML
+    private void step3Back(){
+        step2Pane.toFront();
+        checkoutStep3.setStyle("#checkoutPaneColourWhite");
+        step3TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep2.setStyle("#niceColour");
+        step2TopLabel.setTextFill(Color.WHITE);
+        
+    }
+    
+    
+    //
+    // Step 2
+    
+    //
+    // Step 3
+    
+    //
     // -----------------------------------------------------------------------
     //
     
