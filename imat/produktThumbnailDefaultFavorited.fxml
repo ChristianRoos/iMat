@@ -68,7 +68,7 @@
       </TextField>
       <ImageView fitHeight="39.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../favoritButtonNotAdded.png" />
+            <Image url="@../favoritButton.png" />
          </image>
       </ImageView>
    </children>
