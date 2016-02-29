@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="1.0">
+         <children>
+            <TextField layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="3.0" layoutY="61.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="833.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Rectangle fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="816.0" x="2.0" />
+            <Label layoutX="320.0" layoutY="7.0" text="TIDIGARE KÖP" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <ListView fx:id="previousList" layoutX="2.0" layoutY="47.0" prefHeight="475.0" prefWidth="280.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
