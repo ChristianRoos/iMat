@@ -5,10 +5,11 @@
  */
 package dokagg.project;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.*;
 
 /**
@@ -52,13 +54,15 @@ public class iMatController implements Initializable {
     @FXML private Label topUserName;
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
-    @FXML private FlowPane specificCategoryList;
     
     @FXML private Button categoryMeatButton;
     @FXML private Button categorySeaFoodButton;
     @FXML private Button categoryFruitButton;
     @FXML private Button categoryDairyButton;
     @FXML private Button categoryBreadButton;
+    
+    @FXML private Pane offersView1;
+    @FXML private FlowPane specificCategoryList;
     
     @FXML private Button cartButton;
     
@@ -75,13 +79,12 @@ public class iMatController implements Initializable {
     @FXML private Button checkoutGoBackButton;
     
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {        
         
-        IMatDataHandler iMatDataHandler;
-        Customer customer;
+        System.out.println(IMatDataHandler.getInstance().getProducts());
         
         user = new User();
-        firstAccPane.toFront();
+        mainPane.toFront();
     }
     
     // -----------------------------------------------------------------------
@@ -101,7 +104,6 @@ public class iMatController implements Initializable {
     // Login window
     @FXML
     private void loginButton(){
-        
         mainPane.toFront();
     }
     
@@ -119,7 +121,28 @@ public class iMatController implements Initializable {
     }
     
     @FXML
-    private void mainWindowMeatCategoryButton(){
+    private void mainWindowMeatCategoryButton() throws IOException{
+        
+        //specificCategoryList
+        //IMatDataHandler.getInstance()
+        // offersView1
+        //FXMLLoader.load(getClass().getResource("iMat.fxml"));
+        //content.getChildren().setAll(FXMLLoader.load("vista2.fxml"));
+        
+        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
+            //specificCategoryList.getChildren().add(new Button(prod.getName()));
+            specificCategoryList.getChildren().clear();
+            FXML file = FXMLLoader.load(getClass().getResource("produktThumbnailDefault.fxml"));
+            //specificCategoryList.getChildren().add(file);
+        }
+        //specificCategoryList.getChildren().setAll(FXMLLoader.load(getClass().getResource("iMat.fxml")));
+        
+
+        //specificCategoryList.getChildren().clear();
+        //specificCategoryList.getChildren().setAll(col)
+        
+        
+        offersView1.toFront();      
     }
     
     @FXML
@@ -131,7 +154,7 @@ public class iMatController implements Initializable {
     // Account window
     @FXML
     private void accountExitButton(){
-        
+
         mainPane.toFront();
     }
     

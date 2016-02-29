@@ -31,143 +31,6 @@
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="pane1" fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
-                     <children>
-                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
-                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" onAction="#createAccountButton" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
             <AnchorPane id="pane1" fx:id="loginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                <children>
                   <Pane fx:id="registerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="250.0">
@@ -235,594 +98,13 @@
                            <effect>
                               <ImageInput>
                                  <source>
-                                    <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/cross.png" />
+                                    <Image url="@../../../../../../GitHub/iMat/imat/images/cross.png" />
                                  </source>
                               </ImageInput>
                            </effect>
                         </Button>
                      </children>
                   </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Button layoutX="25.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #F00;" text="Ångra" AnchorPane.topAnchor="10.0">
-                           <font>
-                              <Font name="AR DARLING" size="36.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Button>
-                        <HBox layoutX="265.0" layoutY="43.0" prefHeight="60.0" prefWidth="693.0">
-                           <children>
-                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Välkommen tillbaka, ">
-                                 <font>
-                                    <Font name="AR HERMANN" size="45.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="topUserName" contentDisplay="CENTER" text="namn">
-                                 <font>
-                                    <Font name="AR HERMANN" size="45.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Pane id="loggaUt" fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" onAction="#mainWindowLogoutButton" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga ut" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Label fx:id="kontoRutaName" layoutX="27.0" layoutY="6.0" text="Förnamn Efternamn" underline="true">
-                                 <font>
-                                    <Font name="System Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" onAction="#mainWindowAccButton" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Kontouppgifter" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-                  <Pane layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-                     <children>
-                        <VBox prefHeight="590.0" prefWidth="230.0">
-                           <children>
-                              <Pane prefHeight="42.0" prefWidth="230.0">
-                                 <children>
-                                    <Button layoutY="1.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="230.0" text="Start Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#d31145" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="80.0" layoutY="13.0" text="Min Startsida" />
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="77.0" layoutY="12.0" text="Mina Favoriter" />
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="81.0" layoutY="12.0" text="Tidigare Köp" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="77.0" layoutY="12.0" text="Sparade Listor" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryMeatButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="81.0" layoutY="12.0" text="Kött &amp; Chark" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="25.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categorySeaFoodButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="76.0" layoutY="12.0" text="Fisk &amp; Skaldjur" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryFruitButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="78.0" layoutY="12.0" text="Frukt &amp; Grönt" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryDairyButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="67.0" layoutY="12.0" text="Mejeri, Ägg &amp; Ost" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="42.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryBreadButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
-                                       <effect>
-                                          <ColorInput height="235.7" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
-                                    </Button>
-                                    <Label layoutX="79.0" layoutY="12.0" text="Bröd &amp; Kakor" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Pane>
-                  <ScrollPane layoutX="230.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0">
-                     <content>
-                        <StackPane>
-                           <children>
-                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="840.0">
-                                 <children>
-                                    <ScrollPane hbarPolicy="NEVER" prefHeight="590.0" prefWidth="840.0">
-                                       <content>
-                                          <VBox alignment="TOP_CENTER" prefHeight="590.0" prefWidth="840.0" spacing="20.0">
-                                             <children>
-                                                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;">
-                                                   <children>
-                                                      <TextField layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
-                                                         <font>
-                                                            <Font name="Calibri" size="14.0" />
-                                                         </font>
-                                                      </TextField>
-                                                   </children>
-                                                </Pane>
-                                                <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                                   <children>
-                                                      <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                                      <Button fx:id="offersRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <effect>
-                                                            <ImageInput>
-                                                               <source>
-                                                                  <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/rightArrow.png" />
-                                                               </source>
-                                                            </ImageInput>
-                                                         </effect>
-                                                      </Button>
-                                                      <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="22.0" />
-                                                         </font>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Label fx:id="offersShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Button fx:id="offersLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <effect>
-                                                            <ImageInput>
-                                                               <source>
-                                                                  <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/leftArrow.png" />
-                                                               </source>
-                                                            </ImageInput>
-                                                         </effect>
-                                                      </Button>
-                                                      <HBox fx:id="offersProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                                                   </children>
-                                                </Pane>
-                                                <Pane fx:id="favoritesView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                                   <children>
-                                                      <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                                      <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <effect>
-                                                            <ImageInput>
-                                                               <source>
-                                                                  <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/rightArrow.png" />
-                                                               </source>
-                                                            </ImageInput>
-                                                         </effect>
-                                                      </Button>
-                                                      <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="System Bold" size="22.0" />
-                                                         </font>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <effect>
-                                                            <ImageInput>
-                                                               <source>
-                                                                  <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/leftArrow.png" />
-                                                               </source>
-                                                            </ImageInput>
-                                                         </effect>
-                                                      </Button>
-                                                      <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
-                                                   </children>
-                                                </Pane>
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Pane fx:id="savedListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
-                                                         <children>
-                                                            <Label fx:id="savedListNameLabel" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
-                                                               <font>
-                                                                  <Font name="Calibri" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <HBox fx:id="savedListHBox" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
-                                                               <children>
-                                                                  <Text fx:id="savedListVaraText" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListAntalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListStyckprisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListPrisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets right="15.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <Separator fx:id="savedListSeparator" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
-                                                            <ScrollPane fx:id="savedListScrollPane" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
-                                                               <content>
-                                                                  <AnchorPane fx:id="savedListAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
-                                                                     <children>
-                                                                        <TableView fx:id="savedListTableView" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
-                                                                           <columns>
-                                                                              <TableColumn fx:id="savedListTableViewVara" prefWidth="70.0" text="Vara" />
-                                                                              <TableColumn fx:id="savedListTableViewAntal" prefWidth="50.0" text="Antal" />
-                                                                              <TableColumn fx:id="savedListTableViewStyckpris" text="Styckpris" />
-                                                                              <TableColumn fx:id="savedListTableViewTotalt" prefWidth="60.0" text="Totalt" />
-                                                                           </columns>
-                                                                        </TableView>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                            <VBox fx:id="savedListVBox" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
-                                                               <children>
-                                                                  <Button fx:id="savedListBuyButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="14.0" />
-                                                                     </font>
-                                                                  </Button>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane fx:id="savedListPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
-                                                         <children>
-                                                            <Label fx:id="savedListNameLabel1" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
-                                                               <font>
-                                                                  <Font name="Calibri" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <HBox fx:id="savedListHBox1" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
-                                                               <children>
-                                                                  <Text fx:id="savedListVaraText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListAntalText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListStyckprisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListPrisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets right="15.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <Separator fx:id="savedListSeparator1" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
-                                                            <ScrollPane fx:id="savedListScrollPane1" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
-                                                               <content>
-                                                                  <AnchorPane fx:id="savedListAnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
-                                                                     <children>
-                                                                        <TableView fx:id="savedListTableView1" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
-                                                                           <columns>
-                                                                              <TableColumn fx:id="savedListTableViewVara1" prefWidth="70.0" text="Vara" />
-                                                                              <TableColumn fx:id="savedListTableViewAntal1" prefWidth="50.0" text="Antal" />
-                                                                              <TableColumn fx:id="savedListTableViewStyckpris1" text="Styckpris" />
-                                                                              <TableColumn fx:id="savedListTableViewTotalt1" prefWidth="60.0" text="Totalt" />
-                                                                           </columns>
-                                                                        </TableView>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                            <VBox fx:id="savedListVBox1" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
-                                                               <children>
-                                                                  <Button fx:id="savedListBuyButton1" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="14.0" />
-                                                                     </font>
-                                                                  </Button>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </Pane>
-                                                      <Pane fx:id="savedListPane11" layoutX="280.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
-                                                         <children>
-                                                            <Label fx:id="savedListNameLabel11" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
-                                                               <font>
-                                                                  <Font name="Calibri" size="24.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <HBox fx:id="savedListHBox11" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
-                                                               <children>
-                                                                  <Text fx:id="savedListVaraText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListAntalText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListStyckprisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                                  <Text fx:id="savedListPrisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="12.0" />
-                                                                     </font>
-                                                                  </Text>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets right="15.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <Separator fx:id="savedListSeparator11" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
-                                                            <ScrollPane fx:id="savedListScrollPane11" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
-                                                               <content>
-                                                                  <AnchorPane fx:id="savedListAnchorPane11" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
-                                                                     <children>
-                                                                        <TableView fx:id="savedListTableView11" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
-                                                                           <columns>
-                                                                              <TableColumn fx:id="savedListTableViewVara11" prefWidth="70.0" text="Vara" />
-                                                                              <TableColumn fx:id="savedListTableViewAntal11" prefWidth="50.0" text="Antal" />
-                                                                              <TableColumn fx:id="savedListTableViewStyckpris11" text="Styckpris" />
-                                                                              <TableColumn fx:id="savedListTableViewTotalt11" prefWidth="60.0" text="Totalt" />
-                                                                           </columns>
-                                                                        </TableView>
-                                                                     </children>
-                                                                  </AnchorPane>
-                                                               </content>
-                                                            </ScrollPane>
-                                                            <VBox fx:id="savedListVBox11" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
-                                                               <children>
-                                                                  <Button fx:id="savedListBuyButton11" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
-                                                                     <font>
-                                                                        <Font name="Calibri" size="14.0" />
-                                                                     </font>
-                                                                  </Button>
-                                                               </children>
-                                                            </VBox>
-                                                         </children>
-                                                      </Pane>
-                                                   </children>
-                                                </HBox>
-                                             </children>
-                                          </VBox>
-                                       </content>
-                                    </ScrollPane>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="offersView1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="790.0" translateY="68.0">
-                                 <children>
-                                    <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                    <Label fx:id="offersTitle1" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="22.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Label>
-                                    <FlowPane fx:id="specificCategoryList" layoutY="45.0" prefWidth="790.0" prefWrapLength="790.0" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </StackPane>
-                     </content>
-                  </ScrollPane>
-                  <GridPane fx:id="cartPane" layoutX="985.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="400.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <StackPane GridPane.rowIndex="1">
-                           <children>
-                              <AnchorPane id="pane1">
-                                 <children>
-                                    <TableView focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <columns>
-                                          <TableColumn prefWidth="75.0" text="Vara" />
-                                          <TableColumn prefWidth="75.0" text="Antal" />
-                                          <TableColumn prefWidth="75.0" text="Styckpris" />
-                                          <TableColumn prefWidth="75.0" text="Totalt" />
-                                       </columns>
-                                    </TableView>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane id="cartEmpty" maxHeight="340.0" minHeight="340.0" prefHeight="340.0">
-                                 <children>
-                                    <Text layoutX="50.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din varukorg är tom" textAlignment="CENTER" AnchorPane.bottomAnchor="326.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
-                                       <font>
-                                          <Font name="Calibri" size="24.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </StackPane>
-                        <Pane prefHeight="69.0" prefWidth="295.0" style="-fx-background-color: d31145;">
-                           <children>
-                              <Text layoutX="91.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VARUKORG" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Calibri" size="24.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="200.0" prefWidth="295.0" GridPane.rowIndex="2">
-                           <children>
-                              <Button fx:id="cartButton" alignment="CENTER" layoutX="20.0" layoutY="82.0" mnemonicParsing="false" onAction="#cartCheckoutButton" prefHeight="60.0" prefWidth="255.0" text="Gå till kassan - Knapp" textAlignment="CENTER" textFill="#d31145" textOverrun="CLIP">
-                                 <font>
-                                    <Font name="Calibri" size="18.0" />
-                                 </font>
-                                 <effect>
-                                    <ColorInput height="59.3" paint="#d31145" width="255.0" />
-                                 </effect>
-                              </Button>
-                              <Label focusTraversable="false" layoutX="63.0" layoutY="94.0" text="Gå till kassan" textFill="WHITE">
-                                 <font>
-                                    <Font name="Calibri" size="32.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                              <Text fill="RED" layoutX="95.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
-                                 <font>
-                                    <Font name="Calibri" size="16.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="68.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
-                                 <font>
-                                    <Font name="Calibri" size="24.0" />
-                                 </font>
-                              </Text>
-                              <Line endX="90.0" layoutX="195.0" layoutY="45.0" startX="-100.0" />
-                              <Text fill="RED" layoutX="179.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10,75 kr">
-                                 <font>
-                                    <Font name="Calibri" size="16.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="148.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="195,79 kr">
-                                 <font>
-                                    <Font name="Calibri" size="24.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
                </children>
             </AnchorPane>
             <AnchorPane id="pane1" fx:id="checkoutPane" prefHeight="200.0" prefWidth="200.0">
@@ -1228,11 +510,721 @@
                            <effect>
                               <ImageInput>
                                  <source>
-                                    <Image url="file:/C:/Users/marti/Documents/Chalmers/Design/iMat/DoKaGG%20-%20Project/resources/images/cross.png" />
+                                    <Image url="file:/D:/GitHub/iMat/DoKaGG%20-%20Project/resources/images/cross.png" />
                                  </source>
                               </ImageInput>
                            </effect>
                         </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="pane1" fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
+                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" onAction="#createAccountButton" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="@../../../../../../GitHub/iMat/imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+            <AnchorPane id="pane1" fx:id="mainPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button layoutX="25.0" layoutY="11.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #F00;" text="Ångra" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="AR DARLING" size="36.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <HBox layoutX="265.0" layoutY="43.0" prefHeight="60.0" prefWidth="693.0">
+                           <children>
+                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Välkommen tillbaka, ">
+                                 <font>
+                                    <Font name="AR HERMANN" size="45.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="topUserName" contentDisplay="CENTER" text="namn">
+                                 <font>
+                                    <Font name="AR HERMANN" size="45.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Pane id="loggaUt" fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" onAction="#mainWindowLogoutButton" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga ut" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="kontoRutaName" layoutX="27.0" layoutY="6.0" text="Förnamn Efternamn" underline="true">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" onAction="#mainWindowAccButton" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Kontouppgifter" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="590.0" prefWidth="230.0">
+                           <children>
+                              <Pane prefHeight="42.0" prefWidth="230.0">
+                                 <children>
+                                    <Button layoutY="1.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="230.0" text="Start Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#d31145" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="80.0" layoutY="13.0" text="Min Startsida" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="77.0" layoutY="12.0" text="Mina Favoriter" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="81.0" layoutY="12.0" text="Tidigare Köp" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="77.0" layoutY="12.0" text="Sparade Listor" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryMeatButton" mnemonicParsing="false" onAction="#mainWindowMeatCategoryButton" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="81.0" layoutY="12.0" text="Kött &amp; Chark" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="25.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categorySeaFoodButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="76.0" layoutY="12.0" text="Fisk &amp; Skaldjur" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryFruitButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="78.0" layoutY="12.0" text="Frukt &amp; Grönt" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryDairyButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="67.0" layoutY="12.0" text="Mejeri, Ägg &amp; Ost" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="42.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryBreadButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                       <effect>
+                                          <ColorInput height="235.7" paint="#e5e5e5" width="225.0" x="2.5" />
+                                       </effect>
+                                    </Button>
+                                    <Label layoutX="79.0" layoutY="12.0" text="Bröd &amp; Kakor" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <StackPane layoutX="240.0" layoutY="208.0" maxHeight="790.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="255.0">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="540.0">
+                           <content>
+                              <StackPane>
+                                 <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="840.0">
+                                       <children>
+                                          <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                             <children>
+                                                <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                                <Button fx:id="offersRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <effect>
+                                                      <ImageInput>
+                                                         <source>
+                                                            <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
+                                                         </source>
+                                                      </ImageInput>
+                                                   </effect>
+                                                </Button>
+                                                <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Label>
+                                                <Label fx:id="offersShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Label>
+                                                <Button fx:id="offersLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <effect>
+                                                      <ImageInput>
+                                                         <source>
+                                                            <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
+                                                         </source>
+                                                      </ImageInput>
+                                                   </effect>
+                                                </Button>
+                                                <HBox fx:id="offersProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                             </children>
+                                          </Pane>
+                                          <StackPane layoutY="260.0">
+                                             <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" translateY="260.0" StackPane.alignment="TOP_LEFT">
+                                                   <children>
+                                                      <Pane fx:id="savedListPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                                         <children>
+                                                            <Label fx:id="savedListNameLabel" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Calibri" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="savedListHBox" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                               <children>
+                                                                  <Text fx:id="savedListVaraText" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListAntalText" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListStyckprisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListPrisText" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets right="15.0" />
+                                                               </padding>
+                                                            </HBox>
+                                                            <Separator fx:id="savedListSeparator" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                            <ScrollPane fx:id="savedListScrollPane" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                               <content>
+                                                                  <AnchorPane fx:id="savedListAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                                     <children>
+                                                                        <TableView fx:id="savedListTableView" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="savedListTableViewVara" prefWidth="70.0" text="Vara" />
+                                                                              <TableColumn fx:id="savedListTableViewAntal" prefWidth="50.0" text="Antal" />
+                                                                              <TableColumn fx:id="savedListTableViewStyckpris" text="Styckpris" />
+                                                                              <TableColumn fx:id="savedListTableViewTotalt" prefWidth="60.0" text="Totalt" />
+                                                                           </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                            <VBox fx:id="savedListVBox" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                               <children>
+                                                                  <Button fx:id="savedListBuyButton" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="14.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane fx:id="savedListPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                                         <children>
+                                                            <Label fx:id="savedListNameLabel1" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Calibri" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="savedListHBox1" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                               <children>
+                                                                  <Text fx:id="savedListVaraText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListAntalText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListStyckprisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListPrisText1" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets right="15.0" />
+                                                               </padding>
+                                                            </HBox>
+                                                            <Separator fx:id="savedListSeparator1" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                            <ScrollPane fx:id="savedListScrollPane1" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                               <content>
+                                                                  <AnchorPane fx:id="savedListAnchorPane1" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                                     <children>
+                                                                        <TableView fx:id="savedListTableView1" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="savedListTableViewVara1" prefWidth="70.0" text="Vara" />
+                                                                              <TableColumn fx:id="savedListTableViewAntal1" prefWidth="50.0" text="Antal" />
+                                                                              <TableColumn fx:id="savedListTableViewStyckpris1" text="Styckpris" />
+                                                                              <TableColumn fx:id="savedListTableViewTotalt1" prefWidth="60.0" text="Totalt" />
+                                                                           </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                            <VBox fx:id="savedListVBox1" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                               <children>
+                                                                  <Button fx:id="savedListBuyButton1" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="14.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </Pane>
+                                                      <Pane fx:id="savedListPane11" layoutX="280.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="270.0" style="-fx-background-radius: 10;">
+                                                         <children>
+                                                            <Label fx:id="savedListNameLabel11" alignment="CENTER" minHeight="35.0" prefWidth="270.0" style="-fx-background-color: d31145;" text="List-namn" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Calibri" size="24.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <HBox fx:id="savedListHBox11" alignment="CENTER_RIGHT" layoutY="35.0" prefHeight="16.0" prefWidth="270.0" spacing="40.0">
+                                                               <children>
+                                                                  <Text fx:id="savedListVaraText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Vara" textAlignment="CENTER">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListAntalText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Antal">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListStyckprisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Styckpris">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="savedListPrisText11" strokeType="OUTSIDE" strokeWidth="0.0" text="Totalt">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="12.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                               <padding>
+                                                                  <Insets right="15.0" />
+                                                               </padding>
+                                                            </HBox>
+                                                            <Separator fx:id="savedListSeparator11" layoutX="5.0" layoutY="50.0" prefWidth="260.0" />
+                                                            <ScrollPane fx:id="savedListScrollPane11" hbarPolicy="NEVER" layoutY="50.0" prefHeight="315.0" prefWidth="270.0">
+                                                               <content>
+                                                                  <AnchorPane fx:id="savedListAnchorPane11" minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="269.0">
+                                                                     <children>
+                                                                        <TableView fx:id="savedListTableView11" layoutX="-1.0" layoutY="-25.0" prefHeight="339.0" prefWidth="257.0">
+                                                                           <columns>
+                                                                              <TableColumn fx:id="savedListTableViewVara11" prefWidth="70.0" text="Vara" />
+                                                                              <TableColumn fx:id="savedListTableViewAntal11" prefWidth="50.0" text="Antal" />
+                                                                              <TableColumn fx:id="savedListTableViewStyckpris11" text="Styckpris" />
+                                                                              <TableColumn fx:id="savedListTableViewTotalt11" prefWidth="60.0" text="Totalt" />
+                                                                           </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                            <VBox fx:id="savedListVBox11" alignment="CENTER" layoutY="365.0" prefHeight="36.0" prefWidth="270.0">
+                                                               <children>
+                                                                  <Button fx:id="savedListBuyButton11" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: d31145;" text="KÖP" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font name="Calibri" size="14.0" />
+                                                                     </font>
+                                                                  </Button>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                   <StackPane.margin>
+                                                      <Insets />
+                                                   </StackPane.margin>
+                                                </HBox>
+                                                <Pane fx:id="offersView1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_LEFT">
+                                                   <children>
+                                                      <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                                      <Label fx:id="offersTitle1" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="22.0" />
+                                                         </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <FlowPane fx:id="specificCategoryList" layoutY="45.0" prefWidth="790.0" prefWrapLength="790.0" />
+                                                   </children>
+                                                </Pane>
+                                                <Pane fx:id="favoritesView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_LEFT">
+                                                   <children>
+                                                      <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                                      <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <effect>
+                                                            <ImageInput>
+                                                               <source>
+                                                                  <Image url="@../../../../../../GitHub/iMat/imat/images/rightArrow.png" />
+                                                               </source>
+                                                            </ImageInput>
+                                                         </effect>
+                                                      </Button>
+                                                      <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="22.0" />
+                                                         </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <effect>
+                                                            <ImageInput>
+                                                               <source>
+                                                                  <Image url="@../../../../../../GitHub/iMat/imat/images/leftArrow.png" />
+                                                               </source>
+                                                            </ImageInput>
+                                                         </effect>
+                                                      </Button>
+                                                      <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                                      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </StackPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </StackPane>
+                  <GridPane fx:id="cartPane" layoutX="985.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="400.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <StackPane GridPane.rowIndex="1">
+                           <children>
+                              <AnchorPane id="pane1">
+                                 <children>
+                                    <TableView focusTraversable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="Vara" />
+                                          <TableColumn prefWidth="75.0" text="Antal" />
+                                          <TableColumn prefWidth="75.0" text="Styckpris" />
+                                          <TableColumn prefWidth="75.0" text="Totalt" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane id="cartEmpty" maxHeight="340.0" minHeight="340.0" prefHeight="340.0">
+                                 <children>
+                                    <Text layoutX="50.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din varukorg är tom" textAlignment="CENTER" AnchorPane.bottomAnchor="326.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
+                                       <font>
+                                          <Font name="Calibri" size="24.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <Pane prefHeight="69.0" prefWidth="295.0" style="-fx-background-color: d31145;">
+                           <children>
+                              <Text fill="WHITE" layoutX="91.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VARUKORG" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Calibri" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="295.0" GridPane.rowIndex="2">
+                           <children>
+                              <Button fx:id="cartButton" alignment="CENTER" layoutX="20.0" layoutY="82.0" mnemonicParsing="false" onAction="#cartCheckoutButton" prefHeight="60.0" prefWidth="255.0" style="-fx-background-color: d31145;" text="Gå till kassan" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                                 <font>
+                                    <Font name="Calibri" size="32.0" />
+                                 </font>
+                              </Button>
+                              <Text fill="RED" layoutX="95.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="68.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
+                                 <font>
+                                    <Font name="Calibri" size="24.0" />
+                                 </font>
+                              </Text>
+                              <Line endX="90.0" layoutX="195.0" layoutY="45.0" startX="-100.0" />
+                              <Text fill="RED" layoutX="179.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10,75 kr">
+                                 <font>
+                                    <Font name="Calibri" size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="148.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="195,79 kr">
+                                 <font>
+                                    <Font name="Calibri" size="24.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </GridPane>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="160.0">
+                     <children>
+                        <TextField layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </Pane>
                </children>
