@@ -5,11 +5,16 @@
  */
 package dokagg.project;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,14 +22,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.*;
 
 /**
@@ -53,6 +63,7 @@ public class iMatController implements Initializable {
     
     // Login-Page
     @FXML private AnchorPane loginPane;
+    @FXML private TextField registerLoginEmailField;
     @FXML private Button registerButton;
     
     
@@ -73,15 +84,20 @@ public class iMatController implements Initializable {
     @FXML private ObservableList<Pane> itemsList 
                     = FXCollections.observableArrayList();
     
+    @FXML private GridPane cartPane;
+    @FXML private TableView cartTableView;
+    @FXML private Button cartButtonSave;
     @FXML private Button cartButton;
+    @FXML private Text cartTotalCost;
+    ShoppingCartListener scl;
+    
+    @FXML private TableColumn tableColName;
+    @FXML private TableColumn tableColQuantity;
+    @FXML private TableColumn tableColUnitPrice;
+    @FXML private TableColumn tableColTotal;
     
     // Account-Page
     @FXML private AnchorPane accountPane;
-    
-    
-    @FXML private GridPane cartPane;
-    
-    @FXML private AnchorPane unknownPane;
     
     // Checkout-Page
     @FXML private AnchorPane checkoutPane;
@@ -128,9 +144,30 @@ public class iMatController implements Initializable {
     
     
     @Override
-    public void initialize(URL location, ResourceBundle resources) {        
+    public void initialize(URL location, ResourceBundle resources) {
         
-        System.out.println(IMatDataHandler.getInstance().getProducts());
+      //cartTableView.setStyle("-fx-table-cell-border-color: transparent;");
+      //cartTableView.borderProperty().isNull();
+        //System.out.println(IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT).get(0).getImageName());
+        //System.out.println(IMatDataHandler.getInstance().getProducts());
+        IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(scl);
+        
+//         //instantiate the tableColumns in the ShoppingCart
+//        tableColName.setCellValueFactory(
+//          new PropertyValueFactory<Product, String>(IMatDataHandler.getInstance().getProduct(0).getName()));
+//        tableColQuantity.setCellValueFactory(
+//          new PropertyValueFactory<Product, Double>(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getAmount())));
+//        tableColUnitPrice.setCellValueFactory(
+//          new PropertyValueFactory<Product, Double>(String.valueOf(IMatDataHandler.getInstance().getProduct(0).getPrice())));
+//        tableColTotal.setCellValueFactory(
+//          new PropertyValueFactory<ShoppingItem, Double>(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getTotal())));
+        
+        /*
+        @FXML private TableColumn tableColName;
+    @FXML private TableColumn tableColQuantity;
+    @FXML private TableColumn tableColUnitPrice;
+    @FXML private TableColumn tableColTotal;
+        */
         
         user = new User();
         mainPane.toFront();
@@ -140,12 +177,6 @@ public class iMatController implements Initializable {
     // First account
     @FXML
     private void createAccountButton(){
-
-        user.setFirstName(registerAdressNameField.getText());
-        user.setLastName(registerAdressLNameField.getText());
-        
-        topUserName.setText(user.getFirstName() + " " + user.getLastName());
-        
         mainPane.toFront();
     }
     
@@ -154,6 +185,7 @@ public class iMatController implements Initializable {
     @FXML
     private void loginButton(){
         
+        IMatDataHandler.getInstance().getUser().setUserName("Bengt");
         mainPane.toFront();
     }
     
@@ -190,9 +222,26 @@ public class iMatController implements Initializable {
             
             thumbLabel.setText(prod.getName());
             thumbPrice.setText(String.valueOf(prod.getPrice()));
-            //System.out.println(prod.getImageName());
+
+            /*
+              Apparently the images we get are Swing's ImageIcons, so we'll
+              have to convert them into JavFX icons this way.
+            */
+            ImageIcon swingImageIcon = IMatDataHandler.getInstance().getImageIcon(prod);
+            java.awt.Image awtImage = swingImageIcon.getImage();
+            BufferedImage bImg ;
+            if (awtImage instanceof BufferedImage) {
+              bImg = (BufferedImage) awtImage ;
+            } else {
+                bImg = new BufferedImage(awtImage.getWidth(null), awtImage.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+                Graphics2D graphics = bImg.createGraphics();
+                graphics.drawImage(awtImage, 0, 0, null);
+                graphics.dispose();
+            }
+            Image fxImage = SwingFXUtils.toFXImage(bImg, null);
             
-            //thumbImage.setImage();
+            thumbImage.setImage(fxImage);
+            System.out.println(prod.getImageName());
 
             itemsList.add(thumbnailObj);
 
@@ -204,9 +253,41 @@ public class iMatController implements Initializable {
     }
     
     @FXML
+    private void addProductToCart(ActionEvent event){
+      
+      // Check if item already exists in the cart.
+      // Change "null" into current object
+      if(IMatDataHandler.getInstance().getShoppingCart().getItems().contains(null)) {
+        IMatDataHandler.getInstance().getShoppingCart().addItem(null);
+        
+      } else {
+        
+      }
+        cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
+    }
+    
+    @FXML
+    private void favoriteProduct(){
+        //TODO
+    }
+    
+    @FXML
+    private void testButton(){
+      Product testProduct = IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT).get(0);
+      System.out.println(IMatDataHandler.getInstance().getShoppingCart().getItems());
+      IMatDataHandler.getInstance().getShoppingCart().addProduct(testProduct, 1.0);
+      //cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
+
+//IMatDataHandler.getInstance().getShoppingCart().
+        //cartButtonSave;
+    }
+
+    
+    @FXML
     private void cartCheckoutButton(){
         
         checkoutPane.toFront();
+        step1SPane.toFront();
     }
     // -----------------------------------------------------------------------
     // Account window
@@ -231,10 +312,11 @@ public class iMatController implements Initializable {
     @FXML
     private void step1Forward(){
         step2Pane.toFront();
-        checkoutStep1.setStyle("#checkoutPaneColourWhite");
+        //checkoutStep1.setStyle("#checkoutPaneColourWhite");
         step1TopLabel.setTextFill(Color.BLACK);
         
-        checkoutStep2.setStyle("#niceColour");
+        //checkoutStep2.getStyleClass().remove("#checkoutPaneColourWhite");
+        //checkoutStep2.getStyleClass().add("#niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
         
     }
@@ -242,10 +324,10 @@ public class iMatController implements Initializable {
     @FXML
     private void step2Forward(){
         step3Pane.toFront();
-        checkoutStep2.setStyle("#checkoutPaneColourWhite");
-        step2TopLabel.setTextFill(Color.BLACK);
+        //checkoutStep2.setStyle("#checkoutPaneColourWhite");
+       step2TopLabel.setTextFill(Color.BLACK);
         
-        checkoutStep3.setStyle("#niceColour");
+        //checkoutStep3.setStyle("#niceColour");
         step3TopLabel.setTextFill(Color.WHITE);
         
     }
@@ -253,10 +335,10 @@ public class iMatController implements Initializable {
     @FXML
     private void step2Back(){
         step1SPane.toFront();
-        checkoutStep2.setStyle("#checkoutPaneColourWhite");
+        //checkoutStep2.setStyle("#checkoutPaneColourWhite");
         step2TopLabel.setTextFill(Color.BLACK);
         
-        checkoutStep1.setStyle("#niceColour");
+        //checkoutStep1.setStyle("#niceColour");
         step1TopLabel.setTextFill(Color.WHITE);
         
     }
@@ -264,10 +346,11 @@ public class iMatController implements Initializable {
     @FXML
     private void step3Back(){
         step2Pane.toFront();
-        checkoutStep3.setStyle("#checkoutPaneColourWhite");
+       // checkoutStep3.setStyle("#checkoutPaneColourWhite");
         step3TopLabel.setTextFill(Color.BLACK);
         
-        checkoutStep2.setStyle("#niceColour");
+        
+       // checkoutStep2.setStyle("#niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
         
     }

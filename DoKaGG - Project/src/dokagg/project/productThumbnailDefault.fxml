@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="produktThumbnailJPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="productThumbnailJPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox fx:id="produktThumbnailHBox" alignment="CENTER" layoutY="120.0" prefHeight="34.0" prefWidth="130.0" spacing="30.0">
          <children>
@@ -26,7 +26,7 @@
       </HBox>
       <VBox fx:id="produktThumbnailVBox" alignment="TOP_CENTER" prefHeight="119.0" prefWidth="131.0">
          <children>
-            <ImageView fx:id="productThumbnailImage" fitHeight="100.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="productThumbnailImage" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#addProductToCart" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="productThumbnailName" text="Produkt Name" />
          </children>
       </VBox>
@@ -66,7 +66,7 @@
             <Insets right="2.0" />
          </padding>
       </TextField>
-      <ImageView fitHeight="39.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="productThumbnailFavorited" fitHeight="39.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/images/favoritButtonNotAdded.png" />
          </image>
