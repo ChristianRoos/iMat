@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -37,6 +39,7 @@ import javafx.scene.text.Text;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.*;
 
+import javafx.scene.control.Label;
 /**
  *
  * @author Kim
@@ -460,8 +463,37 @@ public class iMatController implements Initializable {
     @FXML
     private void cartCheckoutButton(){
         
+        Node node = step1Grid.getChildren().get(0);
+        step1Grid.getChildren().clear();
+        step1Grid.getChildren().add(0,node);
         checkoutPane.toFront();
         step1SPane.toFront();
+        
+        List<ShoppingItem> cart = IMatDataHandler.getInstance().getShoppingCart().getItems();
+        Label l = new Label();
+            
+        l.setText("hej");
+        step1Grid.add(l, 0, 0);
+        step1Grid.add(new Label("då"),1,0);
+        step1Grid.add(new Label("då"),2,0);
+        step1Grid.add(new Label("då"),3,0);
+        step1Grid.add(new Label("då"),4,0);
+        step1Grid.add(new Label("då"),5,0);
+        
+       
+        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
+        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
+        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
+        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!   
+        for (int i = 1; i < cart.size(); i++) {
+        step1Grid.add(new Label(cart.get(i).getProduct().getName()), 1, i);
+        step1Grid.add(new Label(cart.get(i).getProduct().getUnit()), 2, i);
+        step1Grid.add(new Label(Double.toString(cart.get(i).getProduct().getPrice())), 3, i);
+        step1Grid.add(new Label(), 4, i);
+            
+           // step1Grid.getChildren().clear();
+           
+        }  
     }
     // -----------------------------------------------------------------------
     // Account window
@@ -520,8 +552,7 @@ public class iMatController implements Initializable {
         checkoutStep1.getStyleClass().add("niceColour");
         step1TopLabel.setTextFill(Color.WHITE);
         
-        checkoutStep3.getStyleClass().clear();
-        checkoutStep3.getStyleClass().add("checkoutPaneColorWhite");
+
         
     }
     
@@ -529,7 +560,7 @@ public class iMatController implements Initializable {
     private void step3Back(){
         step2Pane.toFront();
         checkoutStep3.getStyleClass().clear();
-        checkoutStep3.getStyleClass().add("checkoutPaneColorWhite");
+        checkoutStep3.getStyleClass().add("checkoutPaneColourWhite");
         step3TopLabel.setTextFill(Color.BLACK);
         
         
