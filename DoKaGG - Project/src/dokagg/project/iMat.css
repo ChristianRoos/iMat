@@ -14,10 +14,10 @@
     -fx-background-color: #ffffff;
 }
 
-#niceColour{
+.niceColour{
     -fx-background-color: #d31146;
 }
 
-#checkoutPaneColourWhite {
+.checkoutPaneColourWhite {
     -fx-background-color: #ffffff;
 }

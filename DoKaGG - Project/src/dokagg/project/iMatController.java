@@ -312,11 +312,12 @@ public class iMatController implements Initializable {
     @FXML
     private void step1Forward(){
         step2Pane.toFront();
-        //checkoutStep1.setStyle("#checkoutPaneColourWhite");
+        checkoutStep1.getStyleClass().clear();
+        checkoutStep1.getStyleClass().add("checkoutPaneColourWhite");
         step1TopLabel.setTextFill(Color.BLACK);
         
-        //checkoutStep2.getStyleClass().remove("#checkoutPaneColourWhite");
-        //checkoutStep2.getStyleClass().add("#niceColour");
+        checkoutStep2.getStyleClass().clear();
+        checkoutStep2.getStyleClass().add("niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
         
     }
@@ -324,10 +325,12 @@ public class iMatController implements Initializable {
     @FXML
     private void step2Forward(){
         step3Pane.toFront();
-        //checkoutStep2.setStyle("#checkoutPaneColourWhite");
+       checkoutStep2.getStyleClass().clear();
+       checkoutStep2.getStyleClass().add("checkoutPaneColourWhite");
        step2TopLabel.setTextFill(Color.BLACK);
         
-        //checkoutStep3.setStyle("#niceColour");
+        checkoutStep3.getStyleClass().clear();
+        checkoutStep3.getStyleClass().add("niceColour");
         step3TopLabel.setTextFill(Color.WHITE);
         
     }
@@ -335,22 +338,29 @@ public class iMatController implements Initializable {
     @FXML
     private void step2Back(){
         step1SPane.toFront();
-        //checkoutStep2.setStyle("#checkoutPaneColourWhite");
+        checkoutStep2.getStyleClass().clear();
+        checkoutStep2.getStyleClass().add("checkoutPaneColourWhite");
         step2TopLabel.setTextFill(Color.BLACK);
         
-        //checkoutStep1.setStyle("#niceColour");
+        checkoutStep1.getStyleClass().clear();
+        checkoutStep1.getStyleClass().add("niceColour");
         step1TopLabel.setTextFill(Color.WHITE);
+        
+        checkoutStep3.getStyleClass().clear();
+        checkoutStep3.getStyleClass().add("checkoutPaneColorWhite");
         
     }
     
     @FXML
     private void step3Back(){
         step2Pane.toFront();
-       // checkoutStep3.setStyle("#checkoutPaneColourWhite");
+        checkoutStep3.getStyleClass().clear();
+        checkoutStep3.getStyleClass().add("checkoutPaneColorWhite");
         step3TopLabel.setTextFill(Color.BLACK);
         
         
-       // checkoutStep2.setStyle("#niceColour");
+        checkoutStep2.getStyleClass().clear();
+        checkoutStep2.getStyleClass().add("niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
         
     }
