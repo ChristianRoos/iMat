@@ -44,6 +44,7 @@ import se.chalmers.ait.dat215.project.*;
 public class iMatController implements Initializable {
 
     private User user;
+    private boolean loggedIn;
     
     // First-Account-Page
     @FXML private AnchorPane firstAccPane;
@@ -64,7 +65,9 @@ public class iMatController implements Initializable {
     // Login-Page
     @FXML private AnchorPane loginPane;
     @FXML private TextField registerLoginEmailField;
+    @FXML private TextField registerLoginPassField;
     @FXML private Button registerButton;
+    @FXML private Label kontoRutaName;
     
     
     // Main-Page
@@ -98,6 +101,44 @@ public class iMatController implements Initializable {
     
     // Account-Page
     @FXML private AnchorPane accountPane;
+    
+    @FXML private Label accountAdressName;
+    @FXML private Label accountAdressLName;
+    @FXML private Label accountAdressAdress;
+    @FXML private Label accountAdressZip;
+    @FXML private Label accountAdressCity;
+    @FXML private Label accountAdressTelephone;
+    @FXML private Label accountAdressCellphone;
+    @FXML private Label accountLogInEmail;
+    @FXML private Label accountLogInPass;
+    @FXML private Button accountAdressButton2;
+    
+    @FXML private Pane accountPayment1;
+    @FXML private Pane accountPayment2;
+    @FXML private Pane accountPayment3;
+    @FXML private Pane accountLogIn1;
+    @FXML private Pane accountLogIn2;
+    @FXML private Pane accountAdress1;
+    @FXML private Pane accountAdress2;
+    
+    
+    @FXML private Button accountPaymentButtonChange;
+    @FXML private Button accountPaymentButtonRemove;
+    @FXML private Button accountPaymentButtonDone;
+    @FXML private Button accountPaymentButtonAdd;
+    @FXML private Button accountLogInButtonChange;
+    @FXML private Button accountLogInButtonDone;
+    @FXML private Button accountAdressButtonDone;
+    @FXML private Button accountAdressButtonChange;
+    
+    @FXML private TextField accountPaymentCardField;
+    @FXML private TextField accountPaymentMonthField;
+    @FXML private TextField accountPaymentYearField;
+    @FXML private TextField accountPaymentSecurityField;
+    @FXML private TextField accountPaymentNameField;
+    
+    @FXML private Label accountPaymentCard1;
+    @FXML private Label accountPaymentDate1;
     
     // Checkout-Page
     @FXML private AnchorPane checkoutPane;
@@ -177,16 +218,94 @@ public class iMatController implements Initializable {
     // First account
     @FXML
     private void createAccountButton(){
-        mainPane.toFront();
+        
+        //Login info
+        int errors = 0;
+        if(registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText())){
+           IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText()); 
+        }
+        else{
+            errors++;
+            System.out.println("Email does not match");
+        }
+        if(registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText())){
+           IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
+        }
+        else{
+            errors++;
+            System.out.println("Password does not match");
+        }
+        
+        //Address Info
+        if(!registerAdressNameField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setFirstName(registerAdressNameField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressLNameField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setLastName(registerAdressLNameField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressAdressField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setAddress(registerAdressAdressField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressCityField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setPostAddress(registerAdressCityField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressZipField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setPostCode(registerAdressZipField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressCellphoneField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(registerAdressCellphoneField.getText());
+        }
+        else{errors++;}
+        
+        if(!registerAdressTelephoneField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setPhoneNumber(registerAdressTelephoneField.getText());
+        }
+        else{errors++;}
+        
+        
+        if (errors == 0) {
+            kontoRutaDetails.setText("Kontouppgifter");
+            kontoRutaLogOut.setText("Logga ut");
+            mainPane.toFront();
+            loggedIn = true;
+            
+            topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+            kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
+            accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+            accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+            accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+            accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+            accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+            accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+            accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
+
+        
+        }
     }
     
     // -----------------------------------------------------------------------
     // Login window
     @FXML
     private void loginButton(){
-        
-        IMatDataHandler.getInstance().getUser().setUserName("Bengt");
+        if(registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName()) && 
+                registerLoginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword()))
+        {
+        kontoRutaDetails.setText("Kontouppgifter");
+        kontoRutaLogOut.setText("Logga ut");
         mainPane.toFront();
+        loggedIn = true;
+        }
     }
     
     // -----------------------------------------------------------------------
@@ -194,13 +313,68 @@ public class iMatController implements Initializable {
     
         @FXML
     private void mainWindowAccButton(){
-        accountPane.toFront();
+        if (loggedIn == false) firstAccPane.toFront();
+        else accountPane.toFront();
     }
     
     @FXML
     private void mainWindowLogoutButton(){
-        loginPane.toFront();
+        if (loggedIn == true){
+        mainPane.toFront();
+        loggedIn = false; 
+        kontoRutaDetails.setText("Registrera konto");
+        kontoRutaLogOut.setText("Logga in");
+        topUserName.setText("");
+        kontoRutaName.setText("");
+        } else
+        {
+           loginPane.toFront(); 
+        }
     }
+    @FXML
+    private void accountPaymentAdd(){
+        accountPayment1.toFront();
+    }
+    @FXML
+    private void accountPaymentRemove(){
+        accountPayment2.toFront();
+    }
+    @FXML
+    private void accountPaymentChange(){
+        accountPayment1.toFront();
+    }
+    @FXML
+    private void accountPaymentDone(){
+        accountPayment3.toFront();
+        
+        //IMatDataHandler.getInstance().getCreditCard().setCardNumber(accountPaymentCardField.getText());
+        //IMatDataHandler.getInstance().getCreditCard().setHoldersName(accountPaymentNameField.getText());
+        //IMatDataHandler.getInstance().getCreditCard().setValidMonth(Integer.parseInt(accountPaymentMonthField.getText()));
+        //IMatDataHandler.getInstance().getCreditCard().setValidYear(Integer.parseInt(accountPaymentYearField.getText()));
+        //IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(accountPaymentSecurityField.getText()));
+        
+        
+        accountPaymentCard1.setText( accountPaymentCardField.getText());
+        accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
+        System.out.println("error");
+    }
+    @FXML
+    private void accountLoginChange(){
+        accountLogIn1.toFront();
+    }
+    @FXML
+    private void accountLoginDone(){
+        accountLogIn2.toFront();
+    }
+    @FXML
+    private void accountAdressChange(){
+        accountAdress2.toFront();
+    }
+    @FXML
+    private void accountAdressDone(){
+        accountAdress1.toFront();
+    }
+    
     
     @FXML
     private void mainWindowMeatCategoryButton() throws IOException{
