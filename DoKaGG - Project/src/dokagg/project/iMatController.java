@@ -151,6 +151,7 @@ public class iMatController implements Initializable {
     @FXML private Label step1TopLabel;
     @FXML private Label step2TopLabel;
     @FXML private Label step3TopLabel;
+    @FXML private AnchorPane gzPane;
     
     
     // Checkout Step1
@@ -158,7 +159,15 @@ public class iMatController implements Initializable {
     @FXML private Button checkoutGoBackButton;
     @FXML private Button step1Forward;
     @FXML private Label step1TotSum;
-    @FXML private GridPane step1Grid;
+    @FXML private TableView step1Table;
+    @FXML private TableColumn step1TableProduct;
+    @FXML private TableColumn step1TableAmount;
+    @FXML private TableColumn step1TablePrice;
+    @FXML private TableColumn step1TableSum;
+    @FXML private TableColumn step1TableRemove;
+    
+    
+    
     
     // Checkout Step2
     @FXML private Pane step2Pane;
@@ -183,6 +192,7 @@ public class iMatController implements Initializable {
     @FXML private RadioButton step3RadioButton3;
     @FXML private RadioButton step3RadioButton4;
     @FXML private Label step3TotSum;
+    @FXML private Label errorLabel;
     
     
     
@@ -461,39 +471,47 @@ public class iMatController implements Initializable {
 
     
     @FXML
+    private void step3RadioButton1(){
+        step3RadioButton1.selectedProperty().set(true);
+        step3RadioButton2.selectedProperty().set(false);
+        step3RadioButton3.selectedProperty().set(false);
+        step3RadioButton4.selectedProperty().set(false);
+    }
+    
+    @FXML
+    private void step3RadioButton2(){
+        step3RadioButton1.selectedProperty().set(false);
+        step3RadioButton2.selectedProperty().set(true);
+        step3RadioButton3.selectedProperty().set(false);
+        step3RadioButton4.selectedProperty().set(false);
+    }
+    
+    @FXML
+    private void step3RadioButton3(){
+        step3RadioButton1.selectedProperty().set(false);
+        step3RadioButton2.selectedProperty().set(false);
+        step3RadioButton3.selectedProperty().set(true);
+        step3RadioButton4.selectedProperty().set(false);
+    }
+    
+    @FXML
+    private void step3RadioButton4(){
+        step3RadioButton1.selectedProperty().set(false);
+        step3RadioButton2.selectedProperty().set(false);
+        step3RadioButton3.selectedProperty().set(false);
+        step3RadioButton4.selectedProperty().set(true);
+    }
+    
+    
+    
+    @FXML
     private void cartCheckoutButton(){
-        
-        Node node = step1Grid.getChildren().get(0);
-        step1Grid.getChildren().clear();
-        step1Grid.getChildren().add(0,node);
         checkoutPane.toFront();
         step1SPane.toFront();
         
-        List<ShoppingItem> cart = IMatDataHandler.getInstance().getShoppingCart().getItems();
-        Label l = new Label();
-            
-        l.setText("hej");
-        step1Grid.add(l, 0, 0);
-        step1Grid.add(new Label("då"),1,0);
-        step1Grid.add(new Label("då"),2,0);
-        step1Grid.add(new Label("då"),3,0);
-        step1Grid.add(new Label("då"),4,0);
-        step1Grid.add(new Label("då"),5,0);
+        IMatDataHandler.getInstance().getShoppingCart().addProduct(IMatDataHandler.getInstance().getProducts().get(0));
         
-       
-        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
-        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
-        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!
-        //i BÖRJAR PÅ 1 ISTÄLLET FÖR 0!!!!!!   
-        for (int i = 1; i < cart.size(); i++) {
-        step1Grid.add(new Label(cart.get(i).getProduct().getName()), 1, i);
-        step1Grid.add(new Label(cart.get(i).getProduct().getUnit()), 2, i);
-        step1Grid.add(new Label(Double.toString(cart.get(i).getProduct().getPrice())), 3, i);
-        step1Grid.add(new Label(), 4, i);
-            
-           // step1Grid.getChildren().clear();
-           
-        }  
+        
     }
     // -----------------------------------------------------------------------
     // Account window
@@ -525,6 +543,17 @@ public class iMatController implements Initializable {
         checkoutStep2.getStyleClass().clear();
         checkoutStep2.getStyleClass().add("niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
+    
+        step2FirstName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        step2LastName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        step2Address.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        step2PostalCode.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        step2City.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        step2Email.setText(IMatDataHandler.getInstance().getCustomer().getEmail());
+        step2Phone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        
+        
+        
         
     }
     
@@ -538,7 +567,7 @@ public class iMatController implements Initializable {
         checkoutStep3.getStyleClass().clear();
         checkoutStep3.getStyleClass().add("niceColour");
         step3TopLabel.setTextFill(Color.WHITE);
-        
+        errorLabel.visibleProperty().set(false);
     }
     
     @FXML
@@ -563,11 +592,22 @@ public class iMatController implements Initializable {
         checkoutStep3.getStyleClass().add("checkoutPaneColourWhite");
         step3TopLabel.setTextFill(Color.BLACK);
         
-        
+        errorLabel.visibleProperty().set(false);
         checkoutStep2.getStyleClass().clear();
         checkoutStep2.getStyleClass().add("niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
         
+    }
+    
+    @FXML
+    private void step3Finish(){
+        if(step3RadioButton1.selectedProperty().getValue() || step3RadioButton2.selectedProperty().getValue()
+                || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
+            errorLabel.visibleProperty().set(false);
+            gzPane.toFront();
+        }  
+        else
+            errorLabel.visibleProperty().set(true);
     }
     
     
