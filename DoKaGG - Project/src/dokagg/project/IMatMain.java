@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import se.chalmers.ait.dat215.project.*;
-
 public class IMatMain extends Application {
     
     @Override
@@ -26,8 +24,6 @@ public class IMatMain extends Application {
     }
 
     public static void main(String[] args) {
-        
-        IMatDataHandler.getInstance(); // TODO
         launch(args);
     }
 }
