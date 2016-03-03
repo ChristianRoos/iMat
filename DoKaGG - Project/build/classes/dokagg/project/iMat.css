@@ -14,10 +14,25 @@
     -fx-background-color: #ffffff;
 }
 
+<<<<<<< HEAD
 #niceColour{
     -fx-background-color: #d31146;
 }
 
 #checkoutPaneColourWhite {
     -fx-background-color: #ffffff;
+=======
+.niceColour{
+    -fx-background-color: #d31146;
+    -fx-background-radius: 5;
+    -fx-border-color: #000;
+    -fx-border-radius: 5;
+}
+
+.checkoutPaneColourWhite {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000;
+    -fx-border-radius: 5;
+   
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
 }

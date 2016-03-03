@@ -13,7 +13,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<<<<<<< HEAD
 <Pane fx:id="productThumbnailPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dokagg.project.ProductThumbnailController">
+=======
+<Pane fx:id="productThumbnailJPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
    <children>
       <HBox fx:id="produktThumbnailHBox" alignment="CENTER" layoutY="120.0" prefHeight="34.0" prefWidth="130.0" spacing="30.0">
          <children>
@@ -26,7 +30,11 @@
       </HBox>
       <VBox fx:id="produktThumbnailVBox" alignment="TOP_CENTER" prefHeight="119.0" prefWidth="131.0">
          <children>
+<<<<<<< HEAD
             <ImageView fx:id="productThumbnailImage" fitHeight="100.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" />
+=======
+            <ImageView fx:id="productThumbnailImage" fitHeight="100.0" fitWidth="130.0" onMouseClicked="#addProductToCart" pickOnBounds="true" preserveRatio="true" />
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
             <Label fx:id="productThumbnailName" text="Produkt Name" />
          </children>
       </VBox>
@@ -39,7 +47,11 @@
                         <Image url="@resources/images/styck.png" />
                      </image>
                   </ImageView>
+<<<<<<< HEAD
                   <Button fx:id="thumbBuyButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addProductToCart" prefHeight="28.0" prefWidth="51.0" text="KÖP" textAlignment="CENTER" textFill="WHITE">
+=======
+                  <Button contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="28.0" prefWidth="51.0" text="KÖP" textAlignment="CENTER" textFill="WHITE">
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
                      <font>
                         <Font name="Calibri" size="18.0" />
                      </font>
@@ -58,7 +70,11 @@
             </HBox>
          </children>
       </VBox>
+<<<<<<< HEAD
       <TextField fx:id="quantity" alignment="CENTER" layoutX="10.0" layoutY="157.0" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: #FFFF;" text="10">
+=======
+      <TextField alignment="CENTER" layoutX="10.0" layoutY="157.0" prefHeight="26.0" prefWidth="26.0" style="-fx-background-color: #FFFF;" text="10">
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
@@ -66,7 +82,11 @@
             <Insets right="2.0" />
          </padding>
       </TextField>
+<<<<<<< HEAD
       <ImageView fitHeight="39.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+=======
+      <ImageView fx:id="productThumbnailFavorited" fitHeight="39.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> 15d6de0bf3666202d609662c856d7981cd0521d6
          <image>
             <Image url="@resources/images/favoritButtonNotAdded.png" />
          </image>

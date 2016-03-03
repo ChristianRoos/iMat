@@ -14,10 +14,16 @@
     -fx-background-color: #ffffff;
 }
 
-#niceColour{
+.niceColour{
     -fx-background-color: #d31146;
+    -fx-background-radius: 5;
+    -fx-border-color: #000;
+    -fx-border-radius: 5;
 }
 
-#checkoutPaneColourWhite {
+.checkoutPaneColourWhite {
     -fx-background-color: #ffffff;
+    -fx-border-color: #000;
+    -fx-border-radius: 5;
+   
 }
