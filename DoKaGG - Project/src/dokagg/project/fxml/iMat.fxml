@@ -1289,6 +1289,25 @@
                                     </Label>
                                  </children>
                               </Pane>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0" style="-fx-background-color: #FFF;">
+                                 <children>
+                                    <Label layoutX="24.0" layoutY="268.0" text="Tack för dina pengar!" textFill="#d31146">
+                                       <font>
+                                          <Font name="AR HERMANN" size="90.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="gzBackToStartButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzBackToStartButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Tillbaka till start" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="gzExitButton" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzExitButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Avsluta" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                               <ScrollPane fx:id="step1SPane" hbarPolicy="NEVER" prefHeight="408.0" prefWidth="600.0">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="611.0" prefWidth="971.0">
@@ -1322,25 +1341,6 @@
                                     </AnchorPane>
                                  </content>
                               </ScrollPane>
-                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0" style="-fx-background-color: #FFF;">
-                                 <children>
-                                    <Label layoutX="24.0" layoutY="268.0" text="Tack för dina pengar!" textFill="#d31146">
-                                       <font>
-                                          <Font name="AR HERMANN" size="90.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="gzBackToStartButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzBackToStartButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Tillbaka till start" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="20.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="gzExitButton" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzExitButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Avsluta" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="20.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </AnchorPane>
                            </children>
                         </StackPane>
                         <Pane fx:id="checkoutStep1" layoutX="-2.0" prefHeight="30.0" prefWidth="325.0" styleClass="niceColour">

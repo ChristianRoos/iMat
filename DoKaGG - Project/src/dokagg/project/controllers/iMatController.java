@@ -723,7 +723,7 @@ public class iMatController implements Initializable {
         // Eventuella clear av varukorg etc.
     }
     @FXML
-    private void gzExitPane(){
+    private void gzExitButton(){
         System.exit(0);
     }
     
