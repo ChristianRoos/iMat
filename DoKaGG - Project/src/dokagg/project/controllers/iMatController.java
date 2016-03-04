@@ -26,14 +26,13 @@ import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-/**
- *
- * @author Kim
- */
+
 public class iMatController implements Initializable {
     private boolean loggedIn;
     
-    // First-Account-Page
+    ////////////////////////////////////////////////////////////////////////////
+    //// First-Account-Page
+    //
     @FXML private AnchorPane firstAccPane;
     @FXML private Button registerButton2;
     @FXML private TextField registerAdressNameField;
@@ -48,26 +47,32 @@ public class iMatController implements Initializable {
     @FXML private TextField registerLoginPassField2;
     @FXML private TextField registerLoginPassConfirmField;
     
-    
-    // Login-Page
+    ////////////////////////////////////////////////////////////////////////////
+    //// Login-Page
+    //
     @FXML private AnchorPane loginPane;
     @FXML private TextField registerLoginEmailField;
     @FXML private TextField registerLoginPassField;
     @FXML private Button registerButton;
     @FXML private Label kontoRutaName;
     
-    
-    // Main-Page
+    ////////////////////////////////////////////////////////////////////////////
+    //// Main-Page
+    //
     @FXML private AnchorPane mainPane;
     @FXML private Label topUserName;
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
     
+    // SearchBar
+    
+    // Favorites
     @FXML private Pane favoritesView;
     @FXML private HBox favoritesProductsPane;
     @FXML private ObservableList<Pane> favoriteItemList 
                     = FXCollections.observableArrayList();
     
+    // Categories
     @FXML private Button categoryMeatButton;
     @FXML private Button categorySeaFoodButton;
     @FXML private Button categoryFruitButton;
@@ -79,6 +84,7 @@ public class iMatController implements Initializable {
     @FXML private ObservableList<Pane> categoryItemList 
                     = FXCollections.observableArrayList();
     
+    // ShoppingCart
     @FXML private GridPane cartPane;
     @FXML private TableView cartTableView;
     @FXML private Button cartButtonSave;
@@ -92,10 +98,12 @@ public class iMatController implements Initializable {
     @FXML private TableColumn tableColUnitPrice;
     @FXML private TableColumn tableColTotal;
 
-    // Thumbnail-default
+    // Thumbnail
     @FXML private Button thumbButton;
     
-    // Account-Page
+    ////////////////////////////////////////////////////////////////////////////
+    //// Account-Page
+    //
     @FXML private AnchorPane accountPane;
     @FXML private Label accountAdressName;
     @FXML private Label accountAdressLName;
@@ -145,7 +153,9 @@ public class iMatController implements Initializable {
     @FXML private Label accountPaymentCard1;
     @FXML private Label accountPaymentDate1;
     
-    // Checkout-Page
+    ////////////////////////////////////////////////////////////////////////////
+    //// Checkout-Page
+    //
     @FXML private AnchorPane checkoutPane;
     @FXML private Pane checkoutStep1;
     @FXML private Pane checkoutStep2;
@@ -460,6 +470,21 @@ public class iMatController implements Initializable {
 
         return thumbnailProd;
    }
+    
+//    @FXML
+//    private void searchMethod() throws IOException{
+//        specificCategoryList.getChildren().clear();
+//        categoryItemList.clear();
+//        offersView1.toFront();  
+//
+////        for (Product prod : IMatDataHandler.getInstance().findProducts(s)) {
+////            Pane thumbnailObj = thumbnailFactory(prod);
+////            
+////            categoryItemList.add(thumbnailObj);
+////        } 
+//        
+//        specificCategoryList.getChildren().addAll(categoryItemList);
+//    }
     
     @FXML
     private void openFavoriteView() throws IOException{
