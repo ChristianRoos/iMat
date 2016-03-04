@@ -922,7 +922,7 @@
                   </Pane>
                </children>
             </AnchorPane>
-            <AnchorPane id="pane1" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane id="pane1" fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -1335,18 +1335,6 @@
                                     <Pane id="pane1" fx:id="favoritesView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
                                        <children>
                                           <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <effect>
-                                                <ImageInput>
-                                                   <source>
-                                                      <Image url="file:/E:/Programming/Java/GitHub/Study/DoKaGG/iMat/imat/images/leftArrow.png" />
-                                                   </source>
-                                                </ImageInput>
-                                             </effect>
-                                          </Button>
                                           <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="22.0" />
@@ -1360,6 +1348,8 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Label>
+                                          <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" maxWidth="665.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
                                           <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -1367,13 +1357,23 @@
                                              <effect>
                                                 <ImageInput>
                                                    <source>
-                                                      <Image url="file:/E:/Programming/Java/GitHub/Study/DoKaGG/iMat/imat/images/leftArrow.png" />
+                                                      <Image url="file:/D:/GitHub/iMat/DoKaGG%20-%20Project/src/dokagg/project/resources/images/leftArrow.png" />
                                                    </source>
                                                 </ImageInput>
                                              </effect>
                                           </Button>
-                                          <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
+                                          <Button fx:id="favoritesRightArrow" layoutX="728.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <effect>
+                                                <ImageInput>
+                                                   <source>
+                                                      <Image url="file:/D:/GitHub/iMat/DoKaGG%20-%20Project/src/dokagg/project/resources/images/rightArrow.png" />
+                                                   </source>
+                                                </ImageInput>
+                                             </effect>
+                                          </Button>
                                        </children>
                                     </Pane>
                                     <Pane id="pane1" fx:id="offersView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">

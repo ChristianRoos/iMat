@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="kontoRutaLogIn" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="kontoRutaLabel" layoutX="27.0" layoutY="6.0" text="Välkommen!" underline="true">
+         <font>
+            <Font name="Calibri Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="kontoRutaRegister" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="143.0" style="-fx-background-color: d31146;" text="Registrera dig" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="registerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle fx:id="registerGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
+      <Pane fx:id="registerLoginDetails" layoutY="100.0" prefHeight="250.0" prefWidth="500.0">
+         <children>
+            <Label fx:id="registerLoginLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+               <font>
+                  <Font name="Calibri" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="registerLoginEmailLabel" layoutX="79.0" layoutY="97.0" text="Email:">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="registerLoginPassLabel" layoutX="47.0" layoutY="146.0" text="Lösenord:">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registerLoginEmailField" layoutX="135.0" layoutY="91.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="registerLoginPassField" layoutX="135.0" layoutY="140.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="registerButton" layoutX="340.0" layoutY="197.0" mnemonicParsing="false" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="erbjudandeShowAll" layoutX="135.0" layoutY="203.0" text="Glömt lösenord..." textFill="#d31145" underline="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="Calibri" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="registerTitleLabel" layoutX="47.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerInfoLabel" layoutX="80.0" layoutY="61.0" text="Fyll i din information för att logga in." textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="registerCloseButton" layoutX="438.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="@imat/images/cross.png" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Button>
+   </children>
+</Pane>
