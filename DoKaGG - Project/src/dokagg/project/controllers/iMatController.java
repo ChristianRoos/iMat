@@ -33,7 +33,7 @@ public class iMatController implements Initializable {
     ////////////////////////////////////////////////////////////////////////////
     //// First-Account-Page
     //
-    @FXML private AnchorPane firstAccPane;
+    @FXML private Pane firstAccPane;
     @FXML private Button registerButton2;
     @FXML private TextField registerAdressNameField;
     @FXML private TextField registerAdressLNameField;
@@ -50,7 +50,7 @@ public class iMatController implements Initializable {
     ////////////////////////////////////////////////////////////////////////////
     //// Login-Page
     //
-    @FXML private AnchorPane loginPane;
+    @FXML private Pane loginPane;
     @FXML private TextField registerLoginEmailField;
     @FXML private TextField registerLoginPassField;
     @FXML private Button registerButton;
@@ -104,7 +104,7 @@ public class iMatController implements Initializable {
     ////////////////////////////////////////////////////////////////////////////
     //// Account-Page
     //
-    @FXML private AnchorPane accountPane;
+    @FXML private Pane accountPane;
     @FXML private Label accountAdressName;
     @FXML private Label accountAdressLName;
     @FXML private Label accountAdressAdress;
@@ -156,7 +156,7 @@ public class iMatController implements Initializable {
     ////////////////////////////////////////////////////////////////////////////
     //// Checkout-Page
     //
-    @FXML private AnchorPane checkoutPane;
+    @FXML private Pane checkoutPane;
     @FXML private Pane checkoutStep1;
     @FXML private Pane checkoutStep2;
     @FXML private Pane checkoutStep3;

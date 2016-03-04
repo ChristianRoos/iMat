@@ -31,590 +31,6 @@
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="pane1" fx:id="loginPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-               <children>
-                  <Pane fx:id="registerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="250.0">
-                     <children>
-                        <Rectangle fx:id="registerGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
-                        <Pane fx:id="registerLoginDetails" layoutY="100.0" prefHeight="250.0" prefWidth="500.0">
-                           <children>
-                              <Label fx:id="registerLoginLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                 <font>
-                                    <Font size="32.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="registerLoginEmailLabel" layoutX="79.0" layoutY="97.0" text="Email:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="registerLoginPassLabel" layoutX="47.0" layoutY="146.0" text="Lösenord:">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="registerLoginEmailField" layoutX="135.0" layoutY="91.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <TextField fx:id="registerLoginPassField" layoutX="135.0" layoutY="140.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </TextField>
-                              <Button fx:id="registerButton" layoutX="340.0" layoutY="197.0" mnemonicParsing="false" onAction="#loginButton" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Label fx:id="erbjudandeShowAll" layoutX="135.0" layoutY="203.0" text="Glömt lösenord..." textFill="#d31145" underline="true">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Italic" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Label fx:id="registerTitleLabel" layoutX="47.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="registerInfoLabel" layoutX="80.0" layoutY="61.0" text="Fyll i din information för att logga in." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="registerCloseButton" layoutX="438.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="registerView2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
-                     <children>
-                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
-                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                       <font>
-                                          <Font size="32.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" onAction="#createAccountButton" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="@../../../../../imat/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
-            <AnchorPane id="pane1" fx:id="accountPane" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Pane fx:id="accountView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="100.0">
-                     <children>
-                        <Rectangle fx:id="accountGraphic1" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
-                        <Pane fx:id="accountDetails1" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
-                           <children>
-                              <Separator fx:id="accountHSeparator1" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" style="-fx-background-color: F4F4F4;" />
-                              <Separator fx:id="accountVSeparator1" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" style="-fx-background-color: F4F4F4;" />
-                              <StackPane fx:id="accountAdressStack" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
-                                 <children>
-                                    <Pane fx:id="accountAdress1" prefHeight="500.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountAdressLabel1" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountAdressButtonDone" layoutX="393.0" layoutY="447.0" mnemonicParsing="false" onAction="#accountAdressDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <TextField fx:id="accountAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressTelephoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountAdressCellphoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="accountAdress2" prefHeight="500.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountAdressLabel2" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountAdressButtonChange" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" onAction="#accountAdressChange" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </StackPane>
-                              <StackPane fx:id="accountLoginStack" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Pane fx:id="accountLogIn1" prefHeight="250.0" prefWidth="500.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountLogInLabel1" layoutX="106.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountLogInButtonDone" layoutX="412.0" layoutY="192.0" mnemonicParsing="false" onAction="#accountLoginDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label fx:id="accountLogInLabelEmail1" layoutX="104.0" layoutY="73.0" text="Email:">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountLogInLabelPassword1" layoutX="73.0" layoutY="115.0" text="Lösenord:">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="accountLogInEmailField" layoutX="152.0" layoutY="67.0" prefHeight="35.0" prefWidth="298.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountLogInPassField" layoutX="152.0" layoutY="109.0" prefHeight="35.0" prefWidth="298.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountLogInConfirmPassField" layoutX="152.0" layoutY="151.0" prefHeight="39.0" prefWidth="298.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <Label fx:id="accountLogInLabelPasswordConfirm" layoutX="7.0" layoutY="153.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="accountLogIn2" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountLogInLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountLogInButtonChange" layoutX="227.0" layoutY="184.0" mnemonicParsing="false" onAction="#accountLoginChange" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label fx:id="accountLogInLabelEmail2" layoutX="71.0" layoutY="74.0" text="Email:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountLogInLabelPassword2" layoutX="31.0" layoutY="116.0" text="Lösenord:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="70.0" prefHeight="37.0" prefWidth="298.0" text="email@adress.com">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" text="**************">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </StackPane>
-                              <StackPane fx:id="accountPaymentStack" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
-                                 <children>
-                                    <Pane fx:id="accountPayment3" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountPaymentLabel3" layoutX="89.0" text="Betalningsuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountPaymentButtonChange" layoutX="246.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentChange" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label fx:id="accountPaymentCardLabel2" layoutX="18.0" layoutY="63.0" text="Kortnummer:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentDateLabel2" layoutX="63.0" layoutY="105.0" text="Giltig till:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentCard1" layoutX="171.0" layoutY="60.0" prefHeight="37.0" prefWidth="277.0" text="*****-*****-*****-4567">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentDate1" layoutX="171.0" layoutY="102.0" prefHeight="37.0" prefWidth="68.0" text="12/17">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountPaymentButtonRemove" layoutX="16.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentRemove" style="-fx-background-color: d31146;" text="Ta bort kort" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="accountPayment1" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountPaymentLabel1" layoutX="100.0" text="Betalningsuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountPaymentButtonDone" layoutX="425.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label fx:id="accountPaymentCardLabel1" layoutX="22.0" layoutY="97.0" text="Kortnummer:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentDateLabel1" layoutX="67.0" layoutY="139.0" text="Giltig till:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentSlash" layoutX="215.0" layoutY="138.0" prefHeight="37.0" prefWidth="12.0" style="-fx-border-color: dfdfdf;" text="/">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="accountPaymentCardField" layoutX="171.0" layoutY="93.0" prefHeight="37.0" prefWidth="244.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountPaymentMonthField" layoutX="171.0" layoutY="137.0" prefHeight="39.0" prefWidth="41.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountPaymentYearField" layoutX="228.0" layoutY="137.0" prefHeight="39.0" prefWidth="41.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <TextField fx:id="accountPaymentSecurityField" layoutX="171.0" layoutY="181.0" prefHeight="39.0" prefWidth="96.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                          <Label fx:id="accountPaymentSecurityLabel" layoutX="15.0" layoutY="186.0" text="Säkerhetskod:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="accountPaymentCardLabel11" layoutX="92.0" layoutY="54.0" text="Namn:">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="accountPaymentNameField" layoutX="170.0" layoutY="49.0" prefHeight="37.0" prefWidth="244.0">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </TextField>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="accountPayment2" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
-                                       <children>
-                                          <Label fx:id="accountPaymentLabel2" layoutX="100.0" text="Betalningsuppgifter" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="32.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="accountPaymentButtonAdd" layoutX="302.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentAdd" style="-fx-background-color: d31146;" text="Lägg till kreditkort" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Button>
-                                          <Label layoutX="55.0" layoutY="62.0" text="Du har för tillfället inte lagt till något kreditkort">
-                                             <font>
-                                                <Font name="Calibri Italic" size="18.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </StackPane>
-                           </children>
-                        </Pane>
-                        <Label fx:id="accountNameLabel" layoutX="352.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="36.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="accountInfoLabel" layoutX="353.0" layoutY="55.0" text="Här hittar du information om ditt konto." textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="18.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" onAction="#accountExitButton" prefHeight="48.0" prefWidth="48.0" text="Button">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <ImageInput>
-                                 <source>
-                                    <Image url="file:/C:/Users/Martin-610/Documents/GitHub/iMat/DoKaGG%20-%20Project/resources/images/cross.png" />
-                                 </source>
-                              </ImageInput>
-                           </effect>
-                        </Button>
-                     </children>
-                  </Pane>
-               </children>
-            </AnchorPane>
             <AnchorPane id="pane1" fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -1100,12 +516,198 @@
                   </ScrollPane>
                </children>
             </AnchorPane>
-            <AnchorPane id="pane1" fx:id="checkoutPane" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="loginPane" prefHeight="200.0" prefWidth="200.0" styleClass="transparencyPane">
                <children>
-                  <Pane layoutX="183.0" layoutY="53.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0">
+                  <Pane fx:id="registerView" layoutX="430.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Rectangle fx:id="registerGraphic" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="500.0" />
+                        <Pane fx:id="registerLoginDetails" layoutY="100.0" prefHeight="250.0" prefWidth="500.0">
+                           <children>
+                              <Label fx:id="registerLoginLabel" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                 <font>
+                                    <Font size="32.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="registerLoginEmailLabel" layoutX="79.0" layoutY="97.0" text="Email:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="registerLoginPassLabel" layoutX="47.0" layoutY="146.0" text="Lösenord:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="registerLoginEmailField" layoutX="135.0" layoutY="91.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="registerLoginPassField" layoutX="135.0" layoutY="140.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="registerButton" layoutX="340.0" layoutY="197.0" mnemonicParsing="false" onAction="#loginButton" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="erbjudandeShowAll" layoutX="135.0" layoutY="203.0" text="Glömt lösenord..." textFill="#d31145" underline="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Label fx:id="registerTitleLabel" layoutX="47.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="registerInfoLabel" layoutX="80.0" layoutY="61.0" text="Fyll i din information för att logga in." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="registerCloseButton" layoutX="438.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="@../../../../../imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="checkoutPane" prefHeight="200.0" prefWidth="200.0" styleClass="transparencyPane">
+               <children>
+                  <Pane layoutX="200.0" layoutY="61.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0">
                      <children>
                         <StackPane prefHeight="610.0" prefWidth="970.0">
                            <children>
+                              <Pane fx:id="step3Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
+                                 <children>
+                                    <Pane layoutX="84.0" layoutY="74.0" prefHeight="200.0" prefWidth="613.0">
+                                       <children>
+                                          <Label prefHeight="35.0" prefWidth="350.0" text="Välj hur du vill betala             " underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <RadioButton fx:id="step3RadioButton1" layoutY="40.0" mnemonicParsing="false" onAction="#step3RadioButton1" text="Klarna faktura:  Betala inom 14 dagar(0 kr i avgift)">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="step3RadioButton2" layoutY="80.0" mnemonicParsing="false" onAction="#step3RadioButton2" text="Kort: Mastercard eller Visa">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="step3RadioButton3" layoutY="120.0" mnemonicParsing="false" onAction="#step3RadioButton3" text="Direktbetalning via din internetbank">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="step3RadioButton4" layoutY="160.0" mnemonicParsing="false" onAction="#step3RadioButton4" text="Klarna delbetalning">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </RadioButton>
+                                       </children>
+                                    </Pane>
+                                    <Label layoutX="708.0" layoutY="500.0" text="Totalsumma inkl. moms">
+                                       <font>
+                                          <Font name="Calibri" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="step3TotSum" layoutX="699.0" layoutY="484.0" text="&quot;Den Totala Summan&quot;" underline="true">
+                                       <font>
+                                          <Font name="Calibri" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="step3Back" layoutX="30.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step3Back" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Gå tillbaka" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="step3Finish" layoutX="740.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step3Finish" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31145;" text="Slutför köp" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Label fx:id="errorLabel" layoutX="84.0" layoutY="274.0" text="Label" textFill="RED">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <ScrollPane fx:id="step1SPane" hbarPolicy="NEVER" prefHeight="408.0" prefWidth="600.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="611.0" prefWidth="971.0">
+                                       <children>
+                                          <Label layoutX="738.0" layoutY="485.0" prefHeight="25.0" prefWidth="167.0" text="Summa totalt:" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="step1TotSum" layoutX="850.0" layoutY="487.0" text="Total summa">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="744.0" layoutY="512.0" text="Inklusive moms">
+                                             <font>
+                                                <Font name="Calibri" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="checkoutGoBackButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#checkoutGoBackButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31145;" text="Gå tillbaka" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="step1Forward" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#step1Forward" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Gå vidare" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0" style="-fx-background-color: #FFF;">
+                                 <children>
+                                    <Label layoutX="24.0" layoutY="268.0" text="Tack för dina pengar!" textFill="#d31146">
+                                       <font>
+                                          <Font name="AR HERMANN" size="90.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="gzBackToStartButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzBackToStartButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Tillbaka till start" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="gzExitButton" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzExitButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Avsluta" textFill="WHITE">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
                               <Pane fx:id="step2Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
                                  <children>
                                     <GridPane layoutX="101.0" layoutY="76.0" prefHeight="333.0" prefWidth="712.0">
@@ -1231,116 +833,6 @@
                                     </Button>
                                  </children>
                               </Pane>
-                              <Pane fx:id="step3Pane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFF;">
-                                 <children>
-                                    <Pane layoutX="84.0" layoutY="74.0" prefHeight="200.0" prefWidth="613.0">
-                                       <children>
-                                          <Label prefHeight="35.0" prefWidth="350.0" text="Välj hur du vill betala             " underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="step3RadioButton1" layoutY="40.0" mnemonicParsing="false" onAction="#step3RadioButton1" text="Klarna faktura:  Betala inom 14 dagar(0 kr i avgift)">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </RadioButton>
-                                          <RadioButton fx:id="step3RadioButton2" layoutY="80.0" mnemonicParsing="false" onAction="#step3RadioButton2" text="Kort: Mastercard eller Visa">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </RadioButton>
-                                          <RadioButton fx:id="step3RadioButton3" layoutY="120.0" mnemonicParsing="false" onAction="#step3RadioButton3" text="Direktbetalning via din internetbank">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </RadioButton>
-                                          <RadioButton fx:id="step3RadioButton4" layoutY="160.0" mnemonicParsing="false" onAction="#step3RadioButton4" text="Klarna delbetalning">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </RadioButton>
-                                       </children>
-                                    </Pane>
-                                    <Label layoutX="708.0" layoutY="500.0" text="Totalsumma inkl. moms">
-                                       <font>
-                                          <Font name="Calibri" size="16.0" />
-                                       </font>
-                                    </Label>
-                                    <Label fx:id="step3TotSum" layoutX="699.0" layoutY="484.0" text="&quot;Den Totala Summan&quot;" underline="true">
-                                       <font>
-                                          <Font name="Calibri" size="18.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="step3Back" layoutX="30.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step3Back" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Gå tillbaka" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="24.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="step3Finish" layoutX="740.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step3Finish" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31145;" text="Slutför köp" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="24.0" />
-                                       </font>
-                                    </Button>
-                                    <Label fx:id="errorLabel" layoutX="84.0" layoutY="274.0" text="Label" textFill="RED">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="970.0" style="-fx-background-color: #FFF;">
-                                 <children>
-                                    <Label layoutX="24.0" layoutY="268.0" text="Tack för dina pengar!" textFill="#d31146">
-                                       <font>
-                                          <Font name="AR HERMANN" size="90.0" />
-                                       </font>
-                                    </Label>
-                                    <Button fx:id="gzBackToStartButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzBackToStartButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Tillbaka till start" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="20.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="gzExitButton" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#gzExitButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31146;" text="Avsluta" textFill="WHITE">
-                                       <font>
-                                          <Font name="Calibri" size="20.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </AnchorPane>
-                              <ScrollPane fx:id="step1SPane" hbarPolicy="NEVER" prefHeight="408.0" prefWidth="600.0">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="611.0" prefWidth="971.0">
-                                       <children>
-                                          <Label layoutX="738.0" layoutY="485.0" prefHeight="25.0" prefWidth="167.0" text="Summa totalt:" underline="true">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="step1TotSum" layoutX="850.0" layoutY="487.0" text="Total summa">
-                                             <font>
-                                                <Font name="Calibri" size="18.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="744.0" layoutY="512.0" text="Inklusive moms">
-                                             <font>
-                                                <Font name="Calibri" size="16.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="checkoutGoBackButton" layoutX="30.0" layoutY="545.0" mnemonicParsing="false" onAction="#checkoutGoBackButton" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #d31145;" text="Gå tillbaka" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Button>
-                                          <Button fx:id="step1Forward" layoutX="740.0" layoutY="545.0" mnemonicParsing="false" onAction="#step1Forward" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Gå vidare" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="24.0" />
-                                             </font>
-                                          </Button>
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </ScrollPane>
                            </children>
                         </StackPane>
                         <Pane fx:id="checkoutStep1" layoutX="-2.0" prefHeight="30.0" prefWidth="325.0" styleClass="niceColour">
@@ -1373,7 +865,515 @@
                      </children>
                   </Pane>
                </children>
-            </AnchorPane>
+            </Pane>
+            <Pane fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0" styleClass="transparencyPane">
+               <children>
+                  <Pane fx:id="registerView2" layoutX="180.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
+                     <children>
+                        <Rectangle fx:id="registerGraphic2" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="registerDetails" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="registerSeparator" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" />
+                              <Pane fx:id="registerLoginDetails2" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerLoginLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginEmailLabel2" layoutX="108.0" layoutY="122.0" text="Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="registerLoginPassLabel2" layoutX="77.0" layoutY="218.0" text="Lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginEmailField2" layoutX="164.0" layoutY="116.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginEmailConfirmField" layoutX="164.0" layoutY="163.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerLoginPassField2" layoutX="164.0" layoutY="212.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginPassConfirmLabel" layoutX="12.0" layoutY="263.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="registerLoginPassConfirmField" layoutX="164.0" layoutY="261.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label fx:id="registerLoginEmailConfirmLabel" layoutX="38.0" layoutY="169.0" text="Bekräfta Email:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="registerAdress" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Label fx:id="registerAdressLabel" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                       <font>
+                                          <Font size="32.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="registerButton2" layoutX="293.0" layoutY="447.0" mnemonicParsing="false" onAction="#createAccountButton" style="-fx-background-color: d31146;" text="Slutför registrering" textFill="WHITE">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <TextField fx:id="registerAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressTelephoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="registerAdressCellphoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="registerTitleLabel2" layoutX="321.0" layoutY="14.0" text="Välkommen till iMat!" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="registerInfoLabel2" layoutX="334.0" layoutY="61.0" text="Fyll i din information för att registrera dig." textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="registerCloseButton2" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="@../../../../../imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+            <Pane fx:id="accountPane" prefHeight="200.0" prefWidth="200.0" styleClass="transparencyPane">
+               <children>
+                  <Pane fx:id="accountView" layoutX="180.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
+                     <children>
+                        <Rectangle fx:id="accountGraphic1" fill="#d31146" height="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1000.0" />
+                        <Pane fx:id="accountDetails1" layoutY="100.0" prefHeight="500.0" prefWidth="1000.0">
+                           <children>
+                              <Separator fx:id="accountHSeparator1" layoutY="230.0" prefHeight="40.0" prefWidth="500.0" style="-fx-background-color: F4F4F4;" />
+                              <Separator fx:id="accountVSeparator1" layoutX="480.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="40.0" style="-fx-background-color: F4F4F4;" />
+                              <StackPane fx:id="accountAdressStack" layoutX="520.0" prefHeight="500.0" prefWidth="480.0">
+                                 <children>
+                                    <Pane fx:id="accountAdress1" prefHeight="500.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountAdressLabel1" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountAdressButtonDone" layoutX="393.0" layoutY="447.0" mnemonicParsing="false" onAction="#accountAdressDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <TextField fx:id="accountAdressNameField" layoutX="27.0" layoutY="116.0" prefHeight="39.0" prefWidth="169.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressLNameField" layoutX="206.0" layoutY="116.0" prefHeight="39.0" prefWidth="244.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressAdressField" layoutX="27.0" layoutY="163.0" prefHeight="39.0" prefWidth="423.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressZipField" layoutX="27.0" layoutY="210.0" prefHeight="39.0" prefWidth="96.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressCityField" layoutX="134.0" layoutY="210.0" prefHeight="39.0" prefWidth="317.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressTelephoneField" layoutX="28.0" layoutY="304.0" prefHeight="39.0" prefWidth="423.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountAdressCellphoneField" layoutX="28.0" layoutY="257.0" prefHeight="39.0" prefWidth="423.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="accountAdress2" prefHeight="500.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountAdressLabel2" layoutX="113.0" layoutY="14.0" text="Adressuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountAdressButtonChange" layoutX="235.0" layoutY="447.0" mnemonicParsing="false" onAction="#accountAdressChange" style="-fx-background-color: d31146;" text="Ändra adressuppgifter" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="accountAdressName" layoutX="27.0" layoutY="117.0" prefHeight="37.0" prefWidth="169.0" style="-fx-border-color: dfdfdf;" text="Förnamn">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressLName" layoutX="206.0" layoutY="117.0" prefHeight="37.0" prefWidth="244.0" style="-fx-border-color: dfdfdf;" text="Efternamn">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressAdress" layoutX="27.0" layoutY="164.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Adress">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressZip" layoutX="27.0" layoutY="211.0" prefHeight="37.0" prefWidth="96.0" style="-fx-border-color: dfdfdf;" text="Postnr">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressCity" layoutX="134.0" layoutY="211.0" prefHeight="37.0" prefWidth="317.0" style="-fx-border-color: dfdfdf;" text="Ort">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressCellphone" layoutX="27.0" layoutY="258.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Mobilnummer">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountAdressTelephone" layoutX="27.0" layoutY="305.0" prefHeight="37.0" prefWidth="423.0" style="-fx-border-color: dfdfdf;" text="Telefonnummer">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </StackPane>
+                              <StackPane fx:id="accountLoginStack" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Pane fx:id="accountLogIn1" prefHeight="250.0" prefWidth="500.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountLogInLabel1" layoutX="106.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountLogInButtonDone" layoutX="412.0" layoutY="192.0" mnemonicParsing="false" onAction="#accountLoginDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="accountLogInLabelEmail1" layoutX="104.0" layoutY="73.0" text="Email:">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountLogInLabelPassword1" layoutX="73.0" layoutY="115.0" text="Lösenord:">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="accountLogInEmailField" layoutX="152.0" layoutY="67.0" prefHeight="35.0" prefWidth="298.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountLogInPassField" layoutX="152.0" layoutY="109.0" prefHeight="35.0" prefWidth="298.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountLogInConfirmPassField" layoutX="152.0" layoutY="151.0" prefHeight="39.0" prefWidth="298.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label fx:id="accountLogInLabelPasswordConfirm" layoutX="7.0" layoutY="153.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="accountLogIn2" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountLogInLabel2" layoutX="91.0" layoutY="14.0" text="Inloggningsuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountLogInButtonChange" layoutX="227.0" layoutY="184.0" mnemonicParsing="false" onAction="#accountLoginChange" style="-fx-background-color: d31146;" text="Ändra inloggningsuppgifter" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="accountLogInLabelEmail2" layoutX="71.0" layoutY="74.0" text="Email:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountLogInLabelPassword2" layoutX="31.0" layoutY="116.0" text="Lösenord:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountLogInEmail" layoutX="152.0" layoutY="70.0" prefHeight="37.0" prefWidth="298.0" text="email@adress.com">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountLogInPass" layoutX="152.0" layoutY="115.0" prefHeight="37.0" prefWidth="298.0" text="**************">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </StackPane>
+                              <StackPane fx:id="accountPaymentStack" layoutY="270.0" prefHeight="230.0" prefWidth="480.0">
+                                 <children>
+                                    <Pane fx:id="accountPayment3" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountPaymentLabel3" layoutX="89.0" text="Betalningsuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountPaymentButtonChange" layoutX="246.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentChange" style="-fx-background-color: d31146;" text="Ändra betalningsuppgifter" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="accountPaymentCardLabel2" layoutX="18.0" layoutY="63.0" text="Kortnummer:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentDateLabel2" layoutX="63.0" layoutY="105.0" text="Giltig till:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentCard1" layoutX="171.0" layoutY="60.0" prefHeight="37.0" prefWidth="277.0" text="*****-*****-*****-4567">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentDate1" layoutX="171.0" layoutY="102.0" prefHeight="37.0" prefWidth="68.0" text="12/17">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountPaymentButtonRemove" layoutX="16.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentRemove" style="-fx-background-color: d31146;" text="Ta bort kort" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="accountPayment1" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountPaymentLabel1" layoutX="100.0" text="Betalningsuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountPaymentButtonDone" layoutX="425.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentDone" style="-fx-background-color: d31146;" text="Klar" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="accountPaymentCardLabel1" layoutX="22.0" layoutY="97.0" text="Kortnummer:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentDateLabel1" layoutX="67.0" layoutY="139.0" text="Giltig till:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentSlash" layoutX="215.0" layoutY="138.0" prefHeight="37.0" prefWidth="12.0" style="-fx-border-color: dfdfdf;" text="/">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="accountPaymentCardField" layoutX="171.0" layoutY="93.0" prefHeight="37.0" prefWidth="244.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountPaymentMonthField" layoutX="171.0" layoutY="137.0" prefHeight="39.0" prefWidth="41.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountPaymentYearField" layoutX="228.0" layoutY="137.0" prefHeight="39.0" prefWidth="41.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="accountPaymentSecurityField" layoutX="171.0" layoutY="181.0" prefHeight="39.0" prefWidth="96.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label fx:id="accountPaymentSecurityLabel" layoutX="15.0" layoutY="186.0" text="Säkerhetskod:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountPaymentCardLabel11" layoutX="92.0" layoutY="54.0" text="Namn:">
+                                             <font>
+                                                <Font name="Calibri" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="accountPaymentNameField" layoutX="170.0" layoutY="49.0" prefHeight="37.0" prefWidth="244.0">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="accountPayment2" prefHeight="230.0" prefWidth="480.0" style="-fx-background-color: F4F4F4;">
+                                       <children>
+                                          <Label fx:id="accountPaymentLabel2" layoutX="100.0" text="Betalningsuppgifter" underline="true">
+                                             <font>
+                                                <Font name="Calibri" size="32.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="accountPaymentButtonAdd" layoutX="302.0" layoutY="177.0" mnemonicParsing="false" onAction="#accountPaymentAdd" style="-fx-background-color: d31146;" text="Lägg till kreditkort" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="18.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label layoutX="55.0" layoutY="62.0" text="Du har för tillfället inte lagt till något kreditkort">
+                                             <font>
+                                                <Font name="Calibri Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </Pane>
+                        <Label fx:id="accountNameLabel" layoutX="352.0" layoutY="14.0" text="Förnamn Efternamn" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="accountInfoLabel" layoutX="353.0" layoutY="55.0" text="Här hittar du information om ditt konto." textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="accountCloseButton" layoutX="938.0" layoutY="26.0" mnemonicParsing="false" onAction="#accountExitButton" prefHeight="48.0" prefWidth="48.0" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <ImageInput>
+                                 <source>
+                                    <Image url="file:/C:/Users/Christian/Documents/GitHub/iMat/imat/images/cross.png" />
+                                 </source>
+                              </ImageInput>
+                           </effect>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
          </children>
       </StackPane>
    </children>
