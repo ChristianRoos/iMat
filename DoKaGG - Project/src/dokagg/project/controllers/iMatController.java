@@ -1,39 +1,31 @@
 package dokagg.project.controllers;
 
-import dokagg.project.controllers.*;
-
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 /**
  *
  * @author Kim
@@ -70,6 +62,11 @@ public class iMatController implements Initializable {
     @FXML private Label topUserName;
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
+    
+    @FXML private Pane favoritesView;
+    @FXML private HBox favoritesProductsPane;
+    @FXML private ObservableList<Pane> favoriteItemList 
+                    = FXCollections.observableArrayList();
     
     @FXML private Button categoryMeatButton;
     @FXML private Button categorySeaFoodButton;
@@ -205,28 +202,11 @@ public class iMatController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//      cartTableView.setStyle("-fx-table-border-color: transparent;");
-//      cartTableView.borderProperty().isNull();
 
-        //IMatDataHandler.getInstance().getShoppingCart().addShoppingCartListener(scl);
-        
-//        percentageCol.setCellValueFactory(
-//                new PropertyValueFactory<Recipe, Integer>("match"));
-
-//        ShoppingItem shopItem = ;
-        tableColName.setCellValueFactory(
-          new PropertyValueFactory<Product, String>("product.name"));
+        // TODO
         tableColQuantity.setCellValueFactory(
           new PropertyValueFactory<ShoppingItem, Double>("amount"));
-//        tableColUnitPrice.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getPrice())));
-//        tableColTotal.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  String.valueOf(
-//                          IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getTotal())));
-    
-//        cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
+
         mainPane.toFront();
 
     }
@@ -464,10 +444,9 @@ public class iMatController implements Initializable {
         }
     }
     
-    
     // Controller factory for thumbnail.
     private Pane thumbnailFactory(Product prod) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/productThumbnail.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/productThumbnail.fxml"));
         Pane thumbnailProd = null;
         
         try {
@@ -479,8 +458,38 @@ public class iMatController implements Initializable {
         ProductThumbnailController prodThumbCon = loader.getController();
         prodThumbCon.giveData(prod, this);
 
-    return thumbnailProd;
+        return thumbnailProd;
    }
+    
+    @FXML
+    private void openFavoriteView() throws IOException{
+        favoritesProductsPane.getChildren().clear();
+        favoriteItemList.clear();
+        favoritesView.toFront();
+
+        for (Product favProd : IMatDataHandler.getInstance().favorites()) {
+            Pane thumbnailObj = thumbnailFactory(favProd);
+            
+            favoriteItemList.add(thumbnailObj);
+        } 
+        
+        favoritesProductsPane.getChildren().addAll(favoriteItemList);
+    }
+    
+    @FXML
+    private void openCategoryView() throws IOException {
+        specificCategoryList.getChildren().clear();
+        categoryItemList.clear();
+        offersView1.toFront();  
+
+        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
+            Pane thumbnailObj = thumbnailFactory(prod);
+            
+            categoryItemList.add(thumbnailObj);
+        } 
+        
+        specificCategoryList.getChildren().addAll(categoryItemList);
+    }
     
     @FXML
     private void mainWindowMeatCategoryButton() throws IOException{
@@ -498,13 +507,38 @@ public class iMatController implements Initializable {
     }
     
     @FXML
+    private void mainWindowFruitAndGreenCategoryButton() throws IOException{
+//        specificCategoryList.getChildren().clear();
+//        categoryItemList.clear();
+//        offersView1.toFront();  
+//
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.BERRY)) {
+//            Pane thumbnailObj = thumbnailFactory(prod);
+//            
+//            categoryItemList.add(thumbnailObj);
+//        }
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT)) {
+//            Pane thumbnailObj = thumbnailFactory(prod);
+//            
+//            categoryItemList.add(thumbnailObj);
+//        } 
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.EXOTIC_FRUIT)) {
+//            Pane thumbnailObj = thumbnailFactory(prod);
+//            
+//            categoryItemList.add(thumbnailObj);
+//        } 
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.CITRUS_FRUIT)) {
+//            Pane thumbnailObj = thumbnailFactory(prod);
+//            
+//            categoryItemList.add(thumbnailObj);
+//        } 
+//        
+//        specificCategoryList.getChildren().addAll(categoryItemList);
+    }
+    
+    @FXML
     public void updateShoppingCart(Product prod, double quantity){
         cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
-//        cartTableView.get
-        
-//        cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
-//        cartTableView.setItems(cartObserverList);
-//        cartTableView.getColumns().addAll(tableColName,tableColQuantity, tableColUnitPrice, tableColTotal);
 
         cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
 
@@ -513,20 +547,7 @@ public class iMatController implements Initializable {
     //instantiate the tableColumns in the ShoppingCart
     @FXML
     public void initializeShoppingCart() {
-//        tableColName.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getName()));
-//        tableColQuantity.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  String.valueOf(
-//                          IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getAmount())));
-//        tableColUnitPrice.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getProduct().getPrice())));
-//        tableColTotal.setCellValueFactory(
-//          new PropertyValueFactory<>(
-//                  String.valueOf(
-//                          IMatDataHandler.getInstance().getShoppingCart().getItems().get(0).getTotal())));
+        
     }
     
     @FXML
@@ -537,21 +558,7 @@ public class iMatController implements Initializable {
     
     @FXML
     private void addProductToCart(ActionEvent event){
-      
-      // Check if item already exists in the cart.
-      // Change "null" into current object
-      if(IMatDataHandler.getInstance().getShoppingCart().getItems().contains(null)) {
-        IMatDataHandler.getInstance().getShoppingCart().addItem(null);
-        
-      } else {
-        
-      }
         cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
-    }
-    
-    @FXML
-    private void favoriteProduct(){
-        //TODO
     }
     
     @FXML
