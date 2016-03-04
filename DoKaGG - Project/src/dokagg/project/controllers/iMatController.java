@@ -234,11 +234,10 @@ public class iMatController implements Initializable {
     // First account
     @FXML
     private void createAccountButton(){
-        mainPane.toFront();
         //Login info
         int errors = 0;
         if(registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText())){
-           IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText()); 
+           IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());   
         }
         else{
             errors++;
@@ -314,7 +313,6 @@ public class iMatController implements Initializable {
     // Login window
     @FXML
     private void loginButton(){
-        IMatDataHandler.getInstance().getUser().setUserName("Bengt");
         if(registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName()) && 
                 registerLoginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())
                 && !IMatDataHandler.getInstance().getUser().getUserName().isEmpty())
