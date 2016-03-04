@@ -1,10 +1,13 @@
 package dokagg.project;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 public class IMatMain extends Application {
     
@@ -21,6 +24,13 @@ public class IMatMain extends Application {
         stage.setFullScreen(true);
         stage.setResizable(false);
         stage.sizeToScene();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override public void handle(WindowEvent t) {
+                IMatDataHandler.getInstance().shutDown();
+        }
+        });
+        
+        
     }
 
     public static void main(String[] args) {
