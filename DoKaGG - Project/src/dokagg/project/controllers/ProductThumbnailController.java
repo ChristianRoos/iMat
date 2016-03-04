@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dokagg.project.controllers;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -52,9 +46,9 @@ public class ProductThumbnailController implements Initializable{
         prodThumbImageView.setImage(fxImage);
 
         favoriteImage  = new Image(getClass()
-        .getResourceAsStream("resources/images/favoriteButton.png"));
+        .getResourceAsStream("/dokagg/project/resources/images/favoriteButton.png"));
         notFavoriteImage  = new Image(getClass()
-        .getResourceAsStream("resources/images/favoriteButtonNotAdded.png"));
+        .getResourceAsStream("/dokagg/project/resources/images/favoriteButtonNotAdded.png"));
         
         if(IMatDataHandler.getInstance().isFavorite(prod)) {
             favoritedImageView.setImage(favoriteImage);
