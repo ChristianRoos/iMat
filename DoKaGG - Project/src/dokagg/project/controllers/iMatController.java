@@ -319,6 +319,8 @@ public class iMatController implements Initializable {
         {
         kontoRutaDetails.setText("Kontouppgifter");
         kontoRutaLogOut.setText("Logga ut");
+        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
         mainPane.toFront();
         loggedIn = true;
         }
