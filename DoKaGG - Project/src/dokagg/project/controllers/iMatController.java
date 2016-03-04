@@ -157,7 +157,8 @@ public class iMatController implements Initializable {
     @FXML private Label step2TopLabel;
     @FXML private Label step3TopLabel;
     @FXML private AnchorPane gzPane;
-    
+    @FXML private Button gzBackToStartButton;
+    @FXML private Button gzExitButton;
     
     // Checkout Step1
     @FXML private ScrollPane step1SPane;
@@ -709,12 +710,16 @@ public class iMatController implements Initializable {
             errorLabel.visibleProperty().set(true);
     }
     
+    @FXML
+    private void gzBackToStartButton(){
+        mainPane.toFront();
+        // Eventuella clear av varukorg etc.
+    }
+    @FXML
+    private void gzExitPane(){
+        System.exit(0);
+    }
     
-    //
-    // Step 2
-    
-    //
-    // Step 3
     
     //
     // -----------------------------------------------------------------------
