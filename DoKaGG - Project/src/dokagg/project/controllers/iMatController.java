@@ -2,6 +2,7 @@ package dokagg.project.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,12 +66,12 @@ public class iMatController implements Initializable {
     @FXML private Button kontoRutaLogOut;
     
     // SearchBar
+    @FXML private TextField searchProduct;
     
     // Favorites
     @FXML private Pane favoritesView;
     @FXML private HBox favoritesProductsPane;
-    @FXML private ObservableList<Pane> favoriteItemList 
-                    = FXCollections.observableArrayList();
+    @FXML private ObservableList<Pane> favoriteItemList = FXCollections.observableArrayList();
     
     // Categories
     @FXML private Button categoryMeatButton;
@@ -81,15 +82,22 @@ public class iMatController implements Initializable {
     
     @FXML private Pane offersView1;
     @FXML private FlowPane specificCategoryList;
-    @FXML private ObservableList<Pane> categoryItemList 
-                    = FXCollections.observableArrayList();
+    @FXML private ObservableList<Pane> categoryItemList = FXCollections.observableArrayList();
+    private ArrayList<ProductCategory> categoriesToSeeList = new ArrayList<>();
+    private ArrayList<Product> unCategorizedProducts = new ArrayList<>();
+    private ArrayList<Product> emptyUnCategoryList = new ArrayList<>();
+    
     
     // ShoppingCart
-    @FXML private GridPane cartPane;
+    // TODO ----------------------------------------------------------------------------------- use right types.
+    @FXML private Pane shoppingCartPane;
     @FXML private TableView cartTableView;
     @FXML private Button cartButtonSave;
     @FXML private Button cartButton;
     @FXML private Text cartTotalCost;
+
+    private ShoppingCartController currentlyActiveShoppingCart;
+    
 
     ShoppingCartListener scl;
     
@@ -97,6 +105,13 @@ public class iMatController implements Initializable {
     @FXML private TableColumn tableColQuantity;
     @FXML private TableColumn tableColUnitPrice;
     @FXML private TableColumn tableColTotal;
+    
+    // HistoryView & SavedLists
+    @FXML private Pane historyCartsView;
+    @FXML private Pane savedShoppingCartsView;
+    private ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
+    private ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
+    
 
     // Thumbnail
     @FXML private Button thumbButton;
@@ -213,9 +228,10 @@ public class iMatController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // TODO
-        tableColQuantity.setCellValueFactory(
-          new PropertyValueFactory<ShoppingItem, Double>("amount"));
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the default shoppingcart
+        // Example:
+        // gridPane0_1.getChildren().add(shoppingCartFactory()); 
 
         mainPane.toFront();
 
@@ -456,7 +472,11 @@ public class iMatController implements Initializable {
         }
     }
     
-    // Controller factory for thumbnail.
+    ////////////////////////////////////////////////////////////////////////////
+    //// The category,favorite-related methods
+    //
+    
+    // thumbnailController factory.
     private Pane thumbnailFactory(Product prod) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/productThumbnail.fxml"));
         Pane thumbnailProd = null;
@@ -468,25 +488,25 @@ public class iMatController implements Initializable {
         }
         
         ProductThumbnailController prodThumbCon = loader.getController();
-        prodThumbCon.giveData(prod, this);
+        prodThumbCon.initProdThumb(prod, this);
 
         return thumbnailProd;
    }
     
-//    @FXML
-//    private void searchMethod() throws IOException{
-//        specificCategoryList.getChildren().clear();
-//        categoryItemList.clear();
-//        offersView1.toFront();  
-//
-////        for (Product prod : IMatDataHandler.getInstance().findProducts(s)) {
-////            Pane thumbnailObj = thumbnailFactory(prod);
-////            
-////            categoryItemList.add(thumbnailObj);
-////        } 
-//        
-//        specificCategoryList.getChildren().addAll(categoryItemList);
-//    }
+    @FXML
+    private void searchMethod() throws IOException{
+        specificCategoryList.getChildren().clear();
+        categoryItemList.clear();
+        offersView1.toFront();  
+
+        for (Product prod : IMatDataHandler.getInstance().findProducts(searchProduct.getText())) {
+            Pane thumbnailObj = thumbnailFactory(prod);
+            
+            categoryItemList.add(thumbnailObj);
+        } 
+        
+        specificCategoryList.getChildren().addAll(categoryItemList);
+    }
     
     @FXML
     private void openFavoriteView() throws IOException{
@@ -503,78 +523,116 @@ public class iMatController implements Initializable {
         favoritesProductsPane.getChildren().addAll(favoriteItemList);
     }
     
+    ////////////////////////////////////////////////////////////////////////////
+    //// Show specific Category view
+    //
     @FXML
-    private void openCategoryView() throws IOException {
-        specificCategoryList.getChildren().clear();
-        categoryItemList.clear();
-        offersView1.toFront();  
+    private void openCategoryView(ArrayList<ProductCategory> inputCategoriesList, ArrayList<Product> unCategorizedProducts) throws IOException {
+      
+      // Clearing lists/views below before using them.
+      // The category-FlowPane
+      specificCategoryList.getChildren().clear();
+      // The actual list with all the objects which will be shown
+      categoryItemList.clear();
+      offersView1.toFront();  
 
-        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
-            Pane thumbnailObj = thumbnailFactory(prod);
-            
-            categoryItemList.add(thumbnailObj);
-        } 
-        
-        specificCategoryList.getChildren().addAll(categoryItemList);
+      categoriesToSeeList.addAll(inputCategoriesList);
+      
+      for (ProductCategory prodCate : categoriesToSeeList) {
+        for (Product prod : IMatDataHandler.getInstance().getProducts(prodCate)) {
+          Pane thumbnailObj = thumbnailFactory(prod);
+
+          categoryItemList.add(thumbnailObj);
+        }
+      }
+      for (Product prod : unCategorizedProducts) {
+        Pane thumbnailObj = thumbnailFactory(prod);
+
+        categoryItemList.add(thumbnailObj);
+      }
+      
+      // --------------------------------------------------------------------------------------------------------------------------------------------------------- ?
+      // Sort it by name?
+//      categoryItemList.sorted();
+      specificCategoryList.getChildren().addAll(categoryItemList);
+      categoriesToSeeList.clear();
+      unCategorizedProducts.clear();
     }
     
+    // ---------------------------------------------------------------------------------------------------
+    // TESTING
     @FXML
     private void mainWindowMeatCategoryButton() throws IOException{
-        specificCategoryList.getChildren().clear();
-        categoryItemList.clear();
-        offersView1.toFront();  
-
-        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
-            Pane thumbnailObj = thumbnailFactory(prod);
-            
-            categoryItemList.add(thumbnailObj);
-        } 
-        
-        specificCategoryList.getChildren().addAll(categoryItemList);
+      categoriesToSeeList.add(ProductCategory.BERRY);
+      categoriesToSeeList.add(ProductCategory.CABBAGE);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.FRUIT);
+      categoriesToSeeList.add(ProductCategory.HERB);
+      categoriesToSeeList.add(ProductCategory.MELONS);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      categoriesToSeeList.add(ProductCategory.POD);
+      categoriesToSeeList.add(ProductCategory.POTATO_RICE);
+      categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
+      categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
+      
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    // ---------------------------------------------------------------------------------------------------
+    
+    @FXML
+    private void showCategoryMeat() throws IOException{
+      unCategorizedProducts.clear();
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
     }
     
     @FXML
-    private void mainWindowFruitAndGreenCategoryButton() throws IOException{
-//        specificCategoryList.getChildren().clear();
-//        categoryItemList.clear();
-//        offersView1.toFront();  
-//
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.BERRY)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        }
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.EXOTIC_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.CITRUS_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        
-//        specificCategoryList.getChildren().addAll(categoryItemList);
+    private void showCategorySeafood() throws IOException{
+      categoriesToSeeList.add(ProductCategory.FISH);
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
     }
     
     @FXML
-    public void updateShoppingCart(Product prod, double quantity){
-        cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
-
-        cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
-
+    private void showCategoryFruitAndGreen() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BERRY);
+      categoriesToSeeList.add(ProductCategory.CABBAGE);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.FRUIT);
+      categoriesToSeeList.add(ProductCategory.HERB);
+      categoriesToSeeList.add(ProductCategory.MELONS);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      categoriesToSeeList.add(ProductCategory.POD);
+      categoriesToSeeList.add(ProductCategory.POTATO_RICE);
+      categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
+      categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
+      
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
     }
     
-    //instantiate the tableColumns in the ShoppingCart
     @FXML
-    public void initializeShoppingCart() {
-        
+    private void showCategoryDairyEggCheese() throws IOException{
+      categoriesToSeeList.add(ProductCategory.DAIRIES);
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryPantry() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BREAD);
+      categoriesToSeeList.add(ProductCategory.SWEET);
+      categoriesToSeeList.add(ProductCategory.FLOUR_SUGAR_SALT);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryDrinks() throws IOException{
+      unCategorizedProducts = (ArrayList) IMatDataHandler.getInstance().findProducts("milk");
+      categoriesToSeeList.add(ProductCategory.HOT_DRINKS);
+      categoriesToSeeList.add(ProductCategory.COLD_DRINKS);
+      
+      openCategoryView(categoriesToSeeList, unCategorizedProducts);
     }
     
     @FXML
@@ -582,11 +640,94 @@ public class iMatController implements Initializable {
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //// The shoppingCart methods
+    //
     
+    // ShoppingCart factory.
+    private Pane shoppingCartFactory() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/shoppingCart.fxml"));
+        Pane shopCartPane = null;
+        
+        try {
+            shopCartPane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        ShoppingCartController shopCartCont = loader.getController();
+        shopCartCont.initShopCart(this);
+
+        return shopCartPane;
+   }
+    // --------------------------------------------------------------------------------------------------------------------------------------------------------------- TODO
+    // Tell correct Pane to update.
     @FXML
-    private void addProductToCart(ActionEvent event){
+    public void AddProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
+        
+        currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
+        
         cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
     }
+
+//    @FXML
+//    private void showShoppingCart(ArrayList<ProductCategory> inputCategoriesList, ArrayList<Product> unCategorizedProducts) throws IOException {
+//      
+//      // Clearing lists/views below before using them.
+//      // The category-FlowPane
+//      specificCategoryList.getChildren().clear();
+//      // The actual list with all the objects which will be shown
+//      categoryItemList.clear();
+//      offersView1.toFront();  
+//
+//      categoriesToSeeList.addAll(inputCategoriesList);
+//      
+//      for (ProductCategory prodCate : categoriesToSeeList) {
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(prodCate)) {
+//          Pane thumbnailObj = thumbnailFactory(prod);
+//
+//          categoryItemList.add(thumbnailObj);
+//        }
+//      }
+//      for (Product prod : unCategorizedProducts) {
+//        Pane thumbnailObj = thumbnailFactory(prod);
+//
+//        categoryItemList.add(thumbnailObj);
+//      }
+//      
+//      // ------------------------------------------------------------------------------------------------------------------------------- ?
+//      // Sort it by name?
+////      categoryItemList.sorted();
+//      specificCategoryList.getChildren().addAll(categoryItemList);
+//      categoriesToSeeList.clear();
+//      unCategorizedProducts.clear();
+//    }
+     
+    @FXML
+    private void openHistoryView() {
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the history shoppingcarts
+        // Example:
+        // for(Every cart in shoppingCartsHistory) {
+        //   historyCartsView.getChildren().add(shoppingCartFactory());
+        historyCartsView.toFront();
+    }
+
+    @FXML
+    private void openSavedShoppingCarts() {
+        
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the saved_Shoppingcart
+        // Example:
+        // for(Every cart in shoppingCartsSaved) {
+        // savedShoppingCartsView.getChildren().add(shoppingCartFactory()); 
+        savedShoppingCartsView.toFront();
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //// Checkout part
+    //
     
     @FXML
     private void step3RadioButton1(){
