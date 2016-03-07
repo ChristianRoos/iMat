@@ -40,24 +40,24 @@
                      <children>
                         <Pane prefHeight="30.0" prefWidth="293.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Vara" textFill="WHITE">
+                              <Label alignment="CENTER" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Vara" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri" size="18.0" />
+                                    <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="80.0" prefHeight="30.0" prefWidth="65.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Antal" textFill="WHITE">
+                              <Label alignment="CENTER" layoutX="137.0" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Antal" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri" size="18.0" />
+                                    <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="145.0" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Styckpris" textFill="WHITE">
+                              <Label alignment="CENTER" layoutX="181.0" prefHeight="30.0" prefWidth="59.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Styckpris" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri" size="18.0" />
+                                    <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="225.0" prefHeight="30.0" prefWidth="67.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Totalt" textFill="WHITE">
+                              <Label alignment="CENTER" layoutX="239.0" prefHeight="30.0" prefWidth="53.0" style="-fx-background-color: d31145; -fx-border-color: white;" text="Totalt" textFill="WHITE">
                                  <font>
-                                    <Font name="Calibri" size="18.0" />
+                                    <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
                            </children>
