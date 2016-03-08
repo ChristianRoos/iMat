@@ -25,6 +25,7 @@ import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;
 
 public class iMatController implements Initializable {
@@ -44,17 +45,21 @@ public class iMatController implements Initializable {
     @FXML private TextField registerAdressCellphoneField;
     @FXML private TextField registerLoginEmailField2;
     @FXML private TextField registerLoginEmailConfirmField;
-    @FXML private TextField registerLoginPassField2;
-    @FXML private TextField registerLoginPassConfirmField;
+    @FXML private PasswordField registerLoginPassField2;
+    @FXML private PasswordField registerLoginPassConfirmField;
+    
+    @FXML private Label registerAdressErrors;
+    @FXML private Label registerLoginErrors;
     
     ////////////////////////////////////////////////////////////////////////////
     //// Login-Page
     //
     @FXML private Pane loginPane;
     @FXML private TextField registerLoginEmailField;
-    @FXML private TextField registerLoginPassField;
+    @FXML private PasswordField loginPassField;
     @FXML private Button registerButton;
     @FXML private Label kontoRutaName;
+    @FXML private Label loginErrors;
     
     ////////////////////////////////////////////////////////////////////////////
     //// Main-Page
@@ -77,7 +82,7 @@ public class iMatController implements Initializable {
     @FXML private Button categorySeaFoodButton;
     @FXML private Button categoryFruitButton;
     @FXML private Button categoryDairyButton;
-    @FXML private Button categoryBreadButton;
+    @FXML private Button categoryPantryButton;
     
     @FXML private Pane offersView1;
     @FXML private FlowPane specificCategoryList;
@@ -114,6 +119,9 @@ public class iMatController implements Initializable {
     @FXML private Label accountAdressCellphone;
     @FXML private Label accountLogInEmail;
     @FXML private Label accountLogInPass;
+    @FXML private Label accountLogInErrors;
+    @FXML private Label accountAdressErrors;
+    @FXML private Label accountPaymentErrors;
     @FXML private Button accountAdressButton2;
     
     @FXML private Pane accountPayment1;
@@ -140,8 +148,6 @@ public class iMatController implements Initializable {
     @FXML private TextField accountPaymentSecurityField;
     @FXML private TextField accountPaymentNameField;
     @FXML private TextField accountLogInEmailField;
-    @FXML private TextField accountLogInPassField;
-    @FXML private TextField accountLogInConfirmPassField;
     @FXML private TextField accountAdressNameField;
     @FXML private TextField accountAdressLNameField;
     @FXML private TextField accountAdressAdressField;
@@ -149,6 +155,9 @@ public class iMatController implements Initializable {
     @FXML private TextField accountAdressCityField;
     @FXML private TextField accountAdressCellphoneField;
     @FXML private TextField accountAdressTelephoneField;
+    
+    @FXML private PasswordField accountLogInPassField;
+    @FXML private PasswordField accountLogInConfirmPassField;
     
     @FXML private Label accountPaymentCard1;
     @FXML private Label accountPaymentDate1;
@@ -226,77 +235,47 @@ public class iMatController implements Initializable {
     @FXML
     private void createAccountButton(){
         //Login info
-        int errors = 0;
-        if(registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText())){
-           IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());   
+        String errorMessageAdress ="";
+        String errorMessageRegister ="";
+        if(!registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText()) || registerLoginEmailConfirmField.getText().isEmpty()){
+             errorMessageRegister = errorMessageRegister + "Email stämmer ej överrens eller ej angivna. "; 
         }
-        else{
-            errors++;
-            System.out.println("Email does not match");
+        if(!registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText()) || registerLoginPassConfirmField.getText().isEmpty()){
+           errorMessageRegister = errorMessageRegister + "Lösenord stämmer ej överens eller ej angivna. ";
         }
-        if(registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText())){
-           IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
-        }
-        else{
-            errors++;
-            System.out.println("Password does not match");
-        }
-        
         //Address Info
-        if(!registerAdressNameField.getText().isEmpty()){
+        if(registerAdressNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";}
+        if(registerAdressLNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";}
+        if(registerAdressAdressField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";}
+        if(registerAdressCityField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";}
+        if(registerAdressZipField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";}
+        if(registerAdressCellphoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
+        if(registerAdressTelephoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
+
+        
+        
+        if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
+            IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
+            IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
             IMatDataHandler.getInstance().getCustomer().setFirstName(registerAdressNameField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressLNameField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setLastName(registerAdressLNameField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressAdressField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setAddress(registerAdressAdressField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressCityField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPostAddress(registerAdressCityField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressZipField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPostCode(registerAdressZipField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressCellphoneField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setAddress(registerAdressAdressField.getText());
             IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(registerAdressCellphoneField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressTelephoneField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPhoneNumber(registerAdressTelephoneField.getText());
-        }
-        else{errors++;}
-        
-        
-        if (errors == 0) {
+            
             kontoRutaDetails.setText("Kontouppgifter");
             kontoRutaLogOut.setText("Logga ut");
             mainPane.toFront();
             loggedIn = true;
             
-            topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-            kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
-            accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
-            accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-            accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-            accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-            accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-            accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-            accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
-
-        
+            updateLabels();
+            
+        }
+        else{
+            registerAdressErrors.setText(errorMessageAdress);
+            registerLoginErrors.setText(errorMessageRegister);
         }
     }
     
@@ -304,16 +283,28 @@ public class iMatController implements Initializable {
     // Login window
     @FXML
     private void loginButton(){
-        if(registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName()) && 
-                registerLoginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())
-                && !IMatDataHandler.getInstance().getUser().getUserName().isEmpty())
-        {
+        String errorMessageLogin = "";
+        if(registerLoginEmailField.getText().isEmpty()){
+            errorMessageLogin="Email saknas. ";
+        }
+        if(loginPassField.getText().isEmpty()){
+            errorMessageLogin= errorMessageLogin +"Lösenord saknas. ";
+        }
+        if(!registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin +"Finns inget konto registrerat med den emailen";
+        }
+        if(!loginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin + "Email och lösenord matchar inte";
+        }
+        loginErrors.setText(errorMessageLogin);
+        if(errorMessageLogin.isEmpty()){
+        updateLabels();
         kontoRutaDetails.setText("Kontouppgifter");
         kontoRutaLogOut.setText("Logga ut");
-        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
         mainPane.toFront();
         loggedIn = true;
+        registerLoginEmailField.setText("");
+        loginPassField.setText("");
         }
     }
     
@@ -365,95 +356,79 @@ public class iMatController implements Initializable {
         
         accountPaymentCard1.setText( accountPaymentCardField.getText());
         accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
-        System.out.println("error");
     }
     @FXML
     private void accountLoginChange(){
         accountLogIn1.toFront();
+        accountLogInErrors.setText("Låt email vara oförändrad för att bara ändra lösenord eller låt lösenord vara tomt för att bara ändra email.");
     }
     @FXML
     private void accountLoginDone(){
-        if(accountLogInPassField.getText().equals(accountLogInConfirmPassField.getText()) && !accountLogInConfirmPassField.getText().isEmpty())
-        {
-            IMatDataHandler.getInstance().getUser().setPassword(accountLogInConfirmPassField.getText());
-            IMatDataHandler.getInstance().getUser().setUserName(accountLogInEmailField.getText());
-            IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
-            accountLogIn2.toFront();
+        String errorMessageChangeLogin= "";
+        if(!accountLogInPassField.getText().equals(accountLogInConfirmPassField.getText())){
+            errorMessageChangeLogin= "Lösenord matchar inte. ";
         }
-        else if (accountLogInConfirmPassField.getText().isEmpty() && accountLogInPassField.getText().isEmpty()  
-                && !accountLogInEmailField.getText().isEmpty())
+        if(accountLogInEmailField.getText().isEmpty()){
+            errorMessageChangeLogin="Email måste vara ifylld. " +errorMessageChangeLogin;
+        }
+        if(errorMessageChangeLogin.isEmpty())
         {
             IMatDataHandler.getInstance().getUser().setUserName(accountLogInEmailField.getText());
-            IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
+            IMatDataHandler.getInstance().getCustomer().setEmail(accountLogInEmailField.getText());
+            
+            if (!accountLogInPassField.getText().isEmpty()){
+                IMatDataHandler.getInstance().getUser().setPassword(accountLogInPassField.getText());
+            }
+            updateLabels();
             accountLogIn2.toFront();
         }
-        else System.out.println("felfelfel");
+        else {accountLogInErrors.setText(errorMessageChangeLogin);}
     }
     @FXML
     private void accountAdressChange(){
-        accountAdressNameField.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        accountAdressLNameField.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressAdressField.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        accountAdressZipField.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-        accountAdressCityField.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        accountAdressCellphoneField.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        updateLabels();
         accountAdress1.toFront();
     }
     @FXML
     private void accountAdressDone(){
-        int errors = 0;
+        String errorMessageChangeAdress= "";
         //Address Info
-        if(!accountAdressNameField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setFirstName(accountAdressNameField.getText());
+        if(accountAdressNameField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Namn saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressLNameField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setLastName(accountAdressLNameField.getText());
+        if(accountAdressLNameField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Efternamn saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressAdressField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setAddress(accountAdressAdressField.getText());
+        if(accountAdressAdressField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Adress saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressCityField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPostAddress(accountAdressCityField.getText());
+        if(accountAdressCityField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Stad saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressZipField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPostCode(accountAdressZipField.getText());
+        if(accountAdressZipField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Postnummer saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressCellphoneField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(accountAdressCellphoneField.getText());
+        if(accountAdressCellphoneField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Mobilnummer saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressTelephoneField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPhoneNumber(accountAdressTelephoneField.getText());
+        if(accountAdressTelephoneField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Telefonnummer saknas ";
         }
-        else{errors++;}
         
         
-        if (errors == 0) {
+        if (errorMessageChangeAdress.isEmpty()) {
+        IMatDataHandler.getInstance().getCustomer().setFirstName(accountAdressNameField.getText());
+        IMatDataHandler.getInstance().getCustomer().setLastName(accountAdressLNameField.getText());
+        IMatDataHandler.getInstance().getCustomer().setAddress(accountAdressAdressField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPostAddress(accountAdressCityField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPostCode(accountAdressZipField.getText());
+        IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(accountAdressCellphoneField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPhoneNumber(accountAdressTelephoneField.getText());
+        
         accountAdress2.toFront();
-        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
-        accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-        accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());    
+        updateLabels();
         }
+        else accountAdressErrors.setText(errorMessageChangeAdress);
     }
     
     // Controller factory for thumbnail.
@@ -473,8 +448,8 @@ public class iMatController implements Initializable {
         return thumbnailProd;
    }
     
-//    @FXML
-//    private void searchMethod() throws IOException{
+    @FXML
+    private void searchMethod() throws IOException{
 //        specificCategoryList.getChildren().clear();
 //        categoryItemList.clear();
 //        offersView1.toFront();  
@@ -486,7 +461,7 @@ public class iMatController implements Initializable {
 ////        } 
 //        
 //        specificCategoryList.getChildren().addAll(categoryItemList);
-//    }
+    }
     
     @FXML
     private void openFavoriteView() throws IOException{
@@ -751,10 +726,55 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void gzExitButton(){
+        IMatDataHandler.getInstance().shutDown();
         System.exit(0);
     }
-    
-    
+    private void updateLabels(){
+        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
+        
+        accountAdressNameField.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        accountAdressLNameField.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressAdressField.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        accountAdressZipField.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        accountAdressCityField.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        accountAdressCellphoneField.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        accountLogInEmailField.setText(IMatDataHandler.getInstance().getUser().getUserName());
+        
+    }
+    @FXML
+    private void showCategoryMeat(){
+     }
+    @FXML
+    private void showCategorySeafood(){
+     }
+    @FXML
+    private void showCategoryFruitAndGreen(){
+     }
+    @FXML
+    private void showCategoryDairyEggCheese(){
+     }
+    @FXML
+    private void showCategoryPantry(){
+     }
+    @FXML
+    private void showCategoryDrinks(){
+     }
+    @FXML
+    private void openHistoryView(){
+     }
+    @FXML
+    private void openSavedShoppingCarts(){
+     }
     //
     // -----------------------------------------------------------------------
     //
