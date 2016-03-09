@@ -78,7 +78,7 @@ public class iMatController implements Initializable {
     
     // Favorites
     @FXML private Pane favoritesView;
-    @FXML private HBox favoritesProductsPane;
+    @FXML private FlowPane favoritesProductsPane;
     @FXML private ObservableList<Pane> favoriteItemList = FXCollections.observableArrayList();
     
     // Categories
@@ -105,8 +105,8 @@ public class iMatController implements Initializable {
     // HistoryView & SavedLists
     @FXML private Pane historyCartsView;
     @FXML private Pane savedShoppingCartsView;
-    @FXML private HBox historyCartsViewList;
-    @FXML private HBox savedShoppingCartsViewList;
+    @FXML private FlowPane historyCartsViewList;
+    @FXML private FlowPane savedShoppingCartsViewList;
     public static ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
     public static ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
     
@@ -185,7 +185,7 @@ public class iMatController implements Initializable {
     @FXML private Button gzExitButton;
     
     // Checkout Step1
-    @FXML private ScrollPane step1SPane;
+    @FXML private AnchorPane step1SPane;
     @FXML private Button checkoutGoBackButton;
     @FXML private Button step1Forward;
     @FXML private Label step1TotSum;
@@ -907,6 +907,22 @@ public class iMatController implements Initializable {
         accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
         accountLogInEmailField.setText(IMatDataHandler.getInstance().getUser().getUserName());
         
+    }
+    @FXML
+    private void step2Register(){
+
+    }
+    @FXML
+    private void step2Login(){
+
+    }
+    @FXML
+    private void step4Back(){
+
+    }
+    @FXML
+    private void step4Change(){
+
     }
 
     //
