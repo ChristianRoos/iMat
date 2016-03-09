@@ -5,12 +5,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import se.chalmers.ait.dat215.project.*;
 
 public class ShoppingCartController {
@@ -20,6 +27,9 @@ public class ShoppingCartController {
     @FXML private VBox cartList;
     @FXML private Button cartButton;
     @FXML private Button cartButtonSave;
+    @FXML private ScrollPane cartScrollPane;
+    @FXML private Pane cartGreyPane;
+    @FXML private Pane cartGreyPane2;
     
     private iMatController iMatController;
     public ArrayList<CartItemController> cartsItems = new ArrayList<>();
@@ -100,7 +110,23 @@ public class ShoppingCartController {
         Button makeCurrentCart = new Button();
         
         shoppingCart.cartPane.add(makeCurrentCart, 0, 2);
-        makeCurrentCart.setTranslateY(-100);
+        makeCurrentCart.setTranslateY(-93);
+        makeCurrentCart.setTranslateX(78);
+        makeCurrentCart.setPrefWidth(137);
+        makeCurrentCart.setPrefHeight(34);
+               
+        makeCurrentCart.setText("Hämta varukorg");
+        makeCurrentCart.setTextFill(Color.WHITE);
+        makeCurrentCart.setAlignment(Pos.CENTER);
+        makeCurrentCart.setFont(Font.font("Calibri", FontWeight.BOLD, 18));
+         
+        makeCurrentCart.getStyleClass().clear();
+        makeCurrentCart.getStyleClass().add("pinkBGColour");
+      
+     //   shoppingCart.cartScrollPane.getStyleClass().add("fancyGrey");
+     //   shoppingCart.cartGreyPane.getStyleClass().add("fancyGrey");
+    //    shoppingCart.cartGreyPane2.getStyleClass().add("fancyGrey");
+    //    shoppingCart.cartList.getStyleClass().add("fancyGrey");
         
         iMatController.shoppingCartsSaved.add(shoppingCart);
     }

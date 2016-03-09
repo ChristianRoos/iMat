@@ -683,7 +683,6 @@ public class iMatController implements Initializable {
         for(ShoppingCartController shopCart : shoppingCartsHistory) {
             historyCartsViewList.getChildren().add(shopCart.cartPane);
         }
-        
         historyCartsView.toFront();
     }
 
@@ -861,6 +860,8 @@ public class iMatController implements Initializable {
         if(step3RadioButton1.selectedProperty().getValue() || step3RadioButton2.selectedProperty().getValue()
                 || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
             errorLabel.visibleProperty().set(false);
+            IMatDataHandler.getInstance().placeOrder();
+            shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
             gzPane.toFront();
         }  
         else {
