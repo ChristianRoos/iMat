@@ -3,6 +3,7 @@ package dokagg.project.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
@@ -29,7 +31,7 @@ import javafx.scene.layout.HBox;
 
 public class iMatController implements Initializable {
     private boolean loggedIn;
-    
+    private int favCounter;
     ////////////////////////////////////////////////////////////////////////////
     //// First-Account-Page
     //
@@ -80,7 +82,7 @@ public class iMatController implements Initializable {
     @FXML private Pane favoritesView;
     @FXML private FlowPane favoritesProductsPane;
     @FXML private ObservableList<Pane> favoriteItemList = FXCollections.observableArrayList();
-    
+    @FXML private ObservableList<Pane> offersItemList = FXCollections.observableArrayList();
     // Categories
     @FXML private Button categoryMeatButton;
     @FXML private Button categorySeaFoodButton;
@@ -150,6 +152,9 @@ public class iMatController implements Initializable {
     @FXML private Button accountAdressButtonDone;
     @FXML private Button accountAdressButtonChange;
     
+    @FXML private RadioButton accountPaymentMasterCard;
+    @FXML private RadioButton accountPaymentVisa;
+    
     @FXML private TextField accountPaymentCardField;
     @FXML private TextField accountPaymentMonthField;
     @FXML private TextField accountPaymentYearField;
@@ -212,6 +217,29 @@ public class iMatController implements Initializable {
     @FXML private TextField step2City;
     @FXML private TextField step2Email;
     @FXML private TextField step2Phone;
+    @FXML private TextField step2Cellphone;
+    
+    
+//Checkout Step2 Log in
+    @FXML private Pane step2LoginPane;
+    @FXML private Button step2LoginForward;
+    @FXML private Button step2LoginBack;
+    @FXML private Button step2LoginButton;
+    @FXML private TextField step2LoginEmail;
+    @FXML private TextField step2LoginPass;
+    @FXML private TextField step2RegisterEmail;
+    @FXML private TextField step2RegisterEmailConfirm;
+    @FXML private TextField step2RegisterPass;
+    @FXML private TextField step2RegisterPassConfirm;
+    @FXML private TextField step2RegisterName;
+    @FXML private TextField step2RegisterLName;
+    @FXML private TextField step2RegisterAdress;
+    @FXML private TextField step2RegisterZip;
+    @FXML private TextField step2RegisterCity;
+    @FXML private TextField step2RegisterTelephone;
+    @FXML private TextField step2RegisterCellphone;
+    @FXML private Label step2LoginErrors;
+    @FXML private Label step2RegisterErrors;
     
     // Checkout Step3
     @FXML private Pane step3Pane;
@@ -224,6 +252,37 @@ public class iMatController implements Initializable {
     @FXML private Label step3TotSum;
     @FXML private Label errorLabel;
     
+    // Checkout Step4
+    @FXML private Pane step4Pane;
+    @FXML private Button step4Back;
+    @FXML private Button step4Forward;
+    @FXML private RadioButton step4Mastercard;
+    @FXML private RadioButton step4Visa;
+    @FXML private Label step4TotSum;
+    @FXML private Label step4Errors;
+    @FXML private TextField step4Name;
+    @FXML private TextField step4CardNr;
+    @FXML private TextField step4Month;
+    @FXML private TextField step4Year;
+    @FXML private TextField step4Security;
+    @FXML private CheckBox step4SaveInfo;
+    
+        // Checkout Step4 Confirm
+    @FXML private Pane step4ConfirmPane;
+    @FXML private Button step4ConfirmBack;
+    @FXML private Button step4ConfirmForward;
+    @FXML private Button step4ConfirmChange;
+    @FXML private Label step4ConfirmType;
+    @FXML private Label step4ConfirmName;
+    @FXML private Label step4ConfirmCardNr;
+    @FXML private Label step4ConfirmDate;
+    @FXML private Label step4ConfirmSecurity;
+    @FXML private Label step4ConfirmTotSum;
+    // StarView
+    @FXML private Pane startView;
+    @FXML private HBox startViewOffers;
+    @FXML private HBox startViewFav;
+    
     
     
     
@@ -235,6 +294,7 @@ public class iMatController implements Initializable {
         mainViewShoppingCartShell.getChildren().add(currentlyActiveShoppingCart.cartPane); 
 
         mainPane.toFront();
+        openStartView();
         // TODO -----------------------------------------------------------------------------------
 //        homePage.toFront();
 
@@ -267,6 +327,7 @@ public class iMatController implements Initializable {
         if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
             IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
             IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
+            IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
             IMatDataHandler.getInstance().getCustomer().setFirstName(registerAdressNameField.getText());
             IMatDataHandler.getInstance().getCustomer().setLastName(registerAdressLNameField.getText());
             IMatDataHandler.getInstance().getCustomer().setPostAddress(registerAdressCityField.getText());
@@ -392,7 +453,10 @@ public class iMatController implements Initializable {
     
     @FXML
     private void accountPaymentDone(){
-        if (!cardClear(accountPaymentCardField.getText())) {
+        if(!accountPaymentMasterCard.isSelected() && !accountPaymentVisa.isSelected()){
+            accountPaymentErrors.setText("Korttyp har inte angivits!");
+        }
+        else if (!cardClear(accountPaymentCardField.getText())) {
             accountPaymentErrors.setText("Kortnummer har angivits fel!");
         } else if (!monthClear(accountPaymentMonthField.getText())) {
             accountPaymentErrors.setText("Felaktigt månad!");
@@ -402,7 +466,9 @@ public class iMatController implements Initializable {
             accountPaymentErrors.setText("CVC är inkorrekt inmatad!");
         } else {
             accountPayment3.toFront();         
-        
+            
+            if(accountPaymentMasterCard.isSelected()){IMatDataHandler.getInstance().getCreditCard().setCardType(accountPaymentMasterCard.getText());}
+            else {IMatDataHandler.getInstance().getCreditCard().setCardType(accountPaymentVisa.getText());}
             IMatDataHandler.getInstance().getCreditCard().setCardNumber(accountPaymentCardField.getText());
             IMatDataHandler.getInstance().getCreditCard().setHoldersName(accountPaymentNameField.getText());
             IMatDataHandler.getInstance().getCreditCard().setValidMonth(Integer.parseInt(accountPaymentMonthField.getText()));
@@ -412,7 +478,7 @@ public class iMatController implements Initializable {
             accountPaymentErrors.setText("");
             accountPaymentCard1.setText( accountPaymentCardField.getText());
             accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
-        }        
+        } 
     }
 
     @FXML
@@ -774,7 +840,10 @@ public class iMatController implements Initializable {
     
     @FXML
     private void step1Forward(){
+        if(loggedIn){
         step2Pane.toFront();
+        }
+        else{step2LoginPane.toFront();}
         //checkoutStep1.setStyle("#checkoutPaneColourWhite");
         step1TopLabel.setTextFill(Color.BLACK);
         
@@ -787,17 +856,7 @@ public class iMatController implements Initializable {
         checkoutStep2.getStyleClass().clear();
         checkoutStep2.getStyleClass().add("niceColour");
         step2TopLabel.setTextFill(Color.WHITE);
-    
-        step2FirstName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        step2LastName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-        step2Address.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        step2PostalCode.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-        step2City.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        step2Email.setText(IMatDataHandler.getInstance().getCustomer().getEmail());
-        step2Phone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        
-        
-        
+      
         
     } 
    
@@ -858,11 +917,18 @@ public class iMatController implements Initializable {
     
     @FXML
     private void step3Finish(){
-        if(step3RadioButton1.selectedProperty().getValue() || step3RadioButton2.selectedProperty().getValue()
+        if(step3RadioButton1.selectedProperty().getValue()
                 || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
             errorLabel.visibleProperty().set(false);
             gzPane.toFront();
         }  
+        else if(step3RadioButton2.selectedProperty().getValue()){
+            if(IMatDataHandler.getInstance().getCreditCard().getCardNumber().isEmpty()){
+                step4Pane.toFront();
+            }
+            else step4ConfirmPane.toFront();
+                
+        }
         else {
             errorLabel.visibleProperty().set(true);
             errorLabel.setText("Du måste välja ett av alternativen ovan för att gå vidare!");
@@ -907,42 +973,191 @@ public class iMatController implements Initializable {
         accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
         accountLogInEmailField.setText(IMatDataHandler.getInstance().getUser().getUserName());
         
+        step2FirstName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        step2LastName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        step2Address.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        step2PostalCode.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        step2City.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        step2Email.setText(IMatDataHandler.getInstance().getCustomer().getEmail());
+        step2Phone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        step2Cellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        
     }
     @FXML
     private void step2Register(){
+        //Login info
+        String errorMessageAdress ="";
+        String errorMessageRegister ="";
+        if(!step2RegisterEmail.getText().equals(step2RegisterEmailConfirm.getText()) || step2RegisterEmailConfirm.getText().isEmpty()){
+             errorMessageRegister = errorMessageRegister + "Email stämmer ej överrens eller ej angivna. "; 
+        }
+        if(!step2RegisterPass.getText().equals(step2RegisterPassConfirm.getText()) || step2RegisterPassConfirm.getText().isEmpty()){
+           errorMessageRegister = errorMessageRegister + "Lösenord stämmer ej överens eller ej angivna. ";
+        }
+        //Address Info
+        if(step2RegisterName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";}
+        if(step2RegisterLName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";}
+        if(step2RegisterAdress.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";}
+        if(step2RegisterCity.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";}
+        if(step2RegisterZip.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";}
+        if(step2RegisterCellphone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
+        if(step2RegisterTelephone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
+
+        
+        
+        if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
+            IMatDataHandler.getInstance().getUser().setUserName(step2RegisterEmail.getText());
+            IMatDataHandler.getInstance().getUser().setPassword(step2RegisterPass.getText()); 
+            IMatDataHandler.getInstance().getCustomer().setEmail(step2RegisterEmail.getText());
+            IMatDataHandler.getInstance().getCustomer().setFirstName(step2RegisterName.getText());
+            IMatDataHandler.getInstance().getCustomer().setLastName(step2RegisterLName.getText());
+            IMatDataHandler.getInstance().getCustomer().setPostAddress(step2RegisterAdress.getText());
+            IMatDataHandler.getInstance().getCustomer().setPostCode(step2RegisterZip.getText());
+            IMatDataHandler.getInstance().getCustomer().setAddress(step2RegisterCity.getText());
+            IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(step2RegisterCellphone.getText());
+            IMatDataHandler.getInstance().getCustomer().setPhoneNumber(step2RegisterTelephone.getText());
+            
+            kontoRutaDetails.setText("Kontouppgifter");
+            kontoRutaLogOut.setText("Logga ut");
+            step3Pane.toFront();
+            loggedIn = true;
+            
+            updateLabels();
+            
+        }
+        else{
+            step2RegisterErrors.setText(errorMessageAdress+errorMessageRegister);
+        }
 
     }
     @FXML
     private void step2Login(){
+        String errorMessageLogin = "";
+        if(step2LoginEmail.getText().isEmpty()){
+            errorMessageLogin="Email saknas. ";
+        }
+        if(step2LoginPass.getText().isEmpty()){
+            errorMessageLogin= errorMessageLogin +"Lösenord saknas. ";
+        }
+        if(!step2LoginEmail.getText().equals(IMatDataHandler.getInstance().getUser().getUserName())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin +"Finns inget konto registrerat med den emailen";
+        }
+        if(!step2LoginPass.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin + "Email och lösenord matchar inte";
+        }
+        step2LoginErrors.setText(errorMessageLogin);
+        if(errorMessageLogin.isEmpty()){
+        updateLabels();
+        kontoRutaDetails.setText("Kontouppgifter");
+        kontoRutaLogOut.setText("Logga ut");
+        step2Pane.toFront();
+        loggedIn = true;
+        step2LoginEmail.setText("");
+        step2LoginPass.setText("");
+        }
 
     }
     @FXML
     private void step4Back(){
-
+        step3Pane.toFront();
     }
     @FXML
     private void step4Change(){
-
+        step4ConfirmPane.toFront();
     }
     @FXML
     private void openStartView(){
-
+        
+        Random randomizer = new Random();
+        startViewFav.getChildren().clear();
+        favoriteItemList.clear();
+        startViewOffers.getChildren().clear();
+        offersItemList.clear();
+        startView.toFront();
+        for (int j = 0; j<5;) {
+            if(j<IMatDataHandler.getInstance().favorites().size()){
+            Product favProd = IMatDataHandler.getInstance().favorites().get(j);
+            Pane thumbnailObj = thumbnailFactory(favProd);
+            favoriteItemList.add(thumbnailObj);
+            }
+            j++;
+            
+        }
+        for (int i = 0; i<5;) {
+            
+            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
+            Pane thumbnailObj = thumbnailFactory(offerProd);
+            offersItemList.add(thumbnailObj);
+            i++;
+        } 
+        favCounter = favoriteItemList.size();
+        startViewOffers.getChildren().addAll(offersItemList);
+        startViewFav.getChildren().addAll(favoriteItemList);
     }
     @FXML
     private void offersLeft(){
-
+        Random randomizer = new Random();
+        startViewOffers.getChildren().clear();
+        offersItemList.clear();
+        for (int i = 0; i<5;) {
+            
+            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
+            Pane thumbnailObj = thumbnailFactory(offerProd);
+            offersItemList.add(thumbnailObj);
+            i++;
+        } 
+        startViewOffers.getChildren().addAll(offersItemList);
     }
     @FXML
     private void offersRight(){
-
+        Random randomizer = new Random();
+        startViewOffers.getChildren().clear();
+        offersItemList.clear();
+        for (int i = 0; i<5;) {
+            
+            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
+            Pane thumbnailObj = thumbnailFactory(offerProd);
+            offersItemList.add(thumbnailObj);
+            i++;
+        } 
+        startViewOffers.getChildren().addAll(offersItemList);
     }
     @FXML
     private void favoritesLeft(){
+        if(favCounter>=10){
+        startViewFav.getChildren().clear();
+        favoriteItemList.clear();
+        for (int j = favCounter-10; j<favCounter-5;) {
+            if(j<IMatDataHandler.getInstance().favorites().size()){
+            Product favProd = IMatDataHandler.getInstance().favorites().get(j);
+            Pane thumbnailObj = thumbnailFactory(favProd);
+            favoriteItemList.add(thumbnailObj);
+            }
+            j++;
+            
+        }
+        favCounter = favCounter - 5;
+        startViewFav.getChildren().addAll(favoriteItemList);
+        }
 
     }
     @FXML
     private void favoritesRight(){
-
+        if(favCounter<IMatDataHandler.getInstance().favorites().size()){
+        startViewFav.getChildren().clear();
+        favoriteItemList.clear();
+        for (int j = favCounter; j<favCounter+5;) {
+            if(j<IMatDataHandler.getInstance().favorites().size()){
+            Product favProd = IMatDataHandler.getInstance().favorites().get(j);
+            Pane thumbnailObj = thumbnailFactory(favProd);
+            favoriteItemList.add(thumbnailObj);
+            }
+            j++;
+            
+        }
+        favCounter = favCounter + 5;
+        startViewFav.getChildren().addAll(favoriteItemList);
+        }
     }
     
 
