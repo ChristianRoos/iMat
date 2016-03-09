@@ -99,18 +99,18 @@
                   <Font name="Calibri" size="32.0" />
                </font>
             </Button>
-            <Text fill="RED" layoutX="140.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
+            <Text fx:id="cartTextUSaved" fill="RED" layoutX="140.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du sparade:">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>
             </Text>
-            <Text layoutX="100.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
+            <Text fx:id="cartTextSum" layoutX="100.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa:">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>
             </Text>
-            <Line endX="79.0" layoutX="195.0" layoutY="47.0" startX="-70.0" />
-            <Text fill="RED" layoutX="222.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 kr">
+            <Line fx:id="cartTheLine" endX="79.0" layoutX="195.0" layoutY="47.0" startX="-70.0" />
+            <Text fx:id="cartTextUSavedValue" fill="RED" layoutX="222.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 kr">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>

@@ -60,10 +60,21 @@ public class CartItemController {
         return prodAsShopItem;
     }
     
-    public void increaseQuantity(double quantity){
-        double newQuantity = Double.valueOf(getQuantity()) + quantity;
-        cartItemAmountField.setText(String.valueOf(newQuantity));
-        cartItemTotal.setText(String.valueOf(prod.getPrice()*newQuantity));
-       
+    public void setQuantity(double quantity){
+        cartItemAmountField.setText(String.valueOf(quantity));
+        updateTotalCost();
+    }
+    
+    public void updateTotalCost(){
+        
+//        double newQuantity = Double.valueOf(getQuantity()) + quantity;
+//        cartItemAmountField.setText(String.valueOf(newQuantity));
+//        cartItemTotal.setText(String.valueOf(prod.getPrice()*newQuantity));
+        
+        double newTotalCost = prod.getPrice()*Double.valueOf(getQuantity());
+        cartItemTotal.setText(String.valueOf(newTotalCost));
+        
+        // update newTotalCost
+//        shoppingCart.updateTotalCost(newTotalCost);
     }
 }

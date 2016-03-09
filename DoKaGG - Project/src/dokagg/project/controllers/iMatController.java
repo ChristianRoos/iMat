@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -24,8 +25,14 @@ import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.effect.ColorInput;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import static javafx.scene.paint.Color.color;
+import static javafx.scene.paint.Color.color;
+import static javafx.scene.paint.Color.color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class iMatController implements Initializable {
     private boolean loggedIn;
@@ -68,11 +75,12 @@ public class iMatController implements Initializable {
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
     
-    @FXML private AnchorPane banner;
-    
-    // HomePage
-    @FXML private Pane homePage;
-    
+    // HomePage, History & SavedLists
+    @FXML private Pane startView;
+    @FXML private Button startPageButton;
+    @FXML private Button favortiePageButton;
+    @FXML private Button historyPageButton;
+
     // SearchBar
     @FXML private TextField searchProduct;
     
@@ -86,10 +94,13 @@ public class iMatController implements Initializable {
     @FXML private Button categorySeaFoodButton;
     @FXML private Button categoryFruitButton;
     @FXML private Button categoryDairyButton;
+    @FXML private Button categoryDrinkButton;
     @FXML private Button categoryPantryButton;
     @FXML private Button savedListsButton;
+    private ArrayList<Button> categoryButtons = new ArrayList<>();
     
     @FXML private Pane offersView1;
+    @FXML private Label categoryLabel;
     @FXML private FlowPane specificCategoryList;
     @FXML private ObservableList<Pane> categoryItemList = FXCollections.observableArrayList();
     private ArrayList<ProductCategory> categoriesToSeeList = new ArrayList<>();
@@ -100,7 +111,8 @@ public class iMatController implements Initializable {
     // ShoppingCart
     @FXML private AnchorPane mainViewShoppingCartShell;
 
-    private static ShoppingCartController currentlyActiveShoppingCart;
+    private ShoppingCartController currentlyActiveShoppingCart;
+    private ShoppingCartController checkoutShoppingCart;
     
     // HistoryView & SavedLists
     @FXML private Pane historyCartsView;
@@ -186,6 +198,7 @@ public class iMatController implements Initializable {
     
     // Checkout Step1
     @FXML private AnchorPane step1SPane;
+    @FXML private Pane step1CartPane;
     @FXML private Button checkoutGoBackButton;
     @FXML private Button step1Forward;
     @FXML private Label step1TotSum;
@@ -221,23 +234,30 @@ public class iMatController implements Initializable {
     @FXML private RadioButton step3RadioButton2;
     @FXML private RadioButton step3RadioButton3;
     @FXML private RadioButton step3RadioButton4;
-    @FXML private Label step3TotSum;
+    @FXML private Label step3TotSum11;
     @FXML private Label errorLabel;
     
-    
-    
+
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
         IMatDataHandler.getInstance().getShoppingCart().clear();
         currentlyActiveShoppingCart = shoppingCartFactory(null);
         mainViewShoppingCartShell.getChildren().add(currentlyActiveShoppingCart.cartPane); 
+        
+        categoryButtons.add(startPageButton);
+        categoryButtons.add(favortiePageButton);
+        categoryButtons.add(historyPageButton);
+        categoryButtons.add(savedListsButton);
+        categoryButtons.add(categoryMeatButton);
+        categoryButtons.add(categorySeaFoodButton);
+        categoryButtons.add(categoryFruitButton);
+        categoryButtons.add(categoryDairyButton);
+        categoryButtons.add(categoryDrinkButton);
+        categoryButtons.add(categoryPantryButton);
 
         mainPane.toFront();
-        // TODO -----------------------------------------------------------------------------------
-//        homePage.toFront();
-
+        startView.toFront();
     }
     
     // -----------------------------------------------------------------------
@@ -574,12 +594,14 @@ public class iMatController implements Initializable {
     @FXML
     private void showCategoryMeat() throws IOException{
       categoriesToSeeList.add(ProductCategory.MEAT);
+      categoryLabel.setText("Kött & Chark");
       openCategoryView(emptyUnCategoryList);
     }
     
     @FXML
     private void showCategorySeafood() throws IOException{
       categoriesToSeeList.add(ProductCategory.FISH);
+      categoryLabel.setText("Fisk & Skaldjur");
       openCategoryView(emptyUnCategoryList);
     }
     
@@ -598,22 +620,14 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
       categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
       
+      categoryLabel.setText("Frukt & Grönt");
       openCategoryView(emptyUnCategoryList);
     }
     
     @FXML
     private void showCategoryDairyEggCheese() throws IOException{
       categoriesToSeeList.add(ProductCategory.DAIRIES);
-      openCategoryView(emptyUnCategoryList);
-    }
-    
-    @FXML
-    private void showCategoryPantry() throws IOException{
-      categoriesToSeeList.add(ProductCategory.BREAD);
-      categoriesToSeeList.add(ProductCategory.SWEET);
-      categoriesToSeeList.add(ProductCategory.FLOUR_SUGAR_SALT);
-      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
-      
+      categoryLabel.setText("Meheri, Ägg & Ost");
       openCategoryView(emptyUnCategoryList);
     }
     
@@ -623,12 +637,31 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.HOT_DRINKS);
       categoriesToSeeList.add(ProductCategory.COLD_DRINKS);
       
+      categoryLabel.setText("Dryck");
       openCategoryView(unCategorizedProducts);
     }
     
     @FXML
-    private void testButton(){
-
+    private void showCategoryPantry() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BREAD);
+      categoriesToSeeList.add(ProductCategory.SWEET);
+      categoriesToSeeList.add(ProductCategory.FLOUR_SUGAR_SALT);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      
+      categoryLabel.setText("Skafferi");
+      openCategoryView(emptyUnCategoryList);
+    }
+    
+    // TODO
+    private void highlightMenuButtons(Button inputButton) {
+        
+        for (Button button : categoryButtons) {
+            /*
+            Make all buttons in this array gray, except the one we send in as a parameter
+            Pink:    #d31145
+            Default: #e5e5e5
+            */
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -648,31 +681,44 @@ public class iMatController implements Initializable {
         
         ShoppingCartController shopCartCont = loader.getController();
         shopCartCont.initShopCart(this, clonedCartList);
+        
+        
 
         return shopCartCont;
    }
 
     @FXML
     public void addProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
+        
+        // Have to do this first check to set the total-value correct
+        if(currentlyActiveShoppingCart.cartsItems.size() == 0) {
+            currentlyActiveShoppingCart.cartTotalCost.setText("0");
+        }
+        
         // Check if the shoppingcart is empty
-        if(IMatDataHandler.getInstance().getShoppingCart().getItems().size() > 0){
+        if(currentlyActiveShoppingCart.cartsItems.size() >0) {
             
             // see if product we want to add already exist in shoppingcart,
             // in that case, increase the amount of same type you just bought.
-            for(ShoppingItem shopItem : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+            for(CartItemController cartItem : currentlyActiveShoppingCart.cartsItems) {
                 
-                if(shopItem.getProduct().getName().equals(prod.getName())) {
-                    shopItem.setAmount(shopItem.getAmount() + quantity);
+                if(cartItem.getProduct().getName().equals(prod.getName())) {
+
+                    double newQuantity = Double.valueOf(cartItem.getQuantity()) + quantity;
+                    cartItem.setQuantity(newQuantity);
                     
-                    currentlyActiveShoppingCart.findItem(prod).increaseQuantity(quantity);
+//                    currentlyActiveShoppingCart.findItem(prod).setQuantity(quantity);
+                    String oldTotal = currentlyActiveShoppingCart.cartTotalCost.getText();
                     currentlyActiveShoppingCart.cartTotalCost.setText(
-                            String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
+                            String.valueOf(Double.valueOf(oldTotal) + prod.getPrice()*quantity));
                     return;
                 }
             }
         }
         // The item didn't exist already
-        IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
+        String oldTotal = currentlyActiveShoppingCart.cartTotalCost.getText();
+                    currentlyActiveShoppingCart.cartTotalCost.setText(
+                            String.valueOf(Double.valueOf(oldTotal) + prod.getPrice()*quantity));
         currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
     }
      
@@ -684,8 +730,52 @@ public class iMatController implements Initializable {
             historyCartsViewList.getChildren().add(shopCart.cartPane);
         }
         historyCartsView.toFront();
+        
+        if(IMatDataHandler.getInstance().getOrders().get(0).getItems() != null){
+            for(Order order : IMatDataHandler.getInstance().getOrders()){
+                // TODO ----------------------------------------------------------------------------------------------------------------------------------------- TODO
+            }
+        }
+        
+        
+        System.out.println(IMatDataHandler.getInstance().getOrders());
+        
     }
 
+    @FXML
+    public void saveShoppingCart(ArrayList<CartItemController> cartsItems) {
+        ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
+        ShoppingCartController shoppingCart = shoppingCartFactory(cloneBaby);
+        
+        shoppingCart.cartButton.visibleProperty().set(false);
+        shoppingCart.cartButton.disableProperty().set(true);
+        
+        shoppingCart.cartButtonSave.visibleProperty().set(false);
+        shoppingCart.cartButtonSave.disableProperty().set(true);
+        
+        Button makeCurrentCart = new Button();
+        
+        shoppingCart.cartPane.add(makeCurrentCart, 0, 2);
+        makeCurrentCart.setTranslateY(-93);
+        makeCurrentCart.setTranslateX(78);
+        makeCurrentCart.setPrefWidth(137);
+        makeCurrentCart.setPrefHeight(34);
+               
+        makeCurrentCart.setText("Hämta varukorg");
+        makeCurrentCart.setTextFill(Color.WHITE);
+        makeCurrentCart.setAlignment(Pos.CENTER);
+        makeCurrentCart.setFont(Font.font("Calibri", FontWeight.BOLD, 18));
+         
+        makeCurrentCart.getStyleClass().clear();
+        makeCurrentCart.getStyleClass().add("pinkBGColour");
+      
+     //   shoppingCart.cartScrollPane.getStyleClass().add("fancyGrey");
+     //   shoppingCart.cartGreyPane.getStyleClass().add("fancyGrey");
+    //    shoppingCart.cartGreyPane2.getStyleClass().add("fancyGrey");
+    //    shoppingCart.cartList.getStyleClass().add("fancyGrey");
+        
+        shoppingCartsSaved.add(shoppingCart);
+    }
     @FXML
     public void openSavedShoppingCarts() {
         savedShoppingCartsViewList.getChildren().clear();
@@ -735,20 +825,50 @@ public class iMatController implements Initializable {
         step3RadioButton4.selectedProperty().set(true);
     }
     
-    
+    // Here is the only place we add stuff to the "IMatDataHandler.ShoppingCart
+    // (This method is used in cartCheckoutButton)
+    public void updateBackendShopCart(CartItemController cartItem) {
+        
+        // Check if the shoppingcart is empty
+        if(IMatDataHandler.getInstance().getShoppingCart().getItems().size() > 0){
+
+            // see if product we want to add already exist in shoppingcart,
+            // in that case, increase the amount of same type you just bought.
+            for(ShoppingItem shopItem : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+
+                if(shopItem.getProduct().getName().equals(cartItem.getProduct().getName())) {
+
+                    shopItem.setAmount(shopItem.getAmount() + Double.valueOf(cartItem.getQuantity()));
+
+                    return;
+                }
+            }
+        }
+        // The item didn't exist already
+        IMatDataHandler.getInstance().getShoppingCart().addProduct(cartItem.getProduct(), Double.valueOf(cartItem.getQuantity()));
+    }
     
     @FXML
     public void cartCheckoutButton(ShoppingCartController shoppingCart){
         
-        // -------------------------------------------------------------------------------------------------------- TODO
-        // Change savedShoppingCartsViewList to correct Pane it is to be added to
-        savedShoppingCartsViewList.getChildren().clear();
-        savedShoppingCartsViewList.getChildren().add(shoppingCart.cartPane);
-
+        IMatDataHandler.getInstance().getShoppingCart().clear();
         
+        // Set our checkoutCart to the this cart (for later use when we go back)
+        checkoutShoppingCart = shoppingCart;
+        
+        // Clear checkout-pane to add the "activeCart"
+        step1CartPane.getChildren().clear();
+        step1CartPane.getChildren().add(shoppingCart.cartPane);
+        
+        for(CartItemController cartItem : shoppingCart.cartsItems) {
+            updateBackendShopCart(cartItem);
+        }
+        
+
+        step1TotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
+        step3TotSum11.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
         checkoutPane.toFront();
         step1SPane.toFront();
-        IMatDataHandler.getInstance().getShoppingCart().addProduct(IMatDataHandler.getInstance().getProducts().get(0));
     }
     
     // -----------------------------------------------------------------------
@@ -766,6 +886,11 @@ public class iMatController implements Initializable {
     @FXML
     private void checkoutGoBackButton(){
         
+        // Update our shop-cart with the changes (if any) made in our checkout-part.
+        currentlyActiveShoppingCart.cartsItems = checkoutShoppingCart.cartsItems;
+        
+        // Have to clear the database-value, because we add to it when we enter the Checkout-panes.
+        IMatDataHandler.getInstance().getShoppingCart().clear();
         mainPane.toFront();
     }
     //
@@ -859,6 +984,9 @@ public class iMatController implements Initializable {
     private void step3Finish(){
         if(step3RadioButton1.selectedProperty().getValue() || step3RadioButton2.selectedProperty().getValue()
                 || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
+            
+            IMatDataHandler.getInstance().placeOrder();
+            
             errorLabel.visibleProperty().set(false);
             IMatDataHandler.getInstance().placeOrder();
             shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
