@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -16,6 +18,8 @@ public class ShoppingCartController {
     @FXML public GridPane cartPane;
     @FXML public Text cartTotalCost;
     @FXML private VBox cartList;
+    @FXML private Button cartButton;
+    @FXML private Button cartButtonSave;
     
     private iMatController iMatController;
     public ArrayList<CartItemController> cartsItems = new ArrayList<>();
@@ -85,7 +89,20 @@ public class ShoppingCartController {
     
     public void favoriteShoppingCart() {
         ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
-        iMatController.shoppingCartsSaved.add(iMatController.shoppingCartFactory(cloneBaby));
+        ShoppingCartController shoppingCart = iMatController.shoppingCartFactory(cloneBaby);
+        
+        shoppingCart.cartButton.visibleProperty().set(false);
+        shoppingCart.cartButton.disableProperty().set(true);
+        
+        shoppingCart.cartButtonSave.visibleProperty().set(false);
+        shoppingCart.cartButtonSave.disableProperty().set(true);
+        
+        Button makeCurrentCart = new Button();
+        
+        shoppingCart.cartPane.add(makeCurrentCart, 0, 2);
+        makeCurrentCart.setTranslateY(-100);
+        
+        iMatController.shoppingCartsSaved.add(shoppingCart);
     }
     
     public CartItemController findItem(Product prod) {
