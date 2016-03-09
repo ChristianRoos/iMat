@@ -2,6 +2,7 @@ package dokagg.project.controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -26,24 +27,16 @@ public class ShoppingCartController {
         // input is a clonedCart (for savedCarts & historyCarts)
         if(clonedCartList != null){
             cartsItems = clonedCartList;
-            
-            VBox newVBox;
-            ArrayList<AnchorPane> newList = new ArrayList<>();
-            
-            for(CartItemController cartItem : clonedCartList) {
-                newList.add(cartItemFactory(
+
+//            ArrayList<AnchorPane> newList = new ArrayList<>();
+            ArrayList<CartItemController> inputArray = new ArrayList<>(clonedCartList);
+
+            for(CartItemController cartItem : inputArray) {
+                cartList.getChildren().add(cartItemFactory(
                         cartItem.getProduct(), 
                         Double.valueOf(cartItem.getQuantity()), 
                         cartItem.getShoppingItem()));
-                
-//                cartList.getChildren().add(cartItemFactory(
-//                        cartItem.getProduct(), 
-//                        Double.valueOf(cartItem.getQuantity()), 
-//                        cartItem.getShoppingItem()));
-
-                System.out.println(newList);
             }
-            cartList.getChildren().addAll(newList);
         }
     }
 
@@ -76,9 +69,11 @@ public class ShoppingCartController {
     }
     
     public void cartCheckoutButton() {
-        IMatDataHandler.getInstance().getShoppingCart().clear();
-        iMatController.cartCheckoutButton();
+        ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
+        ShoppingCartController newShoppingCart = iMatController.shoppingCartFactory(cloneBaby);
+        iMatController.cartCheckoutButton(newShoppingCart);
     }
+    
     public void favoriteShoppingCart() {
         ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
         iMatController.shoppingCartsSaved.add(iMatController.shoppingCartFactory(cloneBaby));
