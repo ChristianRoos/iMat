@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane fx:id="step2LoginPane" prefHeight="610.0" prefWidth="970.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="step2LoginBack" layoutX="30.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step2Back" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Gå tillbaka" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="step2LoginForward" layoutX="740.0" layoutY="545.0" maxHeight="40.0" maxWidth="200.0" mnemonicParsing="false" onAction="#step2Register" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #D31145;" text="Registrera konto" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="registerLoginEmailLabel" layoutX="68.0" layoutY="108.0" text="Email:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerLoginPassLabel" layoutX="36.0" layoutY="157.0" text="Lösenord:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="step2LoginEmail" layoutX="124.0" layoutY="102.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2LoginPass" layoutX="124.0" layoutY="149.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="step2LoginButton" layoutX="328.0" layoutY="199.0" mnemonicParsing="false" onAction="#step2Login" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="step2LoginForgotPass" layoutX="123.0" layoutY="205.0" text="Glömt lösenord..." textFill="#d31145" underline="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="485.0" layoutY="41.0" prefHeight="35.0" prefWidth="482.0" text="Du måste ha ett konto för att fortsätta.">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="482.0" layoutY="-3.0" orientation="VERTICAL" prefHeight="610.0" />
+      <Label fx:id="registerLoginEmailLabel1" layoutX="602.0" layoutY="107.0" text="Email:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="registerLoginPassLabel1" layoutX="571.0" layoutY="203.0" text="Lösenord:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="step2RegisterEmail" layoutX="658.0" layoutY="101.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterEmailConfirm" layoutX="658.0" layoutY="148.0" prefHeight="35.0" prefWidth="298.0" promptText="email@adress.com">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterPass" layoutX="658.0" layoutY="197.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="registerLoginPassConfirmLabel" layoutX="506.0" layoutY="248.0" prefHeight="35.0" prefWidth="151.0" text="Bekräfta lösenord:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="step2RegisterPassConfirm" layoutX="658.0" layoutY="246.0" prefHeight="39.0" prefWidth="298.0" promptText="*************">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="registerLoginEmailConfirmLabel" layoutX="532.0" layoutY="154.0" text="Bekräfta Email:">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="step2RegisterName" layoutX="532.0" layoutY="297.0" prefHeight="39.0" prefWidth="169.0" promptText="Förnamn">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterLName" layoutX="711.0" layoutY="297.0" prefHeight="39.0" prefWidth="244.0" promptText="Efternamn">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterAdress" layoutX="532.0" layoutY="344.0" prefHeight="39.0" prefWidth="423.0" promptText="Adress">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterZip" layoutX="532.0" layoutY="391.0" prefHeight="39.0" prefWidth="96.0" promptText="Postnr">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterCity" layoutX="639.0" layoutY="391.0" prefHeight="39.0" prefWidth="317.0" promptText="Ort">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterCellphone" layoutX="533.0" layoutY="485.0" prefHeight="39.0" prefWidth="423.0" promptText="Mobilnummer (frivilligt)">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="step2RegisterTelephone" layoutX="533.0" layoutY="438.0" prefHeight="39.0" prefWidth="423.0" promptText="Telefonnummer">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutY="41.0" prefHeight="35.0" prefWidth="482.0" text="Har du redan ett konto? ">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="68.0" prefHeight="17.0" prefWidth="482.0" text="Logga in för att fortsätta...">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="485.0" layoutY="68.0" prefHeight="22.0" prefWidth="482.0" text="Fyll i dina uppgifter för att registrera konto...">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
