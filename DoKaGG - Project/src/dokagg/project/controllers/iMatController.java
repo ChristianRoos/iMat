@@ -91,6 +91,7 @@ public class iMatController implements Initializable {
     
     
     // ShoppingCart
+<<<<<<< HEAD
     @FXML private AnchorPane mainViewShoppingCartShell;
 
     private ShoppingCartController currentlyActiveShoppingCart;
@@ -103,6 +104,31 @@ public class iMatController implements Initializable {
     public ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
     public ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
     
+=======
+    // TODO ----------------------------------------------------------------------------------- use right types.
+    @FXML private Pane shoppingCartPane;
+    @FXML private TableView cartTableView;
+    @FXML private Button cartButtonSave;
+    @FXML private Button cartButton;
+    @FXML private Text cartTotalCost;
+
+    private ShoppingCartController currentlyActiveShoppingCart;
+    
+
+    ShoppingCartListener scl;
+    
+    @FXML private TableColumn tableColName;
+    @FXML private TableColumn tableColQuantity;
+    @FXML private TableColumn tableColUnitPrice;
+    @FXML private TableColumn tableColTotal;
+    
+    // HistoryView & SavedLists
+    @FXML private Pane historyCartsView;
+    @FXML private Pane savedShoppingCartsView;
+    private ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
+    private ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
+    
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
 
     // Thumbnail
     @FXML private Button thumbButton;
@@ -222,10 +248,18 @@ public class iMatController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+<<<<<<< HEAD
         
         IMatDataHandler.getInstance().getShoppingCart().clear();
         currentlyActiveShoppingCart = shoppingCartFactory(null);
         mainViewShoppingCartShell.getChildren().add(currentlyActiveShoppingCart.cartPane); 
+=======
+
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the default shoppingcart
+        // Example:
+        // gridPane0_1.getChildren().add(shoppingCartFactory()); 
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
 
         mainPane.toFront();
 
@@ -253,8 +287,13 @@ public class iMatController implements Initializable {
         if(registerAdressCellphoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
         if(registerAdressTelephoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
 
+<<<<<<< HEAD
         
         
+=======
+        
+        
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
         if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
             IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
             IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
@@ -487,7 +526,11 @@ public class iMatController implements Initializable {
     //// Show specific Category view
     //
     @FXML
+<<<<<<< HEAD
     private void openCategoryView(ArrayList<Product> unCategorizedProducts) throws IOException {
+=======
+    private void openCategoryView(ArrayList<ProductCategory> inputCategoriesList, ArrayList<Product> unCategorizedProducts) throws IOException {
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
       
       // Clearing lists/views below before using them.
       // The category-FlowPane
@@ -496,6 +539,11 @@ public class iMatController implements Initializable {
       categoryItemList.clear();
       offersView1.toFront();  
 
+<<<<<<< HEAD
+=======
+      categoriesToSeeList.addAll(inputCategoriesList);
+      
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
       for (ProductCategory prodCate : categoriesToSeeList) {
         for (Product prod : IMatDataHandler.getInstance().getProducts(prodCate)) {
           Pane thumbnailObj = thumbnailFactory(prod);
@@ -508,19 +556,48 @@ public class iMatController implements Initializable {
 
         categoryItemList.add(thumbnailObj);
       }
+<<<<<<< HEAD
 
+=======
+      
+      // --------------------------------------------------------------------------------------------------------------------------------------------------------- ?
+      // Sort it by name?
+//      categoryItemList.sorted();
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
       specificCategoryList.getChildren().addAll(categoryItemList);
       categoriesToSeeList.clear();
       unCategorizedProducts.clear();
     }
     
+    // ---------------------------------------------------------------------------------------------------
+    // TESTING
     @FXML
+<<<<<<< HEAD
     private void showCategoryMeat() throws IOException{
       categoriesToSeeList.add(ProductCategory.MEAT);
       openCategoryView(emptyUnCategoryList);
+=======
+    private void mainWindowMeatCategoryButton() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BERRY);
+      categoriesToSeeList.add(ProductCategory.CABBAGE);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.FRUIT);
+      categoriesToSeeList.add(ProductCategory.HERB);
+      categoriesToSeeList.add(ProductCategory.MELONS);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      categoriesToSeeList.add(ProductCategory.POD);
+      categoriesToSeeList.add(ProductCategory.POTATO_RICE);
+      categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
+      categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
+      
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
+    // ---------------------------------------------------------------------------------------------------
     
     @FXML
+<<<<<<< HEAD
     private void showCategorySeafood() throws IOException{
       categoriesToSeeList.add(ProductCategory.FISH);
       openCategoryView(emptyUnCategoryList);
@@ -548,6 +625,41 @@ public class iMatController implements Initializable {
     private void showCategoryDairyEggCheese() throws IOException{
       categoriesToSeeList.add(ProductCategory.DAIRIES);
       openCategoryView(emptyUnCategoryList);
+=======
+    private void showCategoryMeat() throws IOException{
+      unCategorizedProducts.clear();
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategorySeafood() throws IOException{
+      categoriesToSeeList.add(ProductCategory.FISH);
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryFruitAndGreen() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BERRY);
+      categoriesToSeeList.add(ProductCategory.CABBAGE);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.FRUIT);
+      categoriesToSeeList.add(ProductCategory.HERB);
+      categoriesToSeeList.add(ProductCategory.MELONS);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      categoriesToSeeList.add(ProductCategory.POD);
+      categoriesToSeeList.add(ProductCategory.POTATO_RICE);
+      categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
+      categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
+      
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryDairyEggCheese() throws IOException{
+      categoriesToSeeList.add(ProductCategory.DAIRIES);
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
     
     @FXML
@@ -557,7 +669,11 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.FLOUR_SUGAR_SALT);
       categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
       
+<<<<<<< HEAD
       openCategoryView(emptyUnCategoryList);
+=======
+      openCategoryView(categoriesToSeeList, emptyUnCategoryList);
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
     
     @FXML
@@ -566,7 +682,11 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.HOT_DRINKS);
       categoriesToSeeList.add(ProductCategory.COLD_DRINKS);
       
+<<<<<<< HEAD
       openCategoryView(unCategorizedProducts);
+=======
+      openCategoryView(categoriesToSeeList, unCategorizedProducts);
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
     
     @FXML
@@ -579,9 +699,15 @@ public class iMatController implements Initializable {
     //
     
     // ShoppingCart factory.
+<<<<<<< HEAD
     public ShoppingCartController shoppingCartFactory(ArrayList<CartItemController> clonedCartList) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/shoppingCart.fxml"));
         GridPane shopCartPane = null;
+=======
+    private Pane shoppingCartFactory() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/shoppingCart.fxml"));
+        Pane shopCartPane = null;
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
         
         try {
             shopCartPane = loader.load();
@@ -590,6 +716,7 @@ public class iMatController implements Initializable {
         }
         
         ShoppingCartController shopCartCont = loader.getController();
+<<<<<<< HEAD
         shopCartCont.initShopCart(this, clonedCartList);
 
         return shopCartCont;
@@ -652,7 +779,80 @@ public class iMatController implements Initializable {
         
         
         savedShoppingCartsView.toFront();
+=======
+        shopCartCont.initShopCart(this);
+
+        return shopCartPane;
+   }
+    // --------------------------------------------------------------------------------------------------------------------------------------------------------------- TODO
+    // Tell correct Pane to update.
+    @FXML
+    public void AddProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
+        
+        currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
+        
+        cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
+>>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
+
+//    @FXML
+//    private void showShoppingCart(ArrayList<ProductCategory> inputCategoriesList, ArrayList<Product> unCategorizedProducts) throws IOException {
+//      
+//      // Clearing lists/views below before using them.
+//      // The category-FlowPane
+//      specificCategoryList.getChildren().clear();
+//      // The actual list with all the objects which will be shown
+//      categoryItemList.clear();
+//      offersView1.toFront();  
+//
+//      categoriesToSeeList.addAll(inputCategoriesList);
+//      
+//      for (ProductCategory prodCate : categoriesToSeeList) {
+//        for (Product prod : IMatDataHandler.getInstance().getProducts(prodCate)) {
+//          Pane thumbnailObj = thumbnailFactory(prod);
+//
+//          categoryItemList.add(thumbnailObj);
+//        }
+//      }
+//      for (Product prod : unCategorizedProducts) {
+//        Pane thumbnailObj = thumbnailFactory(prod);
+//
+//        categoryItemList.add(thumbnailObj);
+//      }
+//      
+//      // ------------------------------------------------------------------------------------------------------------------------------- ?
+//      // Sort it by name?
+////      categoryItemList.sorted();
+//      specificCategoryList.getChildren().addAll(categoryItemList);
+//      categoriesToSeeList.clear();
+//      unCategorizedProducts.clear();
+//    }
+     
+    @FXML
+    private void openHistoryView() {
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the history shoppingcarts
+        // Example:
+        // for(Every cart in shoppingCartsHistory) {
+        //   historyCartsView.getChildren().add(shoppingCartFactory());
+        historyCartsView.toFront();
+    }
+
+    @FXML
+    private void openSavedShoppingCarts() {
+        
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the saved_Shoppingcart
+        // Example:
+        // for(Every cart in shoppingCartsSaved) {
+        // savedShoppingCartsView.getChildren().add(shoppingCartFactory()); 
+        savedShoppingCartsView.toFront();
+    }
+    
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //// Checkout part
+    //
     
     ////////////////////////////////////////////////////////////////////////////
     //// Checkout part
