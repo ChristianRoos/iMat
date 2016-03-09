@@ -2,10 +2,10 @@ package dokagg.project.controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,16 +15,15 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.HBox;
 
 public class iMatController implements Initializable {
@@ -44,17 +43,21 @@ public class iMatController implements Initializable {
     @FXML private TextField registerAdressCellphoneField;
     @FXML private TextField registerLoginEmailField2;
     @FXML private TextField registerLoginEmailConfirmField;
-    @FXML private TextField registerLoginPassField2;
-    @FXML private TextField registerLoginPassConfirmField;
+    @FXML private PasswordField registerLoginPassField2;
+    @FXML private PasswordField registerLoginPassConfirmField;
+    
+    @FXML private Label registerAdressErrors;
+    @FXML private Label registerLoginErrors;
     
     ////////////////////////////////////////////////////////////////////////////
     //// Login-Page
     //
     @FXML private Pane loginPane;
     @FXML private TextField registerLoginEmailField;
-    @FXML private TextField registerLoginPassField;
+    @FXML private PasswordField loginPassField;
     @FXML private Button registerButton;
     @FXML private Label kontoRutaName;
+    @FXML private Label loginErrors;
     
     ////////////////////////////////////////////////////////////////////////////
     //// Main-Page
@@ -65,38 +68,41 @@ public class iMatController implements Initializable {
     @FXML private Button kontoRutaLogOut;
     
     // SearchBar
+    @FXML private TextField searchProduct;
     
     // Favorites
     @FXML private Pane favoritesView;
     @FXML private HBox favoritesProductsPane;
-    @FXML private ObservableList<Pane> favoriteItemList 
-                    = FXCollections.observableArrayList();
+    @FXML private ObservableList<Pane> favoriteItemList = FXCollections.observableArrayList();
     
     // Categories
     @FXML private Button categoryMeatButton;
     @FXML private Button categorySeaFoodButton;
     @FXML private Button categoryFruitButton;
     @FXML private Button categoryDairyButton;
-    @FXML private Button categoryBreadButton;
+    @FXML private Button categoryPantryButton;
     
     @FXML private Pane offersView1;
     @FXML private FlowPane specificCategoryList;
-    @FXML private ObservableList<Pane> categoryItemList 
-                    = FXCollections.observableArrayList();
+    @FXML private ObservableList<Pane> categoryItemList = FXCollections.observableArrayList();
+    private ArrayList<ProductCategory> categoriesToSeeList = new ArrayList<>();
+    private ArrayList<Product> unCategorizedProducts = new ArrayList<>();
+    private ArrayList<Product> emptyUnCategoryList = new ArrayList<>();
+    
     
     // ShoppingCart
-    @FXML private GridPane cartPane;
-    @FXML private TableView cartTableView;
-    @FXML private Button cartButtonSave;
-    @FXML private Button cartButton;
-    @FXML private Text cartTotalCost;
+    @FXML private AnchorPane mainViewShoppingCartShell;
 
-    ShoppingCartListener scl;
+    private ShoppingCartController currentlyActiveShoppingCart;
     
-    @FXML private TableColumn tableColName;
-    @FXML private TableColumn tableColQuantity;
-    @FXML private TableColumn tableColUnitPrice;
-    @FXML private TableColumn tableColTotal;
+    // HistoryView & SavedLists
+    @FXML private Pane historyCartsView;
+    @FXML private Pane savedShoppingCartsView;
+    @FXML private HBox historyCartsViewList;
+    @FXML private HBox savedShoppingCartsViewList;
+    public ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
+    public ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
+    
 
     // Thumbnail
     @FXML private Button thumbButton;
@@ -114,6 +120,9 @@ public class iMatController implements Initializable {
     @FXML private Label accountAdressCellphone;
     @FXML private Label accountLogInEmail;
     @FXML private Label accountLogInPass;
+    @FXML private Label accountLogInErrors;
+    @FXML private Label accountAdressErrors;
+    @FXML private Label accountPaymentErrors;
     @FXML private Button accountAdressButton2;
     
     @FXML private Pane accountPayment1;
@@ -140,8 +149,6 @@ public class iMatController implements Initializable {
     @FXML private TextField accountPaymentSecurityField;
     @FXML private TextField accountPaymentNameField;
     @FXML private TextField accountLogInEmailField;
-    @FXML private TextField accountLogInPassField;
-    @FXML private TextField accountLogInConfirmPassField;
     @FXML private TextField accountAdressNameField;
     @FXML private TextField accountAdressLNameField;
     @FXML private TextField accountAdressAdressField;
@@ -149,6 +156,9 @@ public class iMatController implements Initializable {
     @FXML private TextField accountAdressCityField;
     @FXML private TextField accountAdressCellphoneField;
     @FXML private TextField accountAdressTelephoneField;
+    
+    @FXML private PasswordField accountLogInPassField;
+    @FXML private PasswordField accountLogInConfirmPassField;
     
     @FXML private Label accountPaymentCard1;
     @FXML private Label accountPaymentDate1;
@@ -212,10 +222,10 @@ public class iMatController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        // TODO
-        tableColQuantity.setCellValueFactory(
-          new PropertyValueFactory<ShoppingItem, Double>("amount"));
+        
+        IMatDataHandler.getInstance().getShoppingCart().clear();
+        currentlyActiveShoppingCart = shoppingCartFactory(null);
+        mainViewShoppingCartShell.getChildren().add(currentlyActiveShoppingCart.cartPane); 
 
         mainPane.toFront();
 
@@ -226,77 +236,47 @@ public class iMatController implements Initializable {
     @FXML
     private void createAccountButton(){
         //Login info
-        int errors = 0;
-        if(registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText())){
-           IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());   
+        String errorMessageAdress ="";
+        String errorMessageRegister ="";
+        if(!registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText()) || registerLoginEmailConfirmField.getText().isEmpty()){
+             errorMessageRegister = errorMessageRegister + "Email stämmer ej överrens eller ej angivna. "; 
         }
-        else{
-            errors++;
-            System.out.println("Email does not match");
+        if(!registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText()) || registerLoginPassConfirmField.getText().isEmpty()){
+           errorMessageRegister = errorMessageRegister + "Lösenord stämmer ej överens eller ej angivna. ";
         }
-        if(registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText())){
-           IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
-        }
-        else{
-            errors++;
-            System.out.println("Password does not match");
-        }
-        
         //Address Info
-        if(!registerAdressNameField.getText().isEmpty()){
+        if(registerAdressNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";}
+        if(registerAdressLNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";}
+        if(registerAdressAdressField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";}
+        if(registerAdressCityField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";}
+        if(registerAdressZipField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";}
+        if(registerAdressCellphoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
+        if(registerAdressTelephoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
+
+        
+        
+        if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
+            IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
+            IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
             IMatDataHandler.getInstance().getCustomer().setFirstName(registerAdressNameField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressLNameField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setLastName(registerAdressLNameField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressAdressField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setAddress(registerAdressAdressField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressCityField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPostAddress(registerAdressCityField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressZipField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPostCode(registerAdressZipField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressCellphoneField.getText().isEmpty()){
+            IMatDataHandler.getInstance().getCustomer().setAddress(registerAdressAdressField.getText());
             IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(registerAdressCellphoneField.getText());
-        }
-        else{errors++;}
-        
-        if(!registerAdressTelephoneField.getText().isEmpty()){
             IMatDataHandler.getInstance().getCustomer().setPhoneNumber(registerAdressTelephoneField.getText());
-        }
-        else{errors++;}
-        
-        
-        if (errors == 0) {
+            
             kontoRutaDetails.setText("Kontouppgifter");
             kontoRutaLogOut.setText("Logga ut");
             mainPane.toFront();
             loggedIn = true;
             
-            topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-            kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
-            accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
-            accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-            accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-            accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-            accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-            accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-            accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
-
-        
+            updateLabels();
+            
+        }
+        else{
+            registerAdressErrors.setText(errorMessageAdress);
+            registerLoginErrors.setText(errorMessageRegister);
         }
     }
     
@@ -304,16 +284,28 @@ public class iMatController implements Initializable {
     // Login window
     @FXML
     private void loginButton(){
-        if(registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName()) && 
-                registerLoginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())
-                && !IMatDataHandler.getInstance().getUser().getUserName().isEmpty())
-        {
+        String errorMessageLogin = "";
+        if(registerLoginEmailField.getText().isEmpty()){
+            errorMessageLogin="Email saknas. ";
+        }
+        if(loginPassField.getText().isEmpty()){
+            errorMessageLogin= errorMessageLogin +"Lösenord saknas. ";
+        }
+        if(!registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin +"Finns inget konto registrerat med den emailen";
+        }
+        if(!loginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())&&errorMessageLogin.isEmpty()){
+             errorMessageLogin= errorMessageLogin + "Email och lösenord matchar inte";
+        }
+        loginErrors.setText(errorMessageLogin);
+        if(errorMessageLogin.isEmpty()){
+        updateLabels();
         kontoRutaDetails.setText("Kontouppgifter");
         kontoRutaLogOut.setText("Logga ut");
-        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
         mainPane.toFront();
         loggedIn = true;
+        registerLoginEmailField.setText("");
+        loginPassField.setText("");
         }
     }
     
@@ -365,98 +357,86 @@ public class iMatController implements Initializable {
         
         accountPaymentCard1.setText( accountPaymentCardField.getText());
         accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
-        System.out.println("error");
     }
     @FXML
     private void accountLoginChange(){
         accountLogIn1.toFront();
+        accountLogInErrors.setText("Låt email vara oförändrad för att bara ändra lösenord eller låt lösenord vara tomt för att bara ändra email.");
     }
     @FXML
     private void accountLoginDone(){
-        if(accountLogInPassField.getText().equals(accountLogInConfirmPassField.getText()) && !accountLogInConfirmPassField.getText().isEmpty())
-        {
-            IMatDataHandler.getInstance().getUser().setPassword(accountLogInConfirmPassField.getText());
-            IMatDataHandler.getInstance().getUser().setUserName(accountLogInEmailField.getText());
-            IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
-            accountLogIn2.toFront();
+        String errorMessageChangeLogin= "";
+        if(!accountLogInPassField.getText().equals(accountLogInConfirmPassField.getText())){
+            errorMessageChangeLogin= "Lösenord matchar inte. ";
         }
-        else if (accountLogInConfirmPassField.getText().isEmpty() && accountLogInPassField.getText().isEmpty()  
-                && !accountLogInEmailField.getText().isEmpty())
+        if(accountLogInEmailField.getText().isEmpty()){
+            errorMessageChangeLogin="Email måste vara ifylld. " +errorMessageChangeLogin;
+        }
+        if(errorMessageChangeLogin.isEmpty())
         {
             IMatDataHandler.getInstance().getUser().setUserName(accountLogInEmailField.getText());
-            IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
-            accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
+            IMatDataHandler.getInstance().getCustomer().setEmail(accountLogInEmailField.getText());
+            
+            if (!accountLogInPassField.getText().isEmpty()){
+                IMatDataHandler.getInstance().getUser().setPassword(accountLogInPassField.getText());
+            }
+            updateLabels();
             accountLogIn2.toFront();
         }
-        else System.out.println("felfelfel");
+        else {accountLogInErrors.setText(errorMessageChangeLogin);}
     }
     @FXML
     private void accountAdressChange(){
-        accountAdressNameField.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        accountAdressLNameField.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressAdressField.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        accountAdressZipField.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-        accountAdressCityField.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        accountAdressCellphoneField.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        updateLabels();
         accountAdress1.toFront();
     }
     @FXML
     private void accountAdressDone(){
-        int errors = 0;
+        String errorMessageChangeAdress= "";
         //Address Info
-        if(!accountAdressNameField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setFirstName(accountAdressNameField.getText());
+        if(accountAdressNameField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Namn saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressLNameField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setLastName(accountAdressLNameField.getText());
+        if(accountAdressLNameField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Efternamn saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressAdressField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setAddress(accountAdressAdressField.getText());
+        if(accountAdressAdressField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Adress saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressCityField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPostAddress(accountAdressCityField.getText());
+        if(accountAdressCityField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Stad saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressZipField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPostCode(accountAdressZipField.getText());
+        if(accountAdressZipField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Postnummer saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressCellphoneField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(accountAdressCellphoneField.getText());
+        if(accountAdressCellphoneField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Mobilnummer saknas ";
         }
-        else{errors++;}
-        
-        if(!accountAdressTelephoneField.getText().isEmpty()){
-            IMatDataHandler.getInstance().getCustomer().setPhoneNumber(accountAdressTelephoneField.getText());
+        if(accountAdressTelephoneField.getText().isEmpty()){
+            errorMessageChangeAdress = errorMessageChangeAdress +"Telefonnummer saknas ";
         }
-        else{errors++;}
         
         
-        if (errors == 0) {
+        if (errorMessageChangeAdress.isEmpty()) {
+        IMatDataHandler.getInstance().getCustomer().setFirstName(accountAdressNameField.getText());
+        IMatDataHandler.getInstance().getCustomer().setLastName(accountAdressLNameField.getText());
+        IMatDataHandler.getInstance().getCustomer().setAddress(accountAdressAdressField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPostAddress(accountAdressCityField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPostCode(accountAdressZipField.getText());
+        IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(accountAdressCellphoneField.getText());
+        IMatDataHandler.getInstance().getCustomer().setPhoneNumber(accountAdressTelephoneField.getText());
+        
         accountAdress2.toFront();
-        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
-        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
-        accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
-        accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
-        accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
-        accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
-        accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
-        accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());    
+        updateLabels();
         }
+        else accountAdressErrors.setText(errorMessageChangeAdress);
     }
     
-    // Controller factory for thumbnail.
+    ////////////////////////////////////////////////////////////////////////////
+    //// The category,favorite-related methods
+    //
+    
+    // thumbnailController factory.
     private Pane thumbnailFactory(Product prod) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/productThumbnail.fxml"));
         Pane thumbnailProd = null;
@@ -468,25 +448,25 @@ public class iMatController implements Initializable {
         }
         
         ProductThumbnailController prodThumbCon = loader.getController();
-        prodThumbCon.giveData(prod, this);
+        prodThumbCon.initProdThumb(prod, this);
 
         return thumbnailProd;
    }
     
-//    @FXML
-//    private void searchMethod() throws IOException{
-//        specificCategoryList.getChildren().clear();
-//        categoryItemList.clear();
-//        offersView1.toFront();  
-//
-////        for (Product prod : IMatDataHandler.getInstance().findProducts(s)) {
-////            Pane thumbnailObj = thumbnailFactory(prod);
-////            
-////            categoryItemList.add(thumbnailObj);
-////        } 
-//        
-//        specificCategoryList.getChildren().addAll(categoryItemList);
-//    }
+    @FXML
+    private void searchMethod() throws IOException{
+        specificCategoryList.getChildren().clear();
+        categoryItemList.clear();
+        offersView1.toFront();  
+
+        for (Product prod : IMatDataHandler.getInstance().findProducts(searchProduct.getText())) {
+            Pane thumbnailObj = thumbnailFactory(prod);
+            
+            categoryItemList.add(thumbnailObj);
+        } 
+        
+        specificCategoryList.getChildren().addAll(categoryItemList);
+    }
     
     @FXML
     private void openFavoriteView() throws IOException{
@@ -503,78 +483,90 @@ public class iMatController implements Initializable {
         favoritesProductsPane.getChildren().addAll(favoriteItemList);
     }
     
+    ////////////////////////////////////////////////////////////////////////////
+    //// Show specific Category view
+    //
     @FXML
-    private void openCategoryView() throws IOException {
-        specificCategoryList.getChildren().clear();
-        categoryItemList.clear();
-        offersView1.toFront();  
+    private void openCategoryView(ArrayList<Product> unCategorizedProducts) throws IOException {
+      
+      // Clearing lists/views below before using them.
+      // The category-FlowPane
+      specificCategoryList.getChildren().clear();
+      // The actual list with all the objects which will be shown
+      categoryItemList.clear();
+      offersView1.toFront();  
 
-        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
-            Pane thumbnailObj = thumbnailFactory(prod);
-            
-            categoryItemList.add(thumbnailObj);
-        } 
-        
-        specificCategoryList.getChildren().addAll(categoryItemList);
+      for (ProductCategory prodCate : categoriesToSeeList) {
+        for (Product prod : IMatDataHandler.getInstance().getProducts(prodCate)) {
+          Pane thumbnailObj = thumbnailFactory(prod);
+
+          categoryItemList.add(thumbnailObj);
+        }
+      }
+      for (Product prod : unCategorizedProducts) {
+        Pane thumbnailObj = thumbnailFactory(prod);
+
+        categoryItemList.add(thumbnailObj);
+      }
+
+      specificCategoryList.getChildren().addAll(categoryItemList);
+      categoriesToSeeList.clear();
+      unCategorizedProducts.clear();
     }
     
     @FXML
-    private void mainWindowMeatCategoryButton() throws IOException{
-        specificCategoryList.getChildren().clear();
-        categoryItemList.clear();
-        offersView1.toFront();  
-
-        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.MEAT)) {
-            Pane thumbnailObj = thumbnailFactory(prod);
-            
-            categoryItemList.add(thumbnailObj);
-        } 
-        
-        specificCategoryList.getChildren().addAll(categoryItemList);
+    private void showCategoryMeat() throws IOException{
+      categoriesToSeeList.add(ProductCategory.MEAT);
+      openCategoryView(emptyUnCategoryList);
     }
     
     @FXML
-    private void mainWindowFruitAndGreenCategoryButton() throws IOException{
-//        specificCategoryList.getChildren().clear();
-//        categoryItemList.clear();
-//        offersView1.toFront();  
-//
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.BERRY)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        }
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.VEGETABLE_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.EXOTIC_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        for (Product prod : IMatDataHandler.getInstance().getProducts(ProductCategory.CITRUS_FRUIT)) {
-//            Pane thumbnailObj = thumbnailFactory(prod);
-//            
-//            categoryItemList.add(thumbnailObj);
-//        } 
-//        
-//        specificCategoryList.getChildren().addAll(categoryItemList);
+    private void showCategorySeafood() throws IOException{
+      categoriesToSeeList.add(ProductCategory.FISH);
+      openCategoryView(emptyUnCategoryList);
     }
     
     @FXML
-    public void updateShoppingCart(Product prod, double quantity){
-        cartTableView.getItems().setAll(IMatDataHandler.getInstance().getShoppingCart().getItems());
-
-        cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
-
+    private void showCategoryFruitAndGreen() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BERRY);
+      categoriesToSeeList.add(ProductCategory.CABBAGE);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.CITRUS_FRUIT);
+      categoriesToSeeList.add(ProductCategory.FRUIT);
+      categoriesToSeeList.add(ProductCategory.HERB);
+      categoriesToSeeList.add(ProductCategory.MELONS);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      categoriesToSeeList.add(ProductCategory.POD);
+      categoriesToSeeList.add(ProductCategory.POTATO_RICE);
+      categoriesToSeeList.add(ProductCategory.ROOT_VEGETABLE);
+      categoriesToSeeList.add(ProductCategory.VEGETABLE_FRUIT);
+      
+      openCategoryView(emptyUnCategoryList);
     }
     
-    //instantiate the tableColumns in the ShoppingCart
     @FXML
-    public void initializeShoppingCart() {
-        
+    private void showCategoryDairyEggCheese() throws IOException{
+      categoriesToSeeList.add(ProductCategory.DAIRIES);
+      openCategoryView(emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryPantry() throws IOException{
+      categoriesToSeeList.add(ProductCategory.BREAD);
+      categoriesToSeeList.add(ProductCategory.SWEET);
+      categoriesToSeeList.add(ProductCategory.FLOUR_SUGAR_SALT);
+      categoriesToSeeList.add(ProductCategory.NUTS_AND_SEEDS);
+      
+      openCategoryView(emptyUnCategoryList);
+    }
+    
+    @FXML
+    private void showCategoryDrinks() throws IOException{
+      unCategorizedProducts = (ArrayList) IMatDataHandler.getInstance().findProducts("milk");
+      categoriesToSeeList.add(ProductCategory.HOT_DRINKS);
+      categoriesToSeeList.add(ProductCategory.COLD_DRINKS);
+      
+      openCategoryView(unCategorizedProducts);
     }
     
     @FXML
@@ -582,11 +574,89 @@ public class iMatController implements Initializable {
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    //// The shoppingCart methods
+    //
     
+    // ShoppingCart factory.
+    public ShoppingCartController shoppingCartFactory(ArrayList<CartItemController> clonedCartList) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/dokagg/project/fxml/shoppingCart.fxml"));
+        GridPane shopCartPane = null;
+        
+        try {
+            shopCartPane = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        ShoppingCartController shopCartCont = loader.getController();
+        shopCartCont.initShopCart(this, clonedCartList);
+
+        return shopCartCont;
+   }
+
     @FXML
-    private void addProductToCart(ActionEvent event){
-        cartTotalCost.setText(IMatDataHandler.getInstance().getShoppingCart().getTotal() + " kr");
+    public void addProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
+        // Check if the shoppingcart is empty
+        if(IMatDataHandler.getInstance().getShoppingCart().getItems().size() > 0){
+            
+            // see if product we want to add already exist in shoppingcart,
+            // in that case, increase the amount of same type you just bought.
+            for(ShoppingItem shopItem : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
+                
+                if(shopItem.getProduct().getName().equals(prod.getName())) {
+                    shopItem.setAmount(shopItem.getAmount() + quantity);
+                    
+                    currentlyActiveShoppingCart.findItem(prod).increaseQuantity(quantity);
+                    currentlyActiveShoppingCart.cartTotalCost.setText(
+                            String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
+                    return;
+                }
+            }
+//            // the item didn't exist in the shoppingcart, so just add it
+//            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
+//        
+//        // shoppingCart was empty
+//        } else {
+//            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
+        }
+        // The item didn't exist already
+        IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
+        currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
     }
+     
+    @FXML
+    private void openHistoryView() {
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the history shoppingcarts
+        // Example:
+        // for(Every cart in shoppingCartsHistory) {
+        //   historyCartsView.getChildren().add(shoppingCartFactory());
+        for(ShoppingCartController shopCart : shoppingCartsHistory) {
+            historyCartsViewList.getChildren().add(shopCart.cartPane);
+        }
+        historyCartsView.toFront();
+    }
+
+    @FXML
+    public void openSavedShoppingCarts() {
+        savedShoppingCartsViewList.getChildren().clear();
+        // TODO --------------------------------------------------------------------------------------------------------------------------
+        // Create the saved_Shoppingcart
+        // Example:
+        // for(Every cart in shoppingCartsSaved) {
+        // savedShoppingCartsView.getChildren().add(shoppingCartFactory());
+        for(ShoppingCartController shopCart : shoppingCartsSaved) {
+            savedShoppingCartsViewList.getChildren().add(shopCart.cartPane);
+        }
+        
+        
+        savedShoppingCartsView.toFront();
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //// Checkout part
+    //
     
     @FXML
     private void step3RadioButton1(){
@@ -623,7 +693,7 @@ public class iMatController implements Initializable {
     
     
     @FXML
-    private void cartCheckoutButton(){
+    public void cartCheckoutButton(){
         checkoutPane.toFront();
         step1SPane.toFront();
         IMatDataHandler.getInstance().getShoppingCart().addProduct(IMatDataHandler.getInstance().getProducts().get(0));
@@ -751,10 +821,32 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void gzExitButton(){
+        IMatDataHandler.getInstance().shutDown();
         System.exit(0);
     }
-    
-    
+    private void updateLabels(){
+        topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        accountAdressCity.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        accountAdressZip.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        accountAdressAdress.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        accountAdressLName.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        accountLogInEmail.setText(IMatDataHandler.getInstance().getUser().getUserName());
+        
+        accountAdressNameField.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        accountAdressLNameField.setText(IMatDataHandler.getInstance().getCustomer().getLastName());
+        accountAdressAdressField.setText(IMatDataHandler.getInstance().getCustomer().getAddress());
+        accountAdressZipField.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
+        accountAdressCityField.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
+        accountAdressCellphoneField.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        accountAdressTelephoneField.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
+        accountLogInEmailField.setText(IMatDataHandler.getInstance().getUser().getUserName());
+        
+    }
+
     //
     // -----------------------------------------------------------------------
     //

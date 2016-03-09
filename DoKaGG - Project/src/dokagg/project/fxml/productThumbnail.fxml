@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -36,7 +37,7 @@
                <children>
                   <ImageView fitHeight="29.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@resources/images/styck.png" />
+                        <Image url="@../resources/images/styck.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="thumbBuyButton" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#thumbBuyButtonClicked" prefHeight="28.0" prefWidth="51.0" text="KÖP" textAlignment="CENTER" textFill="WHITE">
@@ -68,8 +69,11 @@
       </TextField>
       <ImageView fx:id="favoritedImageView" fitHeight="39.0" fitWidth="130.0" onMouseClicked="#thumbFavButtonClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@resources/images/favoriteButton.png" />
+            <Image url="@../resources/images/favoriteButtonNotAdded.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </Pane>

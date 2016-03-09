@@ -1,9 +1,6 @@
 package dokagg.project.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,7 +15,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  *
  * @author Kim
  */
-public class ProductThumbnailController implements Initializable{
+public class ProductThumbnailController {
 
     @FXML private ImageView prodThumbImageView;
     @FXML private ImageView favoritedImageView;
@@ -29,17 +26,14 @@ public class ProductThumbnailController implements Initializable{
     
     private ShoppingItem prodAsShopItem;
     private Product prod;
-    private iMatController iMat;
+    private iMatController iMatController;
+    
     private Image favoriteImage;
     private Image notFavoriteImage;
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    }
     
     @FXML 
-    public void giveData(Product prod, iMatController iMat) {
-        this.iMat = iMat;
+    public void initProdThumb(Product prod, iMatController iMat) {
+        this.iMatController = iMat;
         this.prod = prod;
         
         Image fxImage = IMatDataHandler.getInstance().getFXImage(prod);
@@ -67,30 +61,8 @@ public class ProductThumbnailController implements Initializable{
     
     @FXML
     protected void thumbBuyButtonClicked() {
-        
-        // Check if the shoppingcart is empty
-        if(IMatDataHandler.getInstance().getShoppingCart().getItems().size() > 0){
-            
-            // see if product we want to add already exist in shoppingcart,
-            // in that case, increase the amount of same type you just bought.
-            for(ShoppingItem shopItem : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
-                if(shopItem.getProduct().getName().equals(prod.getName())) {
-                    shopItem.setAmount(shopItem.getAmount() + Double.parseDouble(thumbQuantity.getText()));
-                    
-                    iMat.updateShoppingCart(prod, Double.parseDouble(thumbQuantity.getText()));
-                    return;
-                }
-            }
-            // the item didn't exist in the shoppingcart, so just add it
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, Double.parseDouble(thumbQuantity.getText()));
-        
-        // shoppingCart was empty
-        } else {
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, Double.parseDouble(thumbQuantity.getText()));
-            iMat.initializeShoppingCart();
-        }
-
-        iMat.updateShoppingCart(prod, Double.parseDouble(thumbQuantity.getText()));
+        double quantity = Double.parseDouble(thumbQuantity.getText());
+        iMatController.addProdToShoppingCart(prod, quantity, prodAsShopItem);
     }
     
     @FXML
