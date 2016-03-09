@@ -61,35 +61,8 @@ public class ProductThumbnailController {
     
     @FXML
     protected void thumbBuyButtonClicked() {
-<<<<<<< HEAD
         double quantity = Double.parseDouble(thumbQuantity.getText());
         iMatController.addProdToShoppingCart(prod, quantity, prodAsShopItem);
-=======
-        
-        double quantity = Double.parseDouble(thumbQuantity.getText());
-        
-        // Check if the shoppingcart is empty
-        if(IMatDataHandler.getInstance().getShoppingCart().getItems().size() > 0){
-            
-            // see if product we want to add already exist in shoppingcart,
-            // in that case, increase the amount of same type you just bought.
-            for(ShoppingItem shopItem : IMatDataHandler.getInstance().getShoppingCart().getItems()) {
-                
-                if(shopItem.getProduct().getName().equals(prod.getName())) {
-                    shopItem.setAmount(shopItem.getAmount() + quantity);
-                    return;
-                }
-            }
-            // the item didn't exist in the shoppingcart, so just add it
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
-        
-        // shoppingCart was empty
-        } else {
-            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
-        }
-
-        iMatController.AddProdToShoppingCart(prod, quantity, prodAsShopItem);
->>>>>>> 8b491138718ad3444935d1e9ad76f98fe90d192c
     }
     
     @FXML
