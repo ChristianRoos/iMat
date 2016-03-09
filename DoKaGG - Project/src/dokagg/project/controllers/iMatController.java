@@ -344,20 +344,68 @@ public class iMatController implements Initializable {
     private void accountPaymentChange(){
         accountPayment1.toFront();
     }
+       private boolean containDigits(String s) {
+        for (char c : s.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }  
+        return true;
+    }
+    
+    private boolean intLengthCheck(String card, int length) {
+        boolean lengthCheck;
+        lengthCheck = card.length() == length; 
+        
+        return lengthCheck;
+    }
+    
+    private boolean intLimitClear(String fieldText, int min, int max) {
+            
+        return !(Integer.parseInt(fieldText) > max || Integer.parseInt(fieldText) < min);  
+    }
+    
+    private boolean cardClear(String card) {
+        return (containDigits(card) && intLengthCheck(card, 16));
+    }
+    
+    private boolean monthClear(String month) {
+        return (containDigits(month) && intLimitClear(month, 1, 12));
+    }
+    
+    private boolean yearClear(String year) {
+        return (containDigits(year) && intLimitClear(year, 0, 99));
+    }
+    
+    private boolean securityNumberClear(String number) {
+        return (containDigits(number) && intLengthCheck(number, 3));  
+    }
+    
     @FXML
     private void accountPaymentDone(){
-        accountPayment3.toFront();
+        if (!cardClear(accountPaymentCardField.getText())) {
+            accountPaymentErrors.setText("Kortnummer har angivits fel!");
+        } else if (!monthClear(accountPaymentMonthField.getText())) {
+            accountPaymentErrors.setText("Felaktigt månad!");
+        } else if (!yearClear(accountPaymentYearField.getText())) {
+            accountPaymentErrors.setText("Felaktigt årtal!");
+        } else if (!securityNumberClear(accountPaymentSecurityField.getText())){
+            accountPaymentErrors.setText("CVC är inkorrekt inmatad!");
+        } else {
+            accountPayment3.toFront();         
         
-        //IMatDataHandler.getInstance().getCreditCard().setCardNumber(accountPaymentCardField.getText());
-        //IMatDataHandler.getInstance().getCreditCard().setHoldersName(accountPaymentNameField.getText());
-        //IMatDataHandler.getInstance().getCreditCard().setValidMonth(Integer.parseInt(accountPaymentMonthField.getText()));
-        //IMatDataHandler.getInstance().getCreditCard().setValidYear(Integer.parseInt(accountPaymentYearField.getText()));
-        //IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(accountPaymentSecurityField.getText()));
+            IMatDataHandler.getInstance().getCreditCard().setCardNumber(accountPaymentCardField.getText());
+            IMatDataHandler.getInstance().getCreditCard().setHoldersName(accountPaymentNameField.getText());
+            IMatDataHandler.getInstance().getCreditCard().setValidMonth(Integer.parseInt(accountPaymentMonthField.getText()));
+            IMatDataHandler.getInstance().getCreditCard().setValidYear(Integer.parseInt(accountPaymentYearField.getText()));
+            IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(accountPaymentSecurityField.getText()));
         
-        
-        accountPaymentCard1.setText( accountPaymentCardField.getText());
-        accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
+            accountPaymentErrors.setText("");
+            accountPaymentCard1.setText( accountPaymentCardField.getText());
+            accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
+        }        
     }
+
     @FXML
     private void accountLoginChange(){
         accountLogIn1.toFront();
@@ -810,13 +858,22 @@ public class iMatController implements Initializable {
             errorLabel.visibleProperty().set(false);
             gzPane.toFront();
         }  
-        else
+        else {
             errorLabel.visibleProperty().set(true);
+            errorLabel.setText("Du måste välja ett av alternativen ovan för att gå vidare!");
+
+        }
     }
     
     @FXML
     private void gzBackToStartButton(){
         mainPane.toFront();
+        checkoutStep3.getStyleClass().clear();
+        checkoutStep3.getStyleClass().add("checkoutPaneColourWhite");
+        step3TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep1.getStyleClass().clear();
+        checkoutStep1.getStyleClass().add("niceColour");
         // Eventuella clear av varukorg etc.
     }
     @FXML
