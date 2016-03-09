@@ -613,12 +613,6 @@ public class iMatController implements Initializable {
                     return;
                 }
             }
-//            // the item didn't exist in the shoppingcart, so just add it
-//            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
-//        
-//        // shoppingCart was empty
-//        } else {
-//            IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
         }
         // The item didn't exist already
         IMatDataHandler.getInstance().getShoppingCart().addProduct(prod, quantity);
@@ -627,32 +621,28 @@ public class iMatController implements Initializable {
      
     @FXML
     private void openHistoryView() {
-        // TODO --------------------------------------------------------------------------------------------------------------------------
-        // Create the history shoppingcarts
-        // Example:
-        // for(Every cart in shoppingCartsHistory) {
-        //   historyCartsView.getChildren().add(shoppingCartFactory());
+        historyCartsViewList.getChildren().clear();
+        
         for(ShoppingCartController shopCart : shoppingCartsHistory) {
             historyCartsViewList.getChildren().add(shopCart.cartPane);
         }
+        
         historyCartsView.toFront();
     }
 
     @FXML
     public void openSavedShoppingCarts() {
         savedShoppingCartsViewList.getChildren().clear();
-        // TODO --------------------------------------------------------------------------------------------------------------------------
-        // Create the saved_Shoppingcart
-        // Example:
-        // for(Every cart in shoppingCartsSaved) {
-        // savedShoppingCartsView.getChildren().add(shoppingCartFactory());
+
         for(ShoppingCartController shopCart : shoppingCartsSaved) {
             savedShoppingCartsViewList.getChildren().add(shopCart.cartPane);
         }
         
-        
         savedShoppingCartsView.toFront();
     }
+    
+    // HOWTO add history from checkout
+    // call shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems)));
     
     ////////////////////////////////////////////////////////////////////////////
     //// Checkout part
@@ -693,7 +683,14 @@ public class iMatController implements Initializable {
     
     
     @FXML
-    public void cartCheckoutButton(){
+    public void cartCheckoutButton(ShoppingCartController shoppingCart){
+        
+        // -------------------------------------------------------------------------------------------------------- TODO
+        // Change savedShoppingCartsViewList to correct Pane it is to be added to
+        savedShoppingCartsViewList.getChildren().clear();
+        savedShoppingCartsViewList.getChildren().add(shoppingCart.cartPane);
+
+        
         checkoutPane.toFront();
         step1SPane.toFront();
         IMatDataHandler.getInstance().getShoppingCart().addProduct(IMatDataHandler.getInstance().getProducts().get(0));
