@@ -81,6 +81,7 @@ public class iMatController implements Initializable {
     @FXML private Button categoryFruitButton;
     @FXML private Button categoryDairyButton;
     @FXML private Button categoryPantryButton;
+    @FXML private Button savedListsButton;
     
     @FXML private Pane offersView1;
     @FXML private FlowPane specificCategoryList;
@@ -681,7 +682,6 @@ public class iMatController implements Initializable {
     @FXML
     public void openSavedShoppingCarts() {
         savedShoppingCartsViewList.getChildren().clear();
-
         for(ShoppingCartController shopCart : shoppingCartsSaved) {
             savedShoppingCartsViewList.getChildren().add(shopCart.cartPane);
         }
