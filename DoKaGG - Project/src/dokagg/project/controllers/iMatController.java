@@ -924,6 +924,27 @@ public class iMatController implements Initializable {
     private void step4Change(){
 
     }
+    @FXML
+    private void openStartView(){
+
+    }
+    @FXML
+    private void offersLeft(){
+
+    }
+    @FXML
+    private void offersRight(){
+
+    }
+    @FXML
+    private void favoritesLeft(){
+
+    }
+    @FXML
+    private void favoritesRight(){
+
+    }
+    
 
     //
     // -----------------------------------------------------------------------
