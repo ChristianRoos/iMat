@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -50,7 +49,7 @@
                      <effect>
                         <ImageInput>
                            <source>
-                              <Image url="file:/D:/GitHub/iMat/DoKaGG%20-%20Project/src/dokagg/project/resources/images/buyButtonSmall.png" />
+                              <Image url="file:/E:/Programming/Java/GitHub/Study/DoKaGG/iMat/DoKaGG%20-%20Project/src/dokagg/project/resources/images/buyButtonSmall.png" />
                            </source>
                         </ImageInput>
                      </effect>
@@ -71,9 +70,6 @@
          <image>
             <Image url="@../resources/images/favoriteButtonNotAdded.png" />
          </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
       </ImageView>
    </children>
 </Pane>
