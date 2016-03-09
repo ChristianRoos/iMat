@@ -56,6 +56,10 @@ public class CartItemController {
         return cartItemAmountField.getText();
     }
     
+    public ShoppingItem getShoppingItem(){
+        return prodAsShopItem;
+    }
+    
     public void increaseQuantity(double quantity){
         double newQuantity = Double.valueOf(getQuantity()) + quantity;
         cartItemAmountField.setText(String.valueOf(newQuantity));

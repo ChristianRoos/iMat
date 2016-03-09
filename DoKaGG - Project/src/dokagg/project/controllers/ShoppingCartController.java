@@ -22,9 +22,28 @@ public class ShoppingCartController {
     
     public void initShopCart(iMatController iMat, ArrayList<CartItemController> clonedCartList) {
         this.iMatController = iMat;
+        
+        // input is a clonedCart (for savedCarts & historyCarts)
         if(clonedCartList != null){
-            System.out.println("2");
             cartsItems = clonedCartList;
+            
+            VBox newVBox;
+            ArrayList<AnchorPane> newList = new ArrayList<>();
+            
+            for(CartItemController cartItem : clonedCartList) {
+                newList.add(cartItemFactory(
+                        cartItem.getProduct(), 
+                        Double.valueOf(cartItem.getQuantity()), 
+                        cartItem.getShoppingItem()));
+                
+//                cartList.getChildren().add(cartItemFactory(
+//                        cartItem.getProduct(), 
+//                        Double.valueOf(cartItem.getQuantity()), 
+//                        cartItem.getShoppingItem()));
+
+                System.out.println(newList);
+            }
+            cartList.getChildren().addAll(newList);
         }
     }
 

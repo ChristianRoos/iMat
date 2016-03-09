@@ -93,15 +93,15 @@ public class iMatController implements Initializable {
     // ShoppingCart
     @FXML private AnchorPane mainViewShoppingCartShell;
 
-    private ShoppingCartController currentlyActiveShoppingCart;
+    private static ShoppingCartController currentlyActiveShoppingCart;
     
     // HistoryView & SavedLists
     @FXML private Pane historyCartsView;
     @FXML private Pane savedShoppingCartsView;
     @FXML private HBox historyCartsViewList;
     @FXML private HBox savedShoppingCartsViewList;
-    public ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
-    public ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
+    public static ArrayList<ShoppingCartController> shoppingCartsHistory = new ArrayList<>();
+    public static ArrayList<ShoppingCartController> shoppingCartsSaved = new ArrayList<>();
     
 
     // Thumbnail
