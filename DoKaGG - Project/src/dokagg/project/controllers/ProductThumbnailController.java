@@ -50,6 +50,10 @@ public class ProductThumbnailController {
             favoritedImageView.setImage(notFavoriteImage);
         }
         
+        Image buttonImage = new Image(getClass()
+        .getResourceAsStream("/dokagg/project/resources/images/buyButtonSmall.png"));
+        thumbBuyButton.setGraphic(new ImageView(buttonImage));
+        
         favoritedImageView.toFront();
         
         productThumbnailName.setText(prod.getName());

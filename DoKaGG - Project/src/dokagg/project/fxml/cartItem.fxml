@@ -10,9 +10,9 @@
 
 <AnchorPane fx:id="cartItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dokagg.project.controllers.CartItemController">
    <children>
-      <ImageView fx:id="cartItemDelete" fitHeight="30.0" fitWidth="30.0" layoutX="-86.0" layoutY="-55.0" onMouseClicked="#removeItem" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <ImageView fx:id="cartItemDelete" fitHeight="20.0" fitWidth="20.0" layoutX="-86.0" layoutY="-55.0" onMouseClicked="#removeItem" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <image>
-            <Image url="@../resources/images/secondCross.jpg" />
+            <Image url="@../resources/images/redcrossng.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

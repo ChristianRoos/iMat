@@ -1181,40 +1181,6 @@
                            <children>
                               <StackPane maxHeight="548.0" prefHeight="200.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Pane id="pane1" fx:id="offersView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
-                                       <children>
-                                          <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="offersTitle1" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Label>
-                                          <FlowPane fx:id="specificCategoryList" hgap="35.0" layoutY="45.0" prefWidth="790.0" prefWrapLength="790.0" vgap="10.0" />
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                    <Pane id="pane1" fx:id="savedShoppingCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                       <children>
-                                          <Rectangle fx:id="offersGraphic11" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="offersTitle11" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="SPARADE LISTOR" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </Label>
-                                          <HBox id="pane1" fx:id="savedShoppingCartsViewList" layoutY="45.0" maxHeight="1.7976931348623157E308" prefWidth="790.0" />
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
                                     <Pane id="pane1" fx:id="historyCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
                                        <children>
                                           <Rectangle fx:id="offersGraphic111" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
@@ -1223,10 +1189,27 @@
                                                 <Font name="Calibri" size="22.0" />
                                              </font>
                                              <cursor>
-                                                <Cursor fx:constant="HAND" />
+                                                <Cursor fx:constant="DEFAULT" />
                                              </cursor>
                                           </Label>
-                                          <HBox id="pane1" fx:id="historyCartsViewList" layoutY="45.0" maxHeight="1.7976931348623157E308" prefWidth="790.0" />
+                                          <HBox id="pane1" fx:id="historyCartsViewList" layoutY="45.0" maxHeight="1.7976931348623157E308" minHeight="483.0" prefWidth="790.0" />
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="offersView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="offersTitle1" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <FlowPane fx:id="specificCategoryList" hgap="35.0" layoutY="45.0" minHeight="483.0" prefWidth="790.0" prefWrapLength="790.0" vgap="10.0" />
                                        </children>
                                        <StackPane.margin>
                                           <Insets top="20.0" />
@@ -1235,12 +1218,12 @@
                                     <Pane id="pane1" fx:id="favoritesView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
                                        <children>
                                           <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="favoritesTitle" layoutX="304.0" layoutY="7.0" text="DINA FAVORITER" textFill="WHITE">
+                                          <Label fx:id="favoritesTitle" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="DINA FAVORITER" textFill="WHITE">
                                              <font>
                                                 <Font name="Calibri" size="22.0" />
                                              </font>
                                              <cursor>
-                                                <Cursor fx:constant="HAND" />
+                                                <Cursor fx:constant="DEFAULT" />
                                              </cursor>
                                           </Label>
                                           <Label fx:id="favoritesShowAll" layoutX="731.0" layoutY="229.0" text="Visa alla" textFill="#d31145" underline="true">
@@ -1248,7 +1231,10 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Label>
-                                          <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" maxWidth="665.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                          <HBox fx:id="favoritesProductsPane" layoutX="62.0" layoutY="54.0" maxWidth="665.0" minHeight="483.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;">
+                                             <padding>
+                                                <Insets right="20.0" top="20.0" />
+                                             </padding></HBox>
                                           <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
                                           <Button fx:id="favoritesLeftArrow" layoutX="14.0" layoutY="117.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="48.0" text="&gt;">
                                              <cursor>
@@ -1274,6 +1260,26 @@
                                                 </ImageInput>
                                              </effect>
                                           </Button>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="savedShoppingCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic11" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="offersTitle11" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="SPARADE LISTOR" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <HBox id="pane1" fx:id="savedShoppingCartsViewList" layoutY="45.0" maxHeight="1.7976931348623157E308" minHeight="483.0" prefWidth="790.0">
+                                             <padding>
+                                                <Insets left="10.0" right="10.0" top="20.0" />
+                                             </padding></HBox>
                                        </children>
                                        <StackPane.margin>
                                           <Insets top="20.0" />
