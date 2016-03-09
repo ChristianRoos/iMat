@@ -24,6 +24,7 @@ import se.chalmers.ait.dat215.project.*;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 
 public class iMatController implements Initializable {
@@ -66,6 +67,11 @@ public class iMatController implements Initializable {
     @FXML private Label topUserName;
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
+    
+    @FXML private AnchorPane banner;
+    
+    // HomePage
+    @FXML private Pane homePage;
     
     // SearchBar
     @FXML private TextField searchProduct;
@@ -228,6 +234,8 @@ public class iMatController implements Initializable {
         mainViewShoppingCartShell.getChildren().add(currentlyActiveShoppingCart.cartPane); 
 
         mainPane.toFront();
+        // TODO -----------------------------------------------------------------------------------
+//        homePage.toFront();
 
     }
     

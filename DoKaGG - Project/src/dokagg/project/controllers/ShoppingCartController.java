@@ -65,6 +65,15 @@ public class ShoppingCartController {
         
     public void removeCartItem(CartItemController cartItemContr, ShoppingItem prodAsShopItem){
         cartsItems.remove(cartItemContr);
+        cartList.getChildren().clear();
+        
+        for(CartItemController cartItem : cartsItems) {
+            cartList.getChildren().add(cartItemFactory(
+                        cartItem.getProduct(), 
+                        Double.valueOf(cartItem.getQuantity()), 
+                        cartItem.getShoppingItem()));
+        }
+        
         IMatDataHandler.getInstance().getShoppingCart().removeItem(prodAsShopItem);
     }
     
