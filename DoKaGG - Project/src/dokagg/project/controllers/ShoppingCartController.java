@@ -71,7 +71,7 @@ public class ShoppingCartController {
     public void cartCheckoutButton() {
         ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
         ShoppingCartController newShoppingCart = iMatController.shoppingCartFactory(cloneBaby);
-        iMatController.cartCheckoutButton();
+        iMatController.cartCheckoutButton(newShoppingCart);
     }
     
     public void favoriteShoppingCart() {
