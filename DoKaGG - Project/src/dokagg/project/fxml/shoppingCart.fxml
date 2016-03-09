@@ -38,9 +38,9 @@
             </AnchorPane>
             <AnchorPane id="pane1">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="cartGreyPane2" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Pane prefHeight="30.0" prefWidth="293.0">
+                        <Pane fx:id="cartGreyPane" prefHeight="30.0" prefWidth="293.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: F4F4F4; -fx-border-color: d31145;" text="Vara">
                                  <font>
@@ -64,7 +64,7 @@
                               </Label>
                            </children>
                         </Pane>
-                        <ScrollPane hbarPolicy="NEVER" layoutY="30.0" prefHeight="330.0" prefWidth="293.0">
+                        <ScrollPane fx:id="cartScrollPane" hbarPolicy="NEVER" layoutY="30.0" prefHeight="330.0" prefWidth="293.0">
                            <content>
                               <VBox fx:id="cartList" prefWidth="282.0" />
                            </content>

@@ -31,3 +31,12 @@
 .transparencyPane {
     -fx-background-color: rgba(0, 0, 0, 0.5);
 }
+
+.pinkBGColour {
+    -fx-background-color: #d31146;
+    -fx-background-radius: 5;
+}
+
+.fancyGrey {
+    -fx-background-color: #e5e5e5;
+}
