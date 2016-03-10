@@ -735,6 +735,7 @@ public class iMatController implements Initializable {
       setCategoriesAllGrey();
       categorySeaFoodButton.getStyleClass().clear();
       categorySeaFoodButton.getStyleClass().add("fancyPink");
+      IMatDataHandler.getInstance().reset();
     }
     
     @FXML
@@ -950,6 +951,7 @@ public class iMatController implements Initializable {
         makeCurrentCart.getStyleClass().clear();
         makeCurrentCart.getStyleClass().add("pinkBGColour");
       
+        shoppingCart.shoppingStackPane.getStyleClass().add("fancyGrey");
      //   shoppingCart.cartScrollPane.getStyleClass().add("fancyGrey");
      //   shoppingCart.cartGreyPane.getStyleClass().add("fancyGrey");
     //    shoppingCart.cartGreyPane2.getStyleClass().add("fancyGrey");
@@ -1149,8 +1151,6 @@ public class iMatController implements Initializable {
         if(step3RadioButton1.selectedProperty().getValue()
                 || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
             
-            IMatDataHandler.getInstance().placeOrder();
-            
             errorLabel.visibleProperty().set(false);
             IMatDataHandler.getInstance().placeOrder();
             shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
@@ -1233,6 +1233,13 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void step2Register(){
+        
+        checkoutStep2.getStyleClass().clear();
+        checkoutStep2.getStyleClass().add("checkoutPaneColourWhite");
+        step2TopLabel.setTextFill(Color.BLACK);
+        
+        checkoutStep3.getStyleClass().clear();
+        checkoutStep3.getStyleClass().add("niceColour");
         //Login info
         String errorMessageAdress ="";
         String errorMessageRegister ="";
@@ -1280,6 +1287,7 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void step2Login(){
+        
         String errorMessageLogin = "";
         if(step2LoginEmail.getText().isEmpty()){
             errorMessageLogin="Email saknas. ";

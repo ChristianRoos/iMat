@@ -9,6 +9,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
@@ -17,6 +18,7 @@ import se.chalmers.ait.dat215.project.*;
 public class ShoppingCartController {
     
     @FXML public GridPane cartPane;
+    @FXML public StackPane shoppingStackPane;
     
     @FXML public VBox cartList;
     @FXML public Button cartButton;
@@ -89,6 +91,9 @@ public class ShoppingCartController {
         for (int i = 0; cartLength > i; i++){
             cartsItems.remove(0);
         }
+        String oldTotal = cartTotalCost.getText();
+                        cartTotalCost.setText(
+                        String.valueOf(Double.valueOf(oldTotal) - prodAsShopItem.getTotal()));
     }
     
     public void cartCheckoutButton() {
