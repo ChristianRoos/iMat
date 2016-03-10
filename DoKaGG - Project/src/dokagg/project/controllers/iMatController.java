@@ -314,7 +314,7 @@ public class iMatController implements Initializable {
         categoryButtons.add(categoryPantryButton);
 
         mainPane.toFront();
-
+        randomOffers();
         openStartView();
     }
     
@@ -1149,7 +1149,7 @@ public class iMatController implements Initializable {
         if(step3RadioButton1.selectedProperty().getValue()
                 || step3RadioButton3.selectedProperty().getValue() || step3RadioButton4.selectedProperty().getValue()){
             
-            IMatDataHandler.getInstance().placeOrder();
+            //IMatDataHandler.getInstance().placeOrder();
             
             errorLabel.visibleProperty().set(false);
             IMatDataHandler.getInstance().placeOrder();
@@ -1359,7 +1359,7 @@ public class iMatController implements Initializable {
         startViewFav.getChildren().clear();
         favoriteItemList.clear();
         startViewOffers.getChildren().clear();
-        offersItemList.clear();
+        //offersItemList.clear();
         startView.toFront();
         if(loggedIn){
         for (int j = 0; j<5;) {
@@ -1371,17 +1371,14 @@ public class iMatController implements Initializable {
             j++;
             
         }}
-        for (int i = 0; i<5;) {
-            
-            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
-            Pane thumbnailObj = thumbnailFactory(offerProd);
-            offersItemList.add(thumbnailObj);
-            i++;
-        } 
+        for (int i = 0; i<5;){
+            startViewOffers.getChildren().add(offersItemList.get(i));
+        i++;
+        }
+
         favCounter = favoriteItemList.size();
-        startViewOffers.getChildren().addAll(offersItemList);
         startViewFav.getChildren().addAll(favoriteItemList);
-        
+
         setCategoriesAllGrey();
         startPageButton.getStyleClass().clear();
         startPageButton.getStyleClass().add("fancyPink");
@@ -1390,32 +1387,22 @@ public class iMatController implements Initializable {
     private void offersLeft(){
         Random randomizer = new Random();
         startViewOffers.getChildren().clear();
-        offersItemList.clear();
-        for (int i = 0; i<5;) {
-            
-            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
-            Pane thumbnailObj = thumbnailFactory(offerProd);
-            offersItemList.add(thumbnailObj);
+        for (int i = 0 ; i<5;) {
+            startViewOffers.getChildren().add(offersItemList.get(i));
             i++;
         } 
-        startViewOffers.getChildren().addAll(offersItemList);
     }
     @FXML
     private void offersRight(){
-        Random randomizer = new Random();
         startViewOffers.getChildren().clear();
-        offersItemList.clear();
-        for (int i = 0; i<5;) {
-            
-            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
-            Pane thumbnailObj = thumbnailFactory(offerProd);
-            offersItemList.add(thumbnailObj);
+        for (int i = 5 ; i<10;) {
+            startViewOffers.getChildren().add(offersItemList.get(i));
             i++;
         } 
-        startViewOffers.getChildren().addAll(offersItemList);
     }
     @FXML
     private void favoritesLeft(){
+        if(loggedIn){
         if(favCounter>=10){
         startViewFav.getChildren().clear();
         favoriteItemList.clear();
@@ -1430,11 +1417,12 @@ public class iMatController implements Initializable {
         }
         favCounter = favCounter - 5;
         startViewFav.getChildren().addAll(favoriteItemList);
-        }
+        }}
 
     }
     @FXML
     private void favoritesRight(){
+        if(loggedIn){
         if(favCounter<IMatDataHandler.getInstance().favorites().size()){
         startViewFav.getChildren().clear();
         favoriteItemList.clear();
@@ -1449,7 +1437,22 @@ public class iMatController implements Initializable {
         }
         favCounter = favCounter + 5;
         startViewFav.getChildren().addAll(favoriteItemList);
-        }
+        }}
+    }
+    private void randomOffers(){
+            Random randomizer = new Random();
+            //int[] randomList = new int[10];
+            //for (int j = 0 ; j<10;){
+            //randomList[j]= randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size());
+            //}
+            for (int i = 0; i<10;) {
+            
+            Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
+            Pane thumbnailObj = thumbnailFactory(offerProd);
+            offersItemList.add(thumbnailObj);
+            i++;
+        } 
+    
     }
     
 
