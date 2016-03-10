@@ -729,7 +729,9 @@ public class iMatController implements Initializable {
       openCategoryView(emptyUnCategoryList);
     }
     
+    
     // TODO
+    // Method to highlight the last button you clicked (i.e. current view showing)
     private void highlightMenuButtons(Button inputButton) {
         
         for (Button button : categoryButtons) {
@@ -803,20 +805,48 @@ public class iMatController implements Initializable {
     private void openHistoryView() {
         historyCartsViewList.getChildren().clear();
         
+        // An ugly improvised way to avoid checking if cart already exist in the list.
+        shoppingCartsHistory.clear();
+
+        if(IMatDataHandler.getInstance().getOrders().get(0).getItems() != null){
+            
+            for(Order order : IMatDataHandler.getInstance().getOrders()){
+                
+                // first create an cart we will add stuff to
+                ShoppingCartController shoppingCart = shoppingCartFactory(null);
+                
+                // Just some cart-look trimming.
+                shoppingCart.cartButton.visibleProperty().set(false);
+                shoppingCart.cartButton.disableProperty().set(true);
+                
+                // Then for every product inside the order, add them one by one
+                // to the new cart.
+                for(ShoppingItem shopItem : order.getItems()) {
+                    shoppingCart.addCartItem(shopItem.getProduct(), shopItem.getAmount(), shopItem);
+                }
+                
+                // Lastly add the newly created historyCart to our arrayList.
+                shoppingCartsHistory.add(shoppingCart);
+            }
+        }
+        
         for(ShoppingCartController shopCart : shoppingCartsHistory) {
             historyCartsViewList.getChildren().add(shopCart.cartPane);
         }
         historyCartsView.toFront();
         
-        if(IMatDataHandler.getInstance().getOrders().get(0).getItems() != null){
-            for(Order order : IMatDataHandler.getInstance().getOrders()){
-                // TODO ----------------------------------------------------------------------------------------------------------------------------------------- TODO
-            }
-        }
-        
-        
         System.out.println(IMatDataHandler.getInstance().getOrders());
         
+    }
+  
+    @FXML
+    public void openSavedShoppingCarts() {
+        savedShoppingCartsViewList.getChildren().clear();
+        for(ShoppingCartController shopCart : shoppingCartsSaved) {
+            savedShoppingCartsViewList.getChildren().add(shopCart.cartPane);
+        }
+        
+        savedShoppingCartsView.toFront();
     }
 
     @FXML
@@ -853,18 +883,6 @@ public class iMatController implements Initializable {
         
         shoppingCartsSaved.add(shoppingCart);
     }
-    @FXML
-    public void openSavedShoppingCarts() {
-        savedShoppingCartsViewList.getChildren().clear();
-        for(ShoppingCartController shopCart : shoppingCartsSaved) {
-            savedShoppingCartsViewList.getChildren().add(shopCart.cartPane);
-        }
-        
-        savedShoppingCartsView.toFront();
-    }
-    
-    // HOWTO add history from checkout
-    // call shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems)));
     
     ////////////////////////////////////////////////////////////////////////////
     //// Checkout part

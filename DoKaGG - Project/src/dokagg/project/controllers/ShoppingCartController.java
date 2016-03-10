@@ -4,17 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import se.chalmers.ait.dat215.project.*;
 
@@ -89,8 +85,6 @@ public class ShoppingCartController {
                         Double.valueOf(cartItem.getQuantity()), 
                         cartItem.getShoppingItem()));
         }
-        
-        //IMatDataHandler.getInstance().getShoppingCart().removeItem(prodAsShopItem);
     }
     
     public void cartCheckoutButton() {
@@ -113,38 +107,6 @@ public class ShoppingCartController {
     }
     
     public void favoriteShoppingCart() {
-//        ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
-//        ShoppingCartController shoppingCart = iMatController.shoppingCartFactory(cloneBaby);
-//        
-//        shoppingCart.cartButton.visibleProperty().set(false);
-//        shoppingCart.cartButton.disableProperty().set(true);
-//        
-//        shoppingCart.cartButtonSave.visibleProperty().set(false);
-//        shoppingCart.cartButtonSave.disableProperty().set(true);
-//        
-//        Button makeCurrentCart = new Button();
-//        
-//        shoppingCart.cartPane.add(makeCurrentCart, 0, 2);
-//        makeCurrentCart.setTranslateY(-93);
-//        makeCurrentCart.setTranslateX(78);
-//        makeCurrentCart.setPrefWidth(137);
-//        makeCurrentCart.setPrefHeight(34);
-//               
-//        makeCurrentCart.setText("Hämta varukorg");
-//        makeCurrentCart.setTextFill(Color.WHITE);
-//        makeCurrentCart.setAlignment(Pos.CENTER);
-//        makeCurrentCart.setFont(Font.font("Calibri", FontWeight.BOLD, 18));
-//         
-//        makeCurrentCart.getStyleClass().clear();
-//        makeCurrentCart.getStyleClass().add("pinkBGColour");
-//      
-//     //   shoppingCart.cartScrollPane.getStyleClass().add("fancyGrey");
-//     //   shoppingCart.cartGreyPane.getStyleClass().add("fancyGrey");
-//    //    shoppingCart.cartGreyPane2.getStyleClass().add("fancyGrey");
-//    //    shoppingCart.cartList.getStyleClass().add("fancyGrey");
-//        
-//        iMatController.shoppingCartsSaved.add(shoppingCart);
-        
         iMatController.saveShoppingCart(cartsItems);
     }
     
@@ -156,11 +118,6 @@ public class ShoppingCartController {
         }
         return null;
     }
-    
-//    public void updateTotalCost(double addedCost) {
-//        double newValue = Double.valueOf(cartTotalCost.getText()) + addedCost;
-//        cartTotalCost.setText(String.valueOf(newValue));
-//    }
     
     public ArrayList<CartItemController> getList() {
         return cartsItems;
