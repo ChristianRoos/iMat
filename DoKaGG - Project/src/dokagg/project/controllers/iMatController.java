@@ -238,11 +238,11 @@ public class iMatController implements Initializable {
     @FXML private Button step2LoginBack;
     @FXML private Button step2LoginButton;
     @FXML private TextField step2LoginEmail;
-    @FXML private TextField step2LoginPass;
+    @FXML private PasswordField step2LoginPass;
     @FXML private TextField step2RegisterEmail;
     @FXML private TextField step2RegisterEmailConfirm;
-    @FXML private TextField step2RegisterPass;
-    @FXML private TextField step2RegisterPassConfirm;
+    @FXML private PasswordField step2RegisterPass;
+    @FXML private PasswordField step2RegisterPassConfirm;
     @FXML private TextField step2RegisterName;
     @FXML private TextField step2RegisterLName;
     @FXML private TextField step2RegisterAdress;
@@ -261,7 +261,7 @@ public class iMatController implements Initializable {
     @FXML private RadioButton step3RadioButton2;
     @FXML private RadioButton step3RadioButton3;
     @FXML private RadioButton step3RadioButton4;
-    @FXML private Label step3TotSum11;
+    @FXML private Label step3TotSum;
     @FXML private Label errorLabel;
     
 
@@ -343,6 +343,7 @@ public class iMatController implements Initializable {
         
         
         if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
+            
             IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
             IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
             IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
@@ -358,7 +359,7 @@ public class iMatController implements Initializable {
             kontoRutaLogOut.setText("Logga ut");
             mainPane.toFront();
             loggedIn = true;
-            
+            resetLabels();
             updateLabels();
             
         }
@@ -394,6 +395,7 @@ public class iMatController implements Initializable {
         loggedIn = true;
         registerLoginEmailField.setText("");
         loginPassField.setText("");
+        openStartView();
         }
     }
     
@@ -403,7 +405,13 @@ public class iMatController implements Initializable {
     @FXML
     private void mainWindowAccButton(){
         if (loggedIn == false) firstAccPane.toFront();
-        else accountPane.toFront();
+        else {
+            accountPane.toFront();
+            if(IMatDataHandler.getInstance().getCreditCard().getCardNumber().isEmpty()){
+                accountPayment2.toFront();
+            }
+            else accountPayment3.toFront();
+        }
     }
     
     @FXML
@@ -427,6 +435,8 @@ public class iMatController implements Initializable {
     @FXML
     private void accountPaymentRemove(){
         accountPayment2.toFront();
+        resetLabels();
+        updateLabels();
     }
     @FXML
     private void accountPaymentChange(){
@@ -474,6 +484,8 @@ public class iMatController implements Initializable {
         if(!accountPaymentMasterCard.isSelected() && !accountPaymentVisa.isSelected()){
             accountPaymentErrors.setText("Korttyp har inte angivits!");
         }
+        else if ((accountPaymentNameField.getText().isEmpty())) {
+            accountPaymentErrors.setText("Namn har inte angivits!");}
         else if (!cardClear(accountPaymentCardField.getText())) {
             accountPaymentErrors.setText("Kortnummer har angivits fel!");
         } else if (!monthClear(accountPaymentMonthField.getText())) {
@@ -494,8 +506,8 @@ public class iMatController implements Initializable {
             IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(accountPaymentSecurityField.getText()));
         
             accountPaymentErrors.setText("");
-            accountPaymentCard1.setText( accountPaymentCardField.getText());
-            accountPaymentDate1.setText( accountPaymentMonthField.getText() +"/"+ accountPaymentYearField.getText());
+            
+            updateLabels();
         } 
     }
 
@@ -568,6 +580,7 @@ public class iMatController implements Initializable {
         IMatDataHandler.getInstance().getCustomer().setPhoneNumber(accountAdressTelephoneField.getText());
         
         accountAdress2.toFront();
+        
         updateLabels();
         }
         else accountAdressErrors.setText(errorMessageChangeAdress);
@@ -691,7 +704,7 @@ public class iMatController implements Initializable {
     @FXML
     private void showCategoryDairyEggCheese() throws IOException{
       categoriesToSeeList.add(ProductCategory.DAIRIES);
-      categoryLabel.setText("Meheri, Ägg & Ost");
+      categoryLabel.setText("Mejeri, Ägg & Ost");
       openCategoryView(emptyUnCategoryList);
     }
     
@@ -929,8 +942,10 @@ public class iMatController implements Initializable {
         }
         
 
-        step1TotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
-        step3TotSum11.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal()));
+        step1TotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal())+" kr");
+        step3TotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal())+" kr");
+        step4ConfirmTotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal())+" kr");
+        step4TotSum.setText(String.valueOf(IMatDataHandler.getInstance().getShoppingCart().getTotal())+" kr");
         checkoutPane.toFront();
         step1SPane.toFront();
     }
@@ -1106,9 +1121,23 @@ public class iMatController implements Initializable {
         step2PostalCode.setText(IMatDataHandler.getInstance().getCustomer().getPostCode());
         step2City.setText(IMatDataHandler.getInstance().getCustomer().getPostAddress());
         step2Email.setText(IMatDataHandler.getInstance().getCustomer().getEmail());
-        step2Phone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
+        step2Phone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
         step2Cellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
         
+        accountPaymentCard1.setText( IMatDataHandler.getInstance().getCreditCard().getCardNumber());
+        accountPaymentDate1.setText(  IMatDataHandler.getInstance().getCreditCard().getValidMonth() +"/"+  IMatDataHandler.getInstance().getCreditCard().getValidYear());
+        step4ConfirmType.setText( IMatDataHandler.getInstance().getCreditCard().getCardType());
+        step4ConfirmName.setText( IMatDataHandler.getInstance().getCreditCard().getHoldersName());
+        step4ConfirmCardNr.setText( IMatDataHandler.getInstance().getCreditCard().getCardNumber());
+        step4ConfirmDate.setText( IMatDataHandler.getInstance().getCreditCard().getValidMonth()+"/"+ IMatDataHandler.getInstance().getCreditCard().getValidYear());
+    }
+    private void resetLabels(){
+        IMatDataHandler.getInstance().getCreditCard().setCardNumber("");
+        IMatDataHandler.getInstance().getCreditCard().setCardType("");
+        IMatDataHandler.getInstance().getCreditCard().setHoldersName("");
+        IMatDataHandler.getInstance().getCreditCard().setValidMonth(0);
+        IMatDataHandler.getInstance().getCreditCard().setValidYear(0);
+        IMatDataHandler.getInstance().getCreditCard().setVerificationCode(0);
     }
     @FXML
     private void step2Register(){
@@ -1148,7 +1177,7 @@ public class iMatController implements Initializable {
             kontoRutaLogOut.setText("Logga ut");
             step3Pane.toFront();
             loggedIn = true;
-            
+            resetLabels();
             updateLabels();
             
         }
@@ -1190,7 +1219,46 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void step4Change(){
-        step4ConfirmPane.toFront();
+        step4Pane.toFront();
+    }
+    @FXML
+    private void step4FinishPayment(){
+        if(!step4Mastercard.isSelected() && !step4Visa.isSelected()){
+            step4Errors.setText("Korttyp har inte angivits!");
+        }
+        else if ((step4Name.getText().isEmpty())) {
+            step4Errors.setText("Namn har inte angivits!");}
+        else if (!cardClear(step4CardNr.getText())) {
+            step4Errors.setText("Kortnummer har angivits fel!");
+        } else if (!monthClear(step4Month.getText())) {
+            step4Errors.setText("Felaktigt månad!");
+        } else if (!yearClear(step4Year.getText())) {
+            step4Errors.setText("Felaktigt årtal!");
+        } else if (!securityNumberClear(step4Security.getText())){
+            step4Errors.setText("CVC är inkorrekt inmatad!");
+        } else {
+            if(step4SaveInfo.isSelected()){     
+            
+            if(step4Mastercard.isSelected()){IMatDataHandler.getInstance().getCreditCard().setCardType(step4Mastercard.getText());}
+            else {IMatDataHandler.getInstance().getCreditCard().setCardType(step4Visa.getText());}
+            IMatDataHandler.getInstance().getCreditCard().setCardNumber(step4CardNr.getText());
+            IMatDataHandler.getInstance().getCreditCard().setHoldersName(step4Name.getText());
+            IMatDataHandler.getInstance().getCreditCard().setValidMonth(Integer.parseInt(step4Month.getText()));
+            IMatDataHandler.getInstance().getCreditCard().setValidYear(Integer.parseInt(step4Year.getText()));
+            IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(step4Security.getText()));
+            updateLabels();
+            }
+            step4Errors.setText("");
+            IMatDataHandler.getInstance().placeOrder();
+            shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
+            gzPane.toFront();
+        } 
+    }
+    @FXML
+    private void step4Finish(){  
+            IMatDataHandler.getInstance().placeOrder();
+            shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
+            gzPane.toFront();
     }
     @FXML
     private void openStartView(){
@@ -1201,6 +1269,7 @@ public class iMatController implements Initializable {
         startViewOffers.getChildren().clear();
         offersItemList.clear();
         startView.toFront();
+        if(loggedIn){
         for (int j = 0; j<5;) {
             if(j<IMatDataHandler.getInstance().favorites().size()){
             Product favProd = IMatDataHandler.getInstance().favorites().get(j);
@@ -1209,7 +1278,7 @@ public class iMatController implements Initializable {
             }
             j++;
             
-        }
+        }}
         for (int i = 0; i<5;) {
             
             Product offerProd = IMatDataHandler.getInstance().getProducts().get(randomizer.nextInt(IMatDataHandler.getInstance().getProducts().size()));
