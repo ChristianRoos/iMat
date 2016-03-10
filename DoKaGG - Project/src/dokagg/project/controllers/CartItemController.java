@@ -2,7 +2,6 @@ package dokagg.project.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import se.chalmers.ait.dat215.project.Product;
@@ -13,7 +12,7 @@ public class CartItemController {
     @FXML private ImageView cartItemDelete;
     @FXML private Image removeImage;
     @FXML private Label cartItemName;
-    @FXML private TextField cartItemAmountField;
+    @FXML private Label cartItemAmountField;
     @FXML private ImageView quantityImageView;
     @FXML private Image quantityImage;
     @FXML private Label cartItemPricePer;
@@ -39,9 +38,10 @@ public class CartItemController {
 //        quantityImageView.toFront();
         
         cartItemName.setText(prod.getName());
-        cartItemAmountField.setText(String.valueOf(quantity));
+        cartItemAmountField.setText(String.valueOf((int)quantity));
         cartItemPricePer.setText(String.valueOf(prod.getPrice()));
-        cartItemTotal.setText(String.valueOf(prod.getPrice()*quantity));
+        double total = prod.getPrice()*quantity;
+        cartItemTotal.setText(String.format( "%.2f", total));
     }
     
     public void removeItem(){
@@ -61,20 +61,14 @@ public class CartItemController {
     }
     
     public void setQuantity(double quantity){
-        cartItemAmountField.setText(String.valueOf(quantity));
+        cartItemAmountField.setText(String.valueOf((int)quantity));
         updateTotalCost();
     }
     
-    public void updateTotalCost(){
-        
-//        double newQuantity = Double.valueOf(getQuantity()) + quantity;
-//        cartItemAmountField.setText(String.valueOf(newQuantity));
-//        cartItemTotal.setText(String.valueOf(prod.getPrice()*newQuantity));
+    public void updateTotalCost(){;
         
         double newTotalCost = prod.getPrice()*Double.valueOf(getQuantity());
-        cartItemTotal.setText(String.valueOf(newTotalCost));
-        
-        // update newTotalCost
-//        shoppingCart.updateTotalCost(newTotalCost);
+//        cartItemTotal.setText(String.valueOf(newTotalCost));
+        cartItemTotal.setText(String.format( "%.2f", newTotalCost));
     }
 }

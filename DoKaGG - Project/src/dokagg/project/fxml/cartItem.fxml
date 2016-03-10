@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,22 +22,17 @@
             <Font name="Calibri" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="cartItemStLabel" alignment="CENTER" layoutX="163.0" layoutY="8.0" prefHeight="25.0" prefWidth="20.0" style="-fx-border-color: c1c1c1; -fx-border-radius: 0 3 3 0;" text="st" AnchorPane.leftAnchor="163.0" AnchorPane.topAnchor="8.0">
-         <font>
-            <Font name="Calibri" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="cartItemAmountField" layoutX="205.0" layoutY="8.0" prefHeight="25.0" prefWidth="28.0" AnchorPane.leftAnchor="136.0" AnchorPane.topAnchor="8.0">
-         <font>
-            <Font name="Calibri" size="12.0" />
-         </font>
-      </TextField>
-      <Label fx:id="cartItemPricePer" alignment="CENTER_RIGHT" layoutX="202.0" layoutY="1.0" prefHeight="40.0" prefWidth="35.0" text="Styck" AnchorPane.leftAnchor="185.0" AnchorPane.topAnchor="0.0">
+      <Label fx:id="cartItemPricePer" alignment="CENTER" layoutX="202.0" layoutY="1.0" prefHeight="40.0" prefWidth="35.0" text="Styck" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="185.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>
       </Label>
       <Label fx:id="cartItemTotal" alignment="CENTER_RIGHT" layoutX="212.0" layoutY="11.0" prefHeight="40.0" prefWidth="70.0" text="Total" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="Calibri" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="cartItemAmountField" alignment="CENTER" contentDisplay="CENTER" layoutX="134.0" layoutY="12.0" prefHeight="14.0" prefWidth="49.0" text="Label" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="134.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font name="Calibri" size="12.0" />
          </font>

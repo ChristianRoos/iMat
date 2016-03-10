@@ -1571,7 +1571,7 @@
                                           </Label>
                                           <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefWidth="790.0">
                                              <content>
-                                                <FlowPane fx:id="historyCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 0 0 60;" />
+                                                <FlowPane fx:id="historyCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 25 0 35;" />
                                              </content>
                                           </ScrollPane>
                                        </children>
@@ -1700,7 +1700,7 @@
                                           </Label>
                                           <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
                                              <content>
-                                                <FlowPane fx:id="savedShoppingCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 0 0 60;" />
+                                                <FlowPane fx:id="savedShoppingCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 25 0 35;" />
                                              </content>
                                           </ScrollPane>
                                        </children>

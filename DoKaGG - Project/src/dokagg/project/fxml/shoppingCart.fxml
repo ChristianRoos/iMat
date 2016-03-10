@@ -52,7 +52,7 @@
                                     <Font name="Calibri" size="14.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="181.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: F4F4F4; -fx-border-color: d31145;" text="Styck">
+                              <Label alignment="CENTER" layoutX="181.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: F4F4F4; -fx-border-color: d31145;" text="Pris">
                                  <font>
                                     <Font name="Calibri" size="14.0" />
                                  </font>
