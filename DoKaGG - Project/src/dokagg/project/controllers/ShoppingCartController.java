@@ -85,7 +85,6 @@ public class ShoppingCartController {
                             cartsItems.get(i).getProduct(), 
                             Double.valueOf(cartsItems.get(i).getQuantity()), 
                             cartsItems.get(i).getShoppingItem()));
-            //cartsItems.remove(cartsItems.size()-1);
         }
         for (int i = 0; cartLength > i; i++){
             cartsItems.remove(0);

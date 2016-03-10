@@ -97,7 +97,7 @@ public class iMatController implements Initializable {
     @FXML private Button categoryDairyButton;
     @FXML private Button categoryDrinkButton;
     @FXML private Button categoryPantryButton;
-    @FXML private Button savedListsButton;
+    @FXML private Button savedListsButton;    
     private ArrayList<Button> categoryButtons = new ArrayList<>();
     
     @FXML private Pane offersView1;
@@ -622,6 +622,49 @@ public class iMatController implements Initializable {
         specificCategoryList.getChildren().addAll(categoryItemList);
     }
     
+    private void setCategoriesAllGrey(){
+            startPageButton.getStyleClass().clear();
+            startPageButton.getStyleClass().add("fancyGrey2");
+            startPageButton.setTextFill(Color.BLACK);
+            
+            favortiePageButton.getStyleClass().clear();
+            favortiePageButton.getStyleClass().add("fancyGrey2");
+            favortiePageButton.setTextFill(Color.BLACK);
+            
+            historyPageButton.getStyleClass().clear();
+            historyPageButton.getStyleClass().add("fancyGrey2");
+            historyPageButton.setTextFill(Color.BLACK);
+            
+            savedListsButton.getStyleClass().clear();
+            savedListsButton.getStyleClass().add("fancyGrey2");
+            savedListsButton.setTextFill(Color.BLACK);
+            
+            categoryMeatButton.getStyleClass().clear();
+            categoryMeatButton.getStyleClass().add("fancyGrey2");
+            categoryMeatButton.setTextFill(Color.BLACK);
+            
+            categorySeaFoodButton.getStyleClass().clear();
+            categorySeaFoodButton.getStyleClass().add("fancyGrey2");
+            categorySeaFoodButton.setTextFill(Color.BLACK);
+            
+            categoryFruitButton.getStyleClass().clear();
+            categoryFruitButton.getStyleClass().add("fancyGrey2");
+            categoryFruitButton.setTextFill(Color.BLACK);
+            
+            categoryDairyButton.getStyleClass().clear();
+            categoryDairyButton.getStyleClass().add("fancyGrey2");
+            categoryDairyButton.setTextFill(Color.BLACK);
+            
+            categoryDrinkButton.getStyleClass().clear();
+            categoryDrinkButton.getStyleClass().add("fancyGrey2");
+            categoryDrinkButton.setTextFill(Color.BLACK);
+            
+            categoryPantryButton.getStyleClass().clear();
+            categoryPantryButton.getStyleClass().add("fancyGrey2");
+            categoryPantryButton.setTextFill(Color.BLACK);
+            
+    }
+    
     @FXML
     private void openFavoriteView() throws IOException{
         favoritesProductsPane.getChildren().clear();
@@ -635,6 +678,10 @@ public class iMatController implements Initializable {
         } 
         
         favoritesProductsPane.getChildren().addAll(favoriteItemList);
+        
+        setCategoriesAllGrey();
+        favortiePageButton.getStyleClass().clear();
+        favortiePageButton.getStyleClass().add("fancyPink");
     }
     
     ////////////////////////////////////////////////////////////////////////////
@@ -673,6 +720,10 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.MEAT);
       categoryLabel.setText("Kött & Chark");
       openCategoryView(emptyUnCategoryList);
+      
+      setCategoriesAllGrey();
+      categoryMeatButton.getStyleClass().clear();
+      categoryMeatButton.getStyleClass().add("fancyPink");
     }
     
     @FXML
@@ -680,6 +731,10 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.FISH);
       categoryLabel.setText("Fisk & Skaldjur");
       openCategoryView(emptyUnCategoryList);
+      
+      setCategoriesAllGrey();
+      categorySeaFoodButton.getStyleClass().clear();
+      categorySeaFoodButton.getStyleClass().add("fancyPink");
     }
     
     @FXML
@@ -699,6 +754,9 @@ public class iMatController implements Initializable {
       
       categoryLabel.setText("Frukt & Grönt");
       openCategoryView(emptyUnCategoryList);
+      setCategoriesAllGrey();
+      categoryFruitButton.getStyleClass().clear();
+      categoryFruitButton.getStyleClass().add("fancyPink");
     }
     
     @FXML
@@ -706,6 +764,9 @@ public class iMatController implements Initializable {
       categoriesToSeeList.add(ProductCategory.DAIRIES);
       categoryLabel.setText("Mejeri, Ägg & Ost");
       openCategoryView(emptyUnCategoryList);
+      setCategoriesAllGrey();
+      categoryDairyButton.getStyleClass().clear();
+      categoryDairyButton.getStyleClass().add("fancyPink");
     }
     
     @FXML
@@ -716,6 +777,9 @@ public class iMatController implements Initializable {
       
       categoryLabel.setText("Dryck");
       openCategoryView(unCategorizedProducts);
+      setCategoriesAllGrey();
+      categoryDrinkButton.getStyleClass().clear();
+      categoryDrinkButton.getStyleClass().add("fancyPink");
     }
     
     @FXML
@@ -727,6 +791,9 @@ public class iMatController implements Initializable {
       
       categoryLabel.setText("Skafferi");
       openCategoryView(emptyUnCategoryList);
+      setCategoriesAllGrey();
+      categoryPantryButton.getStyleClass().clear();
+      categoryPantryButton.getStyleClass().add("fancyPink");
     }
     
     
@@ -837,6 +904,10 @@ public class iMatController implements Initializable {
         
         System.out.println(IMatDataHandler.getInstance().getOrders());
         
+        setCategoriesAllGrey();
+        historyPageButton.getStyleClass().clear();
+        historyPageButton.getStyleClass().add("fancyPink");
+        
     }
   
     @FXML
@@ -847,6 +918,9 @@ public class iMatController implements Initializable {
         }
         
         savedShoppingCartsView.toFront();
+        setCategoriesAllGrey();
+        savedListsButton.getStyleClass().clear();
+        savedListsButton.getStyleClass().add("fancyPink");
     }
 
     @FXML
@@ -1307,6 +1381,10 @@ public class iMatController implements Initializable {
         favCounter = favoriteItemList.size();
         startViewOffers.getChildren().addAll(offersItemList);
         startViewFav.getChildren().addAll(favoriteItemList);
+        
+        setCategoriesAllGrey();
+        startPageButton.getStyleClass().clear();
+        startPageButton.getStyleClass().add("fancyPink");
     }
     @FXML
     private void offersLeft(){

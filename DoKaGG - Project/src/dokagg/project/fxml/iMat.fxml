@@ -11,7 +11,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -1333,50 +1332,29 @@
                            <children>
                               <Pane prefHeight="42.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="startPageButton" layoutY="1.0" mnemonicParsing="false" onAction="#openStartView" prefHeight="52.0" prefWidth="230.0" text="Start Button">
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#d31145" width="225.0" x="2.5" />
-                                       </effect>
+                                    <Button fx:id="startPageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openStartView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyPink" text="Min Startsida" textFill="WHITE">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Label layoutX="82.0" layoutY="14.0" mouseTransparent="true" text="Min Startsida">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="favortiePageButton" mnemonicParsing="false" onAction="#openFavoriteView" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="favortiePageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openFavoriteView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mina Favoriter" translateY="1.0">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="79.0" layoutY="13.0" mouseTransparent="true" text="Mina Favoriter">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="historyPageButton" mnemonicParsing="false" onAction="#openHistoryView" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="historyPageButton" layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#openHistoryView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Tidigare Köp">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="85.0" layoutY="13.0" mouseTransparent="true" text="Tidigare Köp">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
@@ -1384,18 +1362,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="savedListsButton" mnemonicParsing="false" onAction="#openSavedShoppingCarts" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="savedListsButton" layoutX="2.0" layoutY="3.0" mnemonicParsing="false" onAction="#openSavedShoppingCarts" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Sparade Listor">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="80.0" layoutY="13.0" mouseTransparent="true" text="Sparade Listor">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
@@ -1403,18 +1374,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categoryMeatButton" mnemonicParsing="false" onAction="#showCategoryMeat" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #FFF;" text="Button">
+                                    <Button fx:id="categoryMeatButton" layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#showCategoryMeat" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Kött &amp; Chark">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="84.0" layoutY="13.0" mouseTransparent="true" text="Kött &amp; Chark">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="25.0" />
@@ -1422,18 +1386,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categorySeaFoodButton" mnemonicParsing="false" onAction="#showCategorySeafood" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="categorySeaFoodButton" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#showCategorySeafood" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Fisk &amp; Skaldjur">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="79.0" layoutY="13.0" mouseTransparent="true" text="Fisk &amp; Skaldjur">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
@@ -1441,18 +1398,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categoryFruitButton" mnemonicParsing="false" onAction="#showCategoryFruitAndGreen" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="categoryFruitButton" layoutX="2.0" layoutY="6.0" mnemonicParsing="false" onAction="#showCategoryFruitAndGreen" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Frukt &amp; Grönt">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="81.0" layoutY="13.0" mouseTransparent="true" text="Frukt &amp; Grönt">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
@@ -1460,18 +1410,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categoryDairyButton" mnemonicParsing="false" onAction="#showCategoryDairyEggCheese" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="categoryDairyButton" layoutX="2.0" layoutY="7.0" mnemonicParsing="false" onAction="#showCategoryDairyEggCheese" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mejeri, Ägg &amp; Ost">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="72.0" layoutY="13.0" mouseTransparent="true" text="Mejeri, Ägg &amp; Ost">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
@@ -1479,19 +1422,11 @@
                               </Pane>
                               <Pane prefHeight="40.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categoryDrinkButton" layoutY="1.0" mnemonicParsing="false" onAction="#showCategoryDrinks" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="categoryDrinkButton" layoutX="2.0" layoutY="9.0" mnemonicParsing="false" onAction="#showCategoryDrinks" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Dryck">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="40.0" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="101.0" layoutY="13.0" mouseTransparent="true" text="Dryck">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font>
-                                    </Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -1499,18 +1434,11 @@
                               </Pane>
                               <Pane prefHeight="42.0" prefWidth="230.0">
                                  <children>
-                                    <Button fx:id="categoryPantryButton" layoutY="1.0" mnemonicParsing="false" onAction="#showCategoryPantry" prefHeight="40.0" prefWidth="230.0" text="Button">
+                                    <Button fx:id="categoryPantryButton" layoutX="2.0" layoutY="10.0" mnemonicParsing="false" onAction="#showCategoryPantry" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Skafferi">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                       <effect>
-                                          <ColorInput height="195.7" paint="#e5e5e5" width="225.0" x="2.5" />
-                                       </effect>
                                     </Button>
-                                    <Label layoutX="97.0" layoutY="14.0" mouseTransparent="true" text="Skafferi">
-                                       <font>
-                                          <Font name="Calibri" size="12.0" />
-                                       </font></Label>
                                  </children>
                                  <VBox.margin>
                                     <Insets top="1.0" />
