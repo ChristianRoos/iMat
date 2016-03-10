@@ -78,12 +78,17 @@ public class ShoppingCartController {
     public void removeCartItem(CartItemController cartItemContr, ShoppingItem prodAsShopItem){
         cartsItems.remove(cartItemContr);
         cartList.getChildren().clear();
+        int cartLength = cartsItems.size();  
         
-        for(CartItemController cartItem : cartsItems) {
+        for (int i = 0; cartLength > i; i++) {
             cartList.getChildren().add(cartItemFactory(
-                        cartItem.getProduct(), 
-                        Double.valueOf(cartItem.getQuantity()), 
-                        cartItem.getShoppingItem()));
+                            cartsItems.get(i).getProduct(), 
+                            Double.valueOf(cartsItems.get(i).getQuantity()), 
+                            cartsItems.get(i).getShoppingItem()));
+            //cartsItems.remove(cartsItems.size()-1);
+        }
+        for (int i = 0; cartLength > i; i++){
+            cartsItems.remove(0);
         }
     }
     
