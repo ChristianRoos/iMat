@@ -30,385 +30,6 @@
    <children>
       <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="pane1" fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <ImageView fitHeight="156.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/images/banner.jpg" />
-                           </image>
-                        </ImageView>
-                        <HBox layoutX="265.0" layoutY="43.0" prefHeight="60.0" prefWidth="693.0">
-                           <children>
-                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Välkommen tillbaka " textFill="WHITE">
-                                 <font>
-                                    <Font name="Calibri" size="45.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="topUserName" contentDisplay="CENTER" textFill="WHITE">
-                                 <font>
-                                    <Font name="Calibri" size="45.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <Pane id="loggaUt" fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" onAction="#mainWindowLogoutButton" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="Calibri" size="18.0" />
-                                 </font>
-                              </Button>
-                              <Label fx:id="kontoRutaName" layoutX="27.0" layoutY="9.0" textFill="WHITE" underline="true">
-                                 <font>
-                                    <Font name="Calibri Bold" size="24.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" onAction="#mainWindowAccButton" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Registrera konto" textFill="WHITE">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="Calibri" size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </Pane>
-                        <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: d31145; -fx-background-radius: 40;" text="Ångra" textFill="WHITE">
-                           <font>
-                              <Font name="Calibri" size="50.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </AnchorPane>
-                  <Pane layoutX="14.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="158.0">
-                     <children>
-                        <VBox prefHeight="590.0" prefWidth="230.0">
-                           <children>
-                              <Pane prefHeight="42.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="startPageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openStartView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyPink" text="Min Startsida" textFill="WHITE">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="favortiePageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openFavoriteView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mina Favoriter" translateY="1.0">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="historyPageButton" layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#openHistoryView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Tidigare Köp">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="savedListsButton" layoutX="2.0" layoutY="3.0" mnemonicParsing="false" onAction="#openSavedShoppingCarts" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Sparade Listor">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryMeatButton" layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#showCategoryMeat" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Kött &amp; Chark">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="25.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categorySeaFoodButton" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#showCategorySeafood" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Fisk &amp; Skaldjur">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryFruitButton" layoutX="2.0" layoutY="6.0" mnemonicParsing="false" onAction="#showCategoryFruitAndGreen" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Frukt &amp; Grönt">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryDairyButton" layoutX="2.0" layoutY="7.0" mnemonicParsing="false" onAction="#showCategoryDairyEggCheese" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mejeri, Ägg &amp; Ost">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="40.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryDrinkButton" layoutX="2.0" layoutY="9.0" mnemonicParsing="false" onAction="#showCategoryDrinks" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Dryck">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Pane>
-                              <Pane prefHeight="42.0" prefWidth="230.0">
-                                 <children>
-                                    <Button fx:id="categoryPantryButton" layoutX="2.0" layoutY="10.0" mnemonicParsing="false" onAction="#showCategoryPantry" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Skafferi">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="1.0" />
-                                 </VBox.margin>
-                              </Pane>
-                           </children>
-                        </VBox>
-                     </children>
-                  </Pane>
-                  <AnchorPane fx:id="mainViewShoppingCartShell" layoutX="1071.0" layoutY="158.0" maxWidth="295.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="158.0" />
-                  <Pane layoutX="230.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="158.0">
-                     <children>
-                        <TextField fx:id="searchProduct" layoutX="10.0" layoutY="8.0" onAction="#searchMethod" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
-                           <font>
-                              <Font name="Calibri" size="14.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="223.0" layoutY="198.0" prefHeight="200.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="198.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="840.0">
-                           <children>
-                              <StackPane maxHeight="548.0" prefHeight="200.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <children>
-                                    <Pane id="pane1" fx:id="favoritesView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
-                                       <children>
-                                          <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="favoritesTitle" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="DINA FAVORITER" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                             </cursor>
-                                          </Label>
-                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
-                                             <content>
-                                                <FlowPane fx:id="favoritesProductsPane" hgap="30.0" minHeight="450.0" prefWidth="790.0" prefWrapLength="790.0" style="-fx-padding: 5;" vgap="10.0" />
-                                             </content>
-                                          </ScrollPane>
-                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                    <Pane id="pane1" fx:id="historyCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                       <children>
-                                          <Rectangle fx:id="offersGraphic111" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="offersTitle111" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="TIDIGARE KÖP" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                             </cursor>
-                                          </Label>
-                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefWidth="790.0">
-                                             <content>
-                                                <FlowPane fx:id="historyCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 25 0 35;" />
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                    <Pane id="pane1" fx:id="offersView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
-                                       <children>
-                                          <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="categoryLabel" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                             </cursor>
-                                          </Label>
-                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
-                                             <content>
-                                                <FlowPane fx:id="specificCategoryList" hgap="30.0" minHeight="450.0" prefWidth="790.0" prefWrapLength="790.0" style="-fx-padding: 5;" vgap="10.0" />
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                    <Pane id="pane1" fx:id="startView" layoutX="35.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
-                                       <children>
-                                          <VBox prefWidth="790.0">
-                                             <children>
-                                                <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                                   <children>
-                                                      <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                                      <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Calibri Bold" size="24.0" />
-                                                         </font>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Label fx:id="startViewOffersShowAll" layoutX="722.0" layoutY="235.0" text="Visa alla" textFill="#d31145" underline="true">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <font>
-                                                            <Font name="Calibri" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <ImageView fx:id="startViewOffersLeft" fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="126.0" onMouseClicked="#offersLeft" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../resources/images/leftArrow.png" />
-                                                         </image>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </ImageView>
-                                                      <HBox fx:id="startViewOffers" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                                                      <ImageView fx:id="startViewOffersRight" fitHeight="48.0" fitWidth="48.0" layoutX="728.0" layoutY="126.0" onMouseClicked="#offersRight" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../resources/images/rightArrow.png" />
-                                                         </image>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </ImageView>
-                                                   </children>
-                                                </Pane>
-                                                <Pane fx:id="favoritesView1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                                   <children>
-                                                      <Rectangle fx:id="favoritesGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                                      <Label fx:id="favoritesTitle1" layoutX="304.0" layoutY="7.0" onMouseClicked="#openFavoriteView" text="DINA FAVORITER" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Calibri Bold" size="24.0" />
-                                                         </font>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </Label>
-                                                      <Label fx:id="startViewFavShowAll" layoutX="722.0" layoutY="235.0" onMouseClicked="#openFavoriteView" text="Visa alla" textFill="#d31145" underline="true">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                         <font>
-                                                            <Font name="Calibri" size="18.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <HBox fx:id="startViewFav" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
-                                                      <ImageView fx:id="startViewFavLeft" fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="126.0" onMouseClicked="#favoritesLeft" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../resources/images/leftArrow.png" />
-                                                         </image>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </ImageView>
-                                                      <ImageView fx:id="startViewFavRight" fitHeight="48.0" fitWidth="48.0" layoutX="736.0" layoutY="117.0" onMouseClicked="#favoritesRight" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../resources/images/rightArrow.png" />
-                                                         </image>
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </ImageView>
-                                                   </children>
-                                                </Pane>
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                    <Pane id="pane1" fx:id="savedShoppingCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
-                                       <children>
-                                          <Rectangle fx:id="offersGraphic11" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
-                                          <Label fx:id="offersTitle11" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="SPARADE LISTOR" textFill="WHITE">
-                                             <font>
-                                                <Font name="Calibri" size="22.0" />
-                                             </font>
-                                             <cursor>
-                                                <Cursor fx:constant="DEFAULT" />
-                                             </cursor>
-                                          </Label>
-                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
-                                             <content>
-                                                <FlowPane fx:id="savedShoppingCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 25 0 35;" />
-                                             </content>
-                                          </ScrollPane>
-                                       </children>
-                                       <StackPane.margin>
-                                          <Insets top="20.0" />
-                                       </StackPane.margin>
-                                    </Pane>
-                                 </children>
-                              </StackPane>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-               </children>
-            </AnchorPane>
             <Pane fx:id="firstAccPane" prefHeight="200.0" prefWidth="200.0" styleClass="transparencyPane">
                <children>
                   <Pane fx:id="registerView2" layoutX="180.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #fff;">
@@ -1612,13 +1233,13 @@
                                     <Pane fx:id="step1CartPane" layoutX="84.0" layoutY="71.0" maxHeight="461.0" mouseTransparent="true" prefHeight="461.0" prefWidth="293.0" translateY="10.0" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="71.0" />
                                     <Pane layoutX="446.0" layoutY="81.0" prefHeight="408.0" prefWidth="500.0">
                                        <children>
-                                          <DatePicker layoutX="14.0" layoutY="54.0" />
+                                          <DatePicker fx:id="calendar" layoutX="14.0" layoutY="54.0" />
                                           <Label layoutX="14.0" layoutY="32.0" text="Välj leveransdatum:">
                                              <font>
                                                 <Font name="Calibri" size="18.0" />
                                              </font>
                                           </Label>
-                                          <RadioButton layoutX="14.0" layoutY="161.0" mnemonicParsing="false" text="10:00 - 12:00">
+                                          <RadioButton fx:id="calendar10_12" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" text="10:00 - 12:00">
                                              <font>
                                                 <Font name="Calibri" size="18.0" />
                                              </font>
@@ -1628,7 +1249,7 @@
                                                 <Font name="Calibri" size="18.0" />
                                              </font>
                                           </Label>
-                                          <RadioButton layoutX="14.0" layoutY="192.0" mnemonicParsing="false" text="12:00 - 14:00">
+                                          <RadioButton fx:id="calendar12_14" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" text="12:00 - 14:00">
                                              <font>
                                                 <Font name="Calibri" size="18.0" />
                                              </font>
@@ -1670,6 +1291,380 @@
                   </Pane>
                </children>
             </Pane>
+            <AnchorPane id="pane1" fx:id="mainPane" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="1080.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="156.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/banner.jpg" />
+                           </image>
+                        </ImageView>
+                        <HBox layoutX="265.0" layoutY="43.0" prefHeight="60.0" prefWidth="693.0">
+                           <children>
+                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Välkommen tillbaka " textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="45.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="topUserName" contentDisplay="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Calibri" size="45.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Pane id="loggaUt" fx:id="kontoRuta" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="kontoRutaLogOut" layoutX="27.0" layoutY="95.0" mnemonicParsing="false" onAction="#mainWindowLogoutButton" prefHeight="35.0" prefWidth="108.0" style="-fx-background-color: d31146;" text="Logga in" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Calibri" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="kontoRutaName" layoutX="27.0" layoutY="9.0" textFill="WHITE" underline="true">
+                                 <font>
+                                    <Font name="Calibri Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="kontoRutaDetails" layoutX="27.0" layoutY="45.0" mnemonicParsing="false" onAction="#mainWindowAccButton" prefHeight="39.0" prefWidth="164.0" style="-fx-background-color: d31146;" text="Registrera konto" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Calibri" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: d31145; -fx-background-radius: 40;" text="Ångra" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri" size="50.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Pane layoutX="14.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="230.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="158.0">
+                     <children>
+                        <VBox prefHeight="590.0" prefWidth="230.0">
+                           <children>
+                              <Pane prefHeight="42.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="startPageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openStartView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyPink" text="Min Startsida" textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="favortiePageButton" layoutX="2.0" mnemonicParsing="false" onAction="#openFavoriteView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mina Favoriter" translateY="1.0">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="historyPageButton" layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#openHistoryView" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Tidigare Köp">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="savedListsButton" layoutX="2.0" layoutY="3.0" mnemonicParsing="false" onAction="#openSavedShoppingCarts" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Sparade Listor">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryMeatButton" layoutX="2.0" layoutY="4.0" mnemonicParsing="false" onAction="#showCategoryMeat" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Kött &amp; Chark">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="25.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categorySeaFoodButton" layoutX="2.0" layoutY="5.0" mnemonicParsing="false" onAction="#showCategorySeafood" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Fisk &amp; Skaldjur">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryFruitButton" layoutX="2.0" layoutY="6.0" mnemonicParsing="false" onAction="#showCategoryFruitAndGreen" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Frukt &amp; Grönt">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryDairyButton" layoutX="2.0" layoutY="7.0" mnemonicParsing="false" onAction="#showCategoryDairyEggCheese" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Mejeri, Ägg &amp; Ost">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryDrinkButton" layoutX="2.0" layoutY="9.0" mnemonicParsing="false" onAction="#showCategoryDrinks" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Dryck">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Pane>
+                              <Pane prefHeight="42.0" prefWidth="230.0">
+                                 <children>
+                                    <Button fx:id="categoryPantryButton" layoutX="2.0" layoutY="10.0" mnemonicParsing="false" onAction="#showCategoryPantry" prefHeight="40.0" prefWidth="226.0" styleClass="fancyGrey" text="Skafferi">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="1.0" />
+                                 </VBox.margin>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <AnchorPane fx:id="mainViewShoppingCartShell" layoutX="1071.0" layoutY="158.0" maxWidth="295.0" prefWidth="295.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="158.0" />
+                  <Pane layoutX="230.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="840.0" style="-fx-background-color: d31146; -fx-background-radius: 5;" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="158.0">
+                     <children>
+                        <TextField fx:id="searchProduct" layoutX="10.0" layoutY="8.0" onAction="#searchMethod" prefHeight="25.0" prefWidth="402.0" promptText="Sök produkt" style="-fx-background-color: AD0734;">
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="223.0" layoutY="198.0" prefHeight="200.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="198.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="548.0" prefWidth="840.0">
+                           <children>
+                              <StackPane maxHeight="548.0" prefHeight="200.0" prefWidth="840.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Pane id="pane1" fx:id="historyCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic111" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="offersTitle111" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="TIDIGARE KÖP" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefWidth="790.0">
+                                             <content>
+                                                <FlowPane fx:id="historyCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0" style="-fx-padding: 20 25 0 35;" />
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="offersView1" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="categoryLabel" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="KATEGORI" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
+                                             <content>
+                                                <FlowPane fx:id="specificCategoryList" hgap="30.0" minHeight="450.0" prefWidth="790.0" prefWrapLength="790.0" style="-fx-padding: 5;" vgap="10.0" />
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="favoritesView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
+                                       <children>
+                                          <Rectangle fx:id="favoritesGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="favoritesTitle" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="DINA FAVORITER" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
+                                             <content>
+                                                <FlowPane fx:id="favoritesProductsPane" hgap="30.0" minHeight="450.0" prefWidth="790.0" prefWrapLength="790.0" style="-fx-padding: 5;" vgap="10.0" />
+                                             </content>
+                                          </ScrollPane>
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="270.0" style="-fx-background-color: d31145;" />
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="startView" layoutX="35.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0" StackPane.alignment="TOP_CENTER">
+                                       <children>
+                                          <VBox prefWidth="790.0">
+                                             <children>
+                                                <Pane fx:id="offersView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                                   <children>
+                                                      <Rectangle fx:id="offersGraphic" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                                      <Label fx:id="offersTitle" layoutX="270.0" layoutY="7.0" text="VECKANS ERBJUDANDE" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Calibri Bold" size="24.0" />
+                                                         </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <ImageView fx:id="startViewOffersLeft" fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="126.0" onMouseClicked="#offersLeft" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/images/leftArrow.png" />
+                                                         </image>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                      <HBox fx:id="startViewOffers" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                                      <ImageView fx:id="startViewOffersRight" fitHeight="48.0" fitWidth="48.0" layoutX="728.0" layoutY="126.0" onMouseClicked="#offersRight" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/images/rightArrow.png" />
+                                                         </image>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                   </children>
+                                                </Pane>
+                                                <Pane fx:id="favoritesView1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                                   <children>
+                                                      <Rectangle fx:id="favoritesGraphic1" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                                      <Label fx:id="favoritesTitle1" layoutX="304.0" layoutY="7.0" onMouseClicked="#openFavoriteView" text="DINA FAVORITER" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Calibri Bold" size="24.0" />
+                                                         </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <Label fx:id="startViewFavShowAll" layoutX="722.0" layoutY="235.0" onMouseClicked="#openFavoriteView" text="Visa alla" textFill="#d31145" underline="true">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <font>
+                                                            <Font name="Calibri" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox fx:id="startViewFav" layoutX="62.0" layoutY="54.0" prefHeight="192.0" prefWidth="665.0" style="-fx-spacing: 3;" />
+                                                      <ImageView fx:id="startViewFavLeft" fitHeight="48.0" fitWidth="48.0" layoutX="14.0" layoutY="126.0" onMouseClicked="#favoritesLeft" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/images/leftArrow.png" />
+                                                         </image>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                      <ImageView fx:id="startViewFavRight" fitHeight="48.0" fitWidth="48.0" layoutX="736.0" layoutY="117.0" onMouseClicked="#favoritesRight" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../resources/images/rightArrow.png" />
+                                                         </image>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                   </children>
+                                                </Pane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                    <Pane id="pane1" fx:id="savedShoppingCartsView" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="790.0">
+                                       <children>
+                                          <Rectangle fx:id="offersGraphic11" fill="#d31145" height="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="790.0" />
+                                          <Label fx:id="offersTitle11" alignment="CENTER" prefHeight="45.0" prefWidth="790.0" text="SPARADE LISTOR" textFill="WHITE">
+                                             <font>
+                                                <Font name="Calibri" size="22.0" />
+                                             </font>
+                                             <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                             </cursor>
+                                          </Label>
+                                          <ScrollPane hbarPolicy="NEVER" layoutY="45.0" prefHeight="483.0" prefWidth="790.0">
+                                             <content>
+                                                <FlowPane fx:id="savedShoppingCartsViewList" alignment="CENTER" hgap="82.0" prefHeight="483.0" prefWidth="790.0">
+                                                   <padding>
+                                                      <Insets left="35.0" right="25.0" top="20.0" />
+                                                   </padding></FlowPane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets top="20.0" />
+                                       </StackPane.margin>
+                                    </Pane>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </children>

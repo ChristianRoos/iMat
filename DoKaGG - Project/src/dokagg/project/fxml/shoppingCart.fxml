@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="cartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dokagg.project.controllers.ShoppingCartController">
+<GridPane fx:id="cartPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="293.0" stylesheets="@../shoppingCart.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dokagg.project.controllers.ShoppingCartController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
    </columnConstraints>
@@ -25,20 +25,20 @@
       <RowConstraints maxHeight="150.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <StackPane fx:id="shoppingStackPane" style="-fx-background-color: #e5e5e5;" GridPane.rowIndex="1">
+      <StackPane fx:id="shoppingStackPane" maxWidth="293.0" prefWidth="293.0" style="-fx-background-color: #e5e5e5;" GridPane.rowIndex="1">
          <children>
-            <AnchorPane id="cartEmpty" maxHeight="300.0" minHeight="300.0" prefHeight="300.0" translateY="25.0" StackPane.alignment="TOP_CENTER">
+            <AnchorPane id="cartEmpty" maxHeight="300.0" maxWidth="293.0" minHeight="300.0" prefHeight="300.0" prefWidth="293.0" translateY="25.0" StackPane.alignment="TOP_CENTER">
                <children>
-                  <Text layoutX="50.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din varukorg är tom" textAlignment="CENTER" AnchorPane.bottomAnchor="326.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
+                  <Text layoutX="50.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din varukorg är tom" textAlignment="CENTER" AnchorPane.bottomAnchor="326.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="40.0">
                      <font>
                         <Font name="Calibri" size="24.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane id="pane1">
+            <AnchorPane id="pane1" maxWidth="293.0" prefWidth="293.0" StackPane.alignment="CENTER_LEFT">
                <children>
-                  <Pane fx:id="cartGreyPane2" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Pane fx:id="cartGreyPane2" maxWidth="293.0" prefHeight="200.0" prefWidth="293.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane fx:id="cartGreyPane" prefHeight="30.0" prefWidth="293.0">
                            <children>
@@ -69,7 +69,7 @@
                               <VBox fx:id="cartList" prefWidth="282.0" />
                            </content>
                         </ScrollPane>
-                        <Button fx:id="cartButtonSave" alignment="CENTER" layoutX="86.0" layoutY="364.0" mnemonicParsing="false" onAction="#favoriteShoppingCart" style="-fx-background-color: d31145;" text="Spara varukorg" textFill="WHITE">
+                        <Button fx:id="cartButtonSave" alignment="TOP_CENTER" layoutX="77.5" layoutY="364.0" mnemonicParsing="false" onAction="#favoriteShoppingCart" style="-fx-background-color: d31145;" text="Spara varukorg" textFill="WHITE">
                            <font>
                               <Font name="Calibri Bold" size="18.0" />
                            </font>
@@ -110,12 +110,12 @@
                </font>
             </Text>
             <Line fx:id="cartTheLine" endX="79.0" layoutX="195.0" layoutY="47.0" startX="-70.0" />
-            <Text fx:id="cartTextUSavedValue" fill="RED" layoutX="222.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 kr">
+            <Text fx:id="cartTextUSavedValue" fill="RED" layoutX="222.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="cartTotalCost" layoutX="183.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00 kr">
+            <Text fx:id="cartTotalCost" layoutX="183.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00">
                <font>
                   <Font name="Calibri" size="24.0" />
                </font>

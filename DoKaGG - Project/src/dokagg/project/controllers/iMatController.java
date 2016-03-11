@@ -3,6 +3,7 @@ package dokagg.project.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -14,7 +15,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -828,19 +828,12 @@ public class iMatController implements Initializable {
         
         ShoppingCartController shopCartCont = loader.getController();
         shopCartCont.initShopCart(this, clonedCartList);
-        
-        
 
         return shopCartCont;
    }
 
     @FXML
     public void addProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
-        
-        // Have to do this first check to set the total-value correct
-        if(currentlyActiveShoppingCart.cartsItems.size() == 0) {
-            currentlyActiveShoppingCart.cartTotalCost.setText("0");
-        }
         
         // Check if the shoppingcart is empty
         if(currentlyActiveShoppingCart.cartsItems.size() >0) {
@@ -854,19 +847,25 @@ public class iMatController implements Initializable {
                     double newQuantity = Double.valueOf(cartItem.getQuantity()) + quantity;
                     cartItem.setQuantity(newQuantity);
                     
-//                    currentlyActiveShoppingCart.findItem(prod).setQuantity(quantity);
+                    
                     String oldTotal = currentlyActiveShoppingCart.cartTotalCost.getText();
-                    currentlyActiveShoppingCart.cartTotalCost.setText(
-                            String.valueOf(Double.valueOf(oldTotal) + prod.getPrice()*quantity));
+                    
+                    double newTotal = prod.getPrice()*quantity + Double.valueOf(oldTotal);
+                    String newTotalString = String.format(Locale.US, "%.2f", newTotal);
+                    currentlyActiveShoppingCart.cartTotalCost.setText(newTotalString);
                     return;
                 }
             }
         }
+        
         // The item didn't exist already
-        String oldTotal = currentlyActiveShoppingCart.cartTotalCost.getText();
-                    currentlyActiveShoppingCart.cartTotalCost.setText(
-                            String.valueOf(Double.valueOf(oldTotal) + prod.getPrice()*quantity));
-        currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
+        double oldTotal = Double.valueOf(currentlyActiveShoppingCart.cartTotalCost.getText());
+        double newTotal = prod.getPrice()*quantity + oldTotal;
+        System.out.println(newTotal);
+        String newTotalString = String.format(Locale.US, "%.2f", newTotal);
+        currentlyActiveShoppingCart.cartTotalCost.setText(newTotalString);
+        
+        currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem, true);
     }
      
     @FXML
@@ -876,7 +875,9 @@ public class iMatController implements Initializable {
         // An ugly improvised way to avoid checking if cart already exist in the list.
         shoppingCartsHistory.clear();
 
-        if(IMatDataHandler.getInstance().getOrders().get(0).getItems() != null){
+        if(IMatDataHandler.getInstance().getOrders().size() != 0){
+            
+            double newTotal = 0;
             
             for(Order order : IMatDataHandler.getInstance().getOrders()){
                 
@@ -887,11 +888,16 @@ public class iMatController implements Initializable {
                 shoppingCart.cartButton.visibleProperty().set(false);
                 shoppingCart.cartButton.disableProperty().set(true);
                 
+                
                 // Then for every product inside the order, add them one by one
                 // to the new cart.
                 for(ShoppingItem shopItem : order.getItems()) {
-                    shoppingCart.addCartItem(shopItem.getProduct(), shopItem.getAmount(), shopItem);
+                    shoppingCart.addCartItem(shopItem.getProduct(), shopItem.getAmount(), shopItem, false);
+                    
+                    newTotal += shopItem.getProduct().getPrice() * shopItem.getAmount();
                 }
+                
+                shoppingCart.cartTotalCost.setText(String.valueOf(newTotal));
                 
                 // Lastly add the newly created historyCart to our arrayList.
                 shoppingCartsHistory.add(shoppingCart);
@@ -902,8 +908,6 @@ public class iMatController implements Initializable {
             historyCartsViewList.getChildren().add(shopCart.cartPane);
         }
         historyCartsView.toFront();
-        
-        System.out.println(IMatDataHandler.getInstance().getOrders());
         
         setCategoriesAllGrey();
         historyPageButton.getStyleClass().clear();
@@ -939,7 +943,7 @@ public class iMatController implements Initializable {
         
         shoppingCart.cartPane.add(makeCurrentCart, 0, 2);
         makeCurrentCart.setTranslateY(-93);
-        makeCurrentCart.setTranslateX(78);
+        makeCurrentCart.setTranslateX(77.5);
         makeCurrentCart.setPrefWidth(137);
         makeCurrentCart.setPrefHeight(34);
                
@@ -1032,6 +1036,9 @@ public class iMatController implements Initializable {
         step1CartPane.getChildren().add(shoppingCart.cartPane);
         
         for(CartItemController cartItem : shoppingCart.cartsItems) {
+            // Just some cart-look trimming.
+            cartItem.cartItemDelete.setVisible(false);
+            cartItem.cartItemDelete.setDisable(true);
             updateBackendShopCart(cartItem);
         }
         

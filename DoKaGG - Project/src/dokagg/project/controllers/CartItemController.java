@@ -1,15 +1,17 @@
 package dokagg.project.controllers;
 
+import java.util.Locale;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 public class CartItemController {
     
-    @FXML private ImageView cartItemDelete;
+    @FXML public ImageView cartItemDelete;
     @FXML private Image removeImage;
     @FXML private Label cartItemName;
     @FXML private Label cartItemAmountField;
@@ -18,30 +20,31 @@ public class CartItemController {
     @FXML private Label cartItemPricePer;
     @FXML private Label cartItemTotal;
     
+    @FXML public Pane whitePane;
+    @FXML public Pane grayPane;
+    
     @FXML private ShoppingCartController shoppingCart;
     @FXML private Product prod;
     private ShoppingItem prodAsShopItem;
     
     @FXML 
-    public void giveData(ShoppingCartController shoppingCart, Product prod, double quantity, ShoppingItem prodAsShopItem) {
+    public void giveData(ShoppingCartController shoppingCart, Product prod, 
+            double quantity, ShoppingItem prodAsShopItem, boolean showRemoveButton) {
         this.shoppingCart = shoppingCart;
         this.prodAsShopItem = prodAsShopItem;
         this.prod = prod;
 
-//        removeImage  = new Image(getClass()
-//        .getResourceAsStream("/dokagg/project/resources/images/secondCross.jpg"));
-//        cartItemDelete.setImage(removeImage);
-        
-//        quantityImage  = new Image(getClass()
-//        .getResourceAsStream("/dokagg/project/resources/images/styck.png"));
-//        quantityImageView.setImage(quantityImage);
-//        quantityImageView.toFront();
+        // if added to history, remove the remove-button
+        if(!showRemoveButton) {
+            cartItemDelete.setVisible(false);
+            cartItemDelete.setDisable(true);
+        }
         
         cartItemName.setText(prod.getName());
         cartItemAmountField.setText(String.valueOf((int)quantity));
         cartItemPricePer.setText(String.valueOf(prod.getPrice()));
         double total = prod.getPrice()*quantity;
-        cartItemTotal.setText(String.format( "%.2f", total));
+        cartItemTotal.setText(String.format(Locale.US, "%.2f", total));
     }
     
     public void removeItem(){
@@ -69,6 +72,10 @@ public class CartItemController {
         
         double newTotalCost = prod.getPrice()*Double.valueOf(getQuantity());
 //        cartItemTotal.setText(String.valueOf(newTotalCost));
-        cartItemTotal.setText(String.format( "%.2f", newTotalCost));
+        cartItemTotal.setText(String.format(Locale.US, "%.2f", newTotalCost));
+    }
+    
+    public double getTotalCost() {
+        return Double.valueOf(cartItemTotal.getText());
     }
 }
