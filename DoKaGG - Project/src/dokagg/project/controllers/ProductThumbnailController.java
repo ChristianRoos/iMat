@@ -71,12 +71,18 @@ public class ProductThumbnailController {
     
     @FXML
     protected void thumbFavButtonClicked() {
-        if(IMatDataHandler.getInstance().isFavorite(prod)) {
+        if (iMatController.loggedIn) {
+            if(IMatDataHandler.getInstance().isFavorite(prod)) {
             IMatDataHandler.getInstance().removeFavorite(prod);
             favoritedImageView.setImage(notFavoriteImage);
-        } else {
+            } else {
             IMatDataHandler.getInstance().addFavorite(prod);
             favoritedImageView.setImage(favoriteImage);
+            } 
         }
+        else {
+            
+        }
+       
     }
 }
