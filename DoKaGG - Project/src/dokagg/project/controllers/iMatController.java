@@ -29,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.effect.ColorInput;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import static javafx.scene.paint.Color.color;
 import static javafx.scene.paint.Color.color;
@@ -131,6 +132,7 @@ public class iMatController implements Initializable {
     //// Account-Page
     //
     @FXML private Pane accountPane;
+    @FXML private Label accountNameLabel;
     @FXML private Label accountAdressName;
     @FXML private Label accountAdressLName;
     @FXML private Label accountAdressAdress;
@@ -325,25 +327,74 @@ public class iMatController implements Initializable {
         //Login info
         String errorMessageAdress ="";
         String errorMessageRegister ="";
+        
+        registerLoginEmailConfirmField.getStyleClass().remove("error");
+        registerLoginEmailField2.getStyleClass().remove("error");
+        registerLoginPassField2.getStyleClass().remove("error");
+        registerLoginPassConfirmField.getStyleClass().remove("error");
+        registerAdressNameField.getStyleClass().remove("error");
+        registerAdressLNameField.getStyleClass().remove("error");
+        registerAdressAdressField.getStyleClass().remove("error");
+        registerAdressCityField.getStyleClass().remove("error");
+        registerAdressZipField.getStyleClass().remove("error");
+        registerAdressCellphoneField.getStyleClass().remove("error");
+        registerAdressTelephoneField.getStyleClass().remove("error");
+        
+        
         if(!registerLoginEmailField2.getText().equals(registerLoginEmailConfirmField.getText()) || registerLoginEmailConfirmField.getText().isEmpty()){
              errorMessageRegister = errorMessageRegister + "Email stämmer ej överrens eller ej angivna. "; 
+            registerLoginEmailField2.getStyleClass().add("error");
+            registerLoginEmailConfirmField.getStyleClass().add("error");
         }
+        
         if(!registerLoginPassField2.getText().equals(registerLoginPassConfirmField.getText()) || registerLoginPassConfirmField.getText().isEmpty()){
            errorMessageRegister = errorMessageRegister + "Lösenord stämmer ej överens eller ej angivna. ";
+            registerLoginPassConfirmField.getStyleClass().add("error");
+            registerLoginPassField2.getStyleClass().add("error");
         }
+
         //Address Info
-        if(registerAdressNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";}
-        if(registerAdressLNameField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";}
-        if(registerAdressAdressField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";}
-        if(registerAdressCityField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";}
-        if(registerAdressZipField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";}
-        if(registerAdressCellphoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
-        if(registerAdressTelephoneField.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
+        if(registerAdressNameField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Namn saknas. ";
+            registerAdressNameField.getStyleClass().add("error");
+        }
+        
+        if(registerAdressLNameField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";
+            registerAdressLNameField.getStyleClass().add("error");
+        }
+        else registerAdressLNameField.getStyleClass().remove("error");
+        
+        if(registerAdressAdressField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Adress saknas. ";
+            registerAdressAdressField.getStyleClass().add("error");
+        }
+        
+        if(registerAdressCityField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Stad saknas. ";
+            registerAdressCityField.getStyleClass().add("error");
+        }
+        
+        if(registerAdressZipField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";
+            registerAdressZipField.getStyleClass().add("error");
+        }
+        
+        if(registerAdressCellphoneField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";
+            registerAdressCellphoneField.getStyleClass().add("error");
+        }
+        
+        if(registerAdressTelephoneField.getText().isEmpty()){
+            errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";
+            registerAdressTelephoneField.getStyleClass().add("error");
+        }
+        
 
         
         
         if (errorMessageAdress.isEmpty() && errorMessageRegister.isEmpty()) {
-            
+            IMatDataHandler.getInstance().reset();
             IMatDataHandler.getInstance().getUser().setUserName(registerLoginEmailField2.getText());
             IMatDataHandler.getInstance().getUser().setPassword(registerLoginPassField2.getText()); 
             IMatDataHandler.getInstance().getCustomer().setEmail(registerLoginEmailField2.getText());
@@ -355,11 +406,12 @@ public class iMatController implements Initializable {
             IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(registerAdressCellphoneField.getText());
             IMatDataHandler.getInstance().getCustomer().setPhoneNumber(registerAdressTelephoneField.getText());
             
+            registerAdressErrors.setText("");
+            registerLoginErrors.setText("");
             kontoRutaDetails.setText("Kontouppgifter");
             kontoRutaLogOut.setText("Logga ut");
             mainPane.toFront();
             loggedIn = true;
-            resetLabels();
             updateLabels();
             
         }
@@ -374,17 +426,24 @@ public class iMatController implements Initializable {
     @FXML
     private void loginButton(){
         String errorMessageLogin = "";
+        registerLoginEmailField.getStyleClass().remove("error");
+        loginPassField.getStyleClass().remove("error");
+        
         if(registerLoginEmailField.getText().isEmpty()){
             errorMessageLogin="Email saknas. ";
+            registerLoginEmailField.getStyleClass().add("error");
         }
         if(loginPassField.getText().isEmpty()){
             errorMessageLogin= errorMessageLogin +"Lösenord saknas. ";
+            loginPassField.getStyleClass().add("error");
         }
         if(!registerLoginEmailField.getText().equals(IMatDataHandler.getInstance().getUser().getUserName())&&errorMessageLogin.isEmpty()){
              errorMessageLogin= errorMessageLogin +"Finns inget konto registrerat med den emailen";
+             registerLoginEmailField.getStyleClass().add("error");
         }
         if(!loginPassField.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())&&errorMessageLogin.isEmpty()){
              errorMessageLogin= errorMessageLogin + "Email och lösenord matchar inte";
+             loginPassField.getStyleClass().add("error");
         }
         loginErrors.setText(errorMessageLogin);
         if(errorMessageLogin.isEmpty()){
@@ -481,21 +540,36 @@ public class iMatController implements Initializable {
     
     @FXML
     private void accountPaymentDone(){
+        
+        accountPaymentNameField.getStyleClass().remove("error");
+        accountPaymentCardField.getStyleClass().remove("error");
+        accountPaymentMonthField.getStyleClass().remove("error");
+        accountPaymentYearField.getStyleClass().remove("error");
+        accountPaymentSecurityField.getStyleClass().remove("error");
+
+        
         if(!accountPaymentMasterCard.isSelected() && !accountPaymentVisa.isSelected()){
             accountPaymentErrors.setText("Korttyp har inte angivits!");
         }
         else if ((accountPaymentNameField.getText().isEmpty())) {
-            accountPaymentErrors.setText("Namn har inte angivits!");}
+            accountPaymentErrors.setText("Namn har inte angivits!");
+            accountPaymentNameField.getStyleClass().add("error");
+        }
         else if (!cardClear(accountPaymentCardField.getText())) {
-            accountPaymentErrors.setText("Kortnummer har angivits fel!");
+            accountPaymentErrors.setText("Kortnummer har angivits fel! Skriv in sexton siffror utan mellanrum.");
+            accountPaymentCardField.getStyleClass().add("error");
         } else if (!monthClear(accountPaymentMonthField.getText())) {
             accountPaymentErrors.setText("Felaktigt månad!");
+            accountPaymentMonthField.getStyleClass().add("error");
         } else if (!yearClear(accountPaymentYearField.getText())) {
             accountPaymentErrors.setText("Felaktigt årtal!");
+            accountPaymentYearField.getStyleClass().add("error");
         } else if (!securityNumberClear(accountPaymentSecurityField.getText())){
             accountPaymentErrors.setText("CVC är inkorrekt inmatad!");
+            accountPaymentSecurityField.getStyleClass().add("error");
         } else {
-            accountPayment3.toFront();         
+            accountPayment3.toFront();  
+
             
             if(accountPaymentMasterCard.isSelected()){IMatDataHandler.getInstance().getCreditCard().setCardType(accountPaymentMasterCard.getText());}
             else {IMatDataHandler.getInstance().getCreditCard().setCardType(accountPaymentVisa.getText());}
@@ -506,6 +580,13 @@ public class iMatController implements Initializable {
             IMatDataHandler.getInstance().getCreditCard().setVerificationCode(Integer.parseInt(accountPaymentSecurityField.getText()));
         
             accountPaymentErrors.setText("");
+            accountPaymentNameField.setText("");
+            accountPaymentCardField.setText("");
+            accountPaymentMonthField.setText("");
+            accountPaymentYearField.setText("");
+            accountPaymentSecurityField.setText("");
+            accountPaymentMasterCard.selectedProperty().set(false);
+            accountPaymentVisa.selectedProperty().set(false);
             
             updateLabels();
         } 
@@ -519,11 +600,18 @@ public class iMatController implements Initializable {
     @FXML
     private void accountLoginDone(){
         String errorMessageChangeLogin= "";
+        accountLogInPassField.getStyleClass().remove("error");
+        accountLogInConfirmPassField.getStyleClass().remove("error");
+        accountLogInEmailField.getStyleClass().remove("error");
+        
         if(!accountLogInPassField.getText().equals(accountLogInConfirmPassField.getText())){
             errorMessageChangeLogin= "Lösenord matchar inte. ";
+            accountLogInPassField.getStyleClass().add("error");
+            accountLogInConfirmPassField.getStyleClass().add("error");
         }
         if(accountLogInEmailField.getText().isEmpty()){
             errorMessageChangeLogin="Email måste vara ifylld. " +errorMessageChangeLogin;
+            accountLogInEmailField.getStyleClass().add("error");
         }
         if(errorMessageChangeLogin.isEmpty())
         {
@@ -546,27 +634,41 @@ public class iMatController implements Initializable {
     @FXML
     private void accountAdressDone(){
         String errorMessageChangeAdress= "";
+        accountAdressNameField.getStyleClass().remove("error");
+        accountAdressLNameField.getStyleClass().remove("error");
+        accountAdressAdressField.getStyleClass().remove("error");
+        accountAdressCityField.getStyleClass().remove("error");
+        accountAdressZipField.getStyleClass().remove("error");
+        accountAdressCellphoneField.getStyleClass().remove("error");
+        accountAdressTelephoneField.getStyleClass().remove("error");
         //Address Info
         if(accountAdressNameField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Namn saknas ";
+            accountAdressNameField.getStyleClass().add("error");
         }
         if(accountAdressLNameField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Efternamn saknas ";
+            accountAdressLNameField.getStyleClass().add("error");
         }
         if(accountAdressAdressField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Adress saknas ";
+            accountAdressAdressField.getStyleClass().add("error");
         }
         if(accountAdressCityField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Stad saknas ";
+            accountAdressCityField.getStyleClass().add("error");
         }
         if(accountAdressZipField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Postnummer saknas ";
+            accountAdressZipField.getStyleClass().add("error");
         }
         if(accountAdressCellphoneField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Mobilnummer saknas ";
+            accountAdressCellphoneField.getStyleClass().add("error");
         }
         if(accountAdressTelephoneField.getText().isEmpty()){
             errorMessageChangeAdress = errorMessageChangeAdress +"Telefonnummer saknas ";
+            accountAdressTelephoneField.getStyleClass().add("error");
         }
         
         
@@ -903,7 +1005,7 @@ public class iMatController implements Initializable {
         }
         historyCartsView.toFront();
         
-        System.out.println(IMatDataHandler.getInstance().getOrders());
+        //System.out.println(IMatDataHandler.getInstance().getOrders());
         
         setCategoriesAllGrey();
         historyPageButton.getStyleClass().clear();
@@ -1188,7 +1290,20 @@ public class iMatController implements Initializable {
         System.exit(0);
     }
     private void updateLabels(){
+        registerLoginEmailConfirmField.setText("");
+        registerLoginEmailField2.setText("");
+        registerLoginPassField2.setText("");
+        registerLoginPassConfirmField.setText("");
+        registerAdressNameField.setText("");
+        registerAdressLNameField.setText("");
+        registerAdressAdressField.setText("");
+        registerAdressCityField.setText("");
+        registerAdressZipField.setText("");
+        registerAdressCellphoneField.setText("");
+        registerAdressTelephoneField.setText("");
+        
         topUserName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName());
+        accountNameLabel.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
         kontoRutaName.setText(IMatDataHandler.getInstance().getCustomer().getFirstName() + " " +IMatDataHandler.getInstance().getCustomer().getLastName());
         accountAdressTelephone.setText(IMatDataHandler.getInstance().getCustomer().getPhoneNumber());
         accountAdressCellphone.setText(IMatDataHandler.getInstance().getCustomer().getMobilePhoneNumber());
@@ -1231,6 +1346,8 @@ public class iMatController implements Initializable {
         IMatDataHandler.getInstance().getCreditCard().setValidMonth(0);
         IMatDataHandler.getInstance().getCreditCard().setValidYear(0);
         IMatDataHandler.getInstance().getCreditCard().setVerificationCode(0);
+        
+        
     }
     @FXML
     private void step2Register(){
@@ -1241,23 +1358,53 @@ public class iMatController implements Initializable {
         
         checkoutStep3.getStyleClass().clear();
         checkoutStep3.getStyleClass().add("niceColour");
+        
+        step2RegisterEmail.getStyleClass().remove("error");
+        step2RegisterPass.getStyleClass().remove("error");
+        step2RegisterName.getStyleClass().remove("error");
+        step2RegisterLName.getStyleClass().remove("error");
+        step2RegisterAdress.getStyleClass().remove("error");
+        step2RegisterCity.getStyleClass().remove("error");
+        step2RegisterZip.getStyleClass().remove("error");
+        step2RegisterCellphone.getStyleClass().remove("error");
+        step2RegisterTelephone.getStyleClass().remove("error");
+        step2RegisterEmailConfirm.getStyleClass().remove("error");
+        step2RegisterPassConfirm.getStyleClass().remove("error");
         //Login info
         String errorMessageAdress ="";
         String errorMessageRegister ="";
         if(!step2RegisterEmail.getText().equals(step2RegisterEmailConfirm.getText()) || step2RegisterEmailConfirm.getText().isEmpty()){
              errorMessageRegister = errorMessageRegister + "Email stämmer ej överrens eller ej angivna. "; 
+             step2RegisterEmail.getStyleClass().add("error");
+             step2RegisterEmailConfirm.getStyleClass().add("error");
         }
         if(!step2RegisterPass.getText().equals(step2RegisterPassConfirm.getText()) || step2RegisterPassConfirm.getText().isEmpty()){
            errorMessageRegister = errorMessageRegister + "Lösenord stämmer ej överens eller ej angivna. ";
+           step2RegisterPass.getStyleClass().add("error");
+           step2RegisterPassConfirm.getStyleClass().add("error");
         }
         //Address Info
-        if(step2RegisterName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";}
-        if(step2RegisterLName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";}
-        if(step2RegisterAdress.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";}
-        if(step2RegisterCity.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";}
-        if(step2RegisterZip.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";}
-        if(step2RegisterCellphone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";}
-        if(step2RegisterTelephone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";}
+        if(step2RegisterName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Namn saknas. ";
+                       step2RegisterName.getStyleClass().add("error");
+        }
+        if(step2RegisterLName.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Efternamn saknas. ";
+                   step2RegisterLName.getStyleClass().add("error");
+        }
+        if(step2RegisterAdress.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Adress saknas. ";
+                   step2RegisterAdress.getStyleClass().add("error");
+        }
+        if(step2RegisterCity.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Stad saknas. ";
+                   step2RegisterCity.getStyleClass().add("error");
+        }
+        if(step2RegisterZip.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Postnummer saknas. ";
+                   step2RegisterZip.getStyleClass().add("error");
+        }
+        if(step2RegisterCellphone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Mobilnummer saknas. ";
+                   step2RegisterCellphone.getStyleClass().add("error");
+        }
+        if(step2RegisterTelephone.getText().isEmpty()){errorMessageAdress = errorMessageAdress + "Telefonnummer saknas. ";
+                   step2RegisterTelephone.getStyleClass().add("error");
+        }
 
         
         
@@ -1272,7 +1419,7 @@ public class iMatController implements Initializable {
             IMatDataHandler.getInstance().getCustomer().setAddress(step2RegisterCity.getText());
             IMatDataHandler.getInstance().getCustomer().setMobilePhoneNumber(step2RegisterCellphone.getText());
             IMatDataHandler.getInstance().getCustomer().setPhoneNumber(step2RegisterTelephone.getText());
-            
+            IMatDataHandler.getInstance().favorites().clear();
             kontoRutaDetails.setText("Kontouppgifter");
             kontoRutaLogOut.setText("Logga ut");
             step3Pane.toFront();
@@ -1288,19 +1435,25 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void step2Login(){
+        step2LoginEmail.getStyleClass().remove("error");
+        step2LoginPass.getStyleClass().remove("error");
         
         String errorMessageLogin = "";
         if(step2LoginEmail.getText().isEmpty()){
             errorMessageLogin="Email saknas. ";
+            step2LoginEmail.getStyleClass().add("error");
         }
         if(step2LoginPass.getText().isEmpty()){
             errorMessageLogin= errorMessageLogin +"Lösenord saknas. ";
+            step2LoginPass.getStyleClass().add("error");
         }
         if(!step2LoginEmail.getText().equals(IMatDataHandler.getInstance().getUser().getUserName())&&errorMessageLogin.isEmpty()){
              errorMessageLogin= errorMessageLogin +"Finns inget konto registrerat med den emailen";
+             step2LoginEmail.getStyleClass().add("error");
         }
         if(!step2LoginPass.getText().equals(IMatDataHandler.getInstance().getUser().getPassword())&&errorMessageLogin.isEmpty()){
              errorMessageLogin= errorMessageLogin + "Email och lösenord matchar inte";
+             step2LoginPass.getStyleClass().add("error");
         }
         step2LoginErrors.setText(errorMessageLogin);
         if(errorMessageLogin.isEmpty()){
@@ -1324,19 +1477,31 @@ public class iMatController implements Initializable {
     }
     @FXML
     private void step4FinishPayment(){
+        step4Name.getStyleClass().remove("error");
+        step4CardNr.getStyleClass().remove("error");
+        step4Month.getStyleClass().remove("error");
+        step4Year.getStyleClass().remove("error");
+        step4Security.getStyleClass().remove("error");
+        
         if(!step4Mastercard.isSelected() && !step4Visa.isSelected()){
             step4Errors.setText("Korttyp har inte angivits!");
         }
         else if ((step4Name.getText().isEmpty())) {
-            step4Errors.setText("Namn har inte angivits!");}
+            step4Errors.setText("Namn har inte angivits!");
+            step4Name.getStyleClass().add("error");
+        }
         else if (!cardClear(step4CardNr.getText())) {
-            step4Errors.setText("Kortnummer har angivits fel!");
+            step4Errors.setText("Kortnummer har angivits fel! Skriv in sexton siffror utan mellanrum.");
+            step4CardNr.getStyleClass().add("error");
         } else if (!monthClear(step4Month.getText())) {
             step4Errors.setText("Felaktigt månad!");
+            step4Month.getStyleClass().add("error");
         } else if (!yearClear(step4Year.getText())) {
             step4Errors.setText("Felaktigt årtal!");
+            step4Year.getStyleClass().add("error");
         } else if (!securityNumberClear(step4Security.getText())){
             step4Errors.setText("CVC är inkorrekt inmatad!");
+            step4Security.getStyleClass().add("error");
         } else {
             if(step4SaveInfo.isSelected()){     
             
@@ -1350,6 +1515,13 @@ public class iMatController implements Initializable {
             updateLabels();
             }
             step4Errors.setText("");
+            step4Name.setText("");
+            step4CardNr.setText("");
+            step4Month.setText("");
+            step4Year.setText("");
+            step4Security.setText("");
+            step4Mastercard.selectedProperty().set(false);
+            step4Visa.selectedProperty().set(false);
             IMatDataHandler.getInstance().placeOrder();
             shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
             gzPane.toFront();
