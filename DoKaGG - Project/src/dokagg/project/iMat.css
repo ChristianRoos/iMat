@@ -52,7 +52,15 @@
     -fx-alignment: CENTER;
     -fx-text-fill: black;
 }
+
 .text-field.error {
   -fx-text-box-border: red ;
   -fx-focus-color: red ;
+}
+
+.disabledGrey {
+    -fx-background-color: #e5e5e5;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #888888;
+
 }

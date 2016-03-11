@@ -38,7 +38,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class iMatController implements Initializable {
-    private boolean loggedIn;
+    public boolean loggedIn;
     private int favCounter;
     ////////////////////////////////////////////////////////////////////////////
     //// First-Account-Page
@@ -77,6 +77,7 @@ public class iMatController implements Initializable {
     @FXML private Label topUserName;
     @FXML private Button kontoRutaDetails;
     @FXML private Button kontoRutaLogOut;
+    @FXML private Label startViewFavShowAll;
     
     // HomePage, History & SavedLists
     @FXML private Button startPageButton;
@@ -412,6 +413,10 @@ public class iMatController implements Initializable {
             kontoRutaLogOut.setText("Logga ut");
             mainPane.toFront();
             loggedIn = true;
+
+            loginAntiDisable();
+            resetLabels();
+
             updateLabels();
             
         }
@@ -452,6 +457,7 @@ public class iMatController implements Initializable {
         kontoRutaLogOut.setText("Logga ut");
         mainPane.toFront();
         loggedIn = true;
+        loginAntiDisable();
         registerLoginEmailField.setText("");
         loginPassField.setText("");
         openStartView();
@@ -473,10 +479,39 @@ public class iMatController implements Initializable {
         }
     }
     
+    private void logoutDisable(){
+        
+        favortiePageButton.disableProperty().set(true);
+        favortiePageButton.getStyleClass().clear();
+        favortiePageButton.getStyleClass().add("disabledGrey");
+        historyPageButton.disableProperty().set(true);
+        historyPageButton.getStyleClass().clear();
+        historyPageButton.getStyleClass().add("disabledGrey");
+        savedListsButton.disableProperty().set(true);
+        savedListsButton.getStyleClass().clear();
+        savedListsButton.getStyleClass().add("disabledGrey");
+        startViewFavShowAll.disableProperty().set(true);
+    }
+    
+    private void loginAntiDisable(){
+        
+        favortiePageButton.disableProperty().set(false);
+        favortiePageButton.getStyleClass().clear();
+        favortiePageButton.getStyleClass().add("fancyGrey2");
+        historyPageButton.disableProperty().set(false);
+        historyPageButton.getStyleClass().clear();
+        historyPageButton.getStyleClass().add("fancyGrey2");
+        savedListsButton.disableProperty().set(false);
+        savedListsButton.getStyleClass().clear();
+        savedListsButton.getStyleClass().add("fancyGrey2");
+        startViewFavShowAll.disableProperty().set(false);
+    }
+    
     @FXML
     private void mainWindowLogoutButton(){
         if (loggedIn == true){
         mainPane.toFront();
+        logoutDisable();
         loggedIn = false; 
         kontoRutaDetails.setText("Registrera konto");
         kontoRutaLogOut.setText("Logga in");
@@ -484,7 +519,8 @@ public class iMatController implements Initializable {
         kontoRutaName.setText("");
         } else
         {
-           loginPane.toFront(); 
+           loginPane.toFront();
+           favortiePageButton.disableProperty().set(false);
         }
     }
     @FXML
@@ -518,8 +554,12 @@ public class iMatController implements Initializable {
     }
     
     private boolean intLimitClear(String fieldText, int min, int max) {
-            
-        return !(Integer.parseInt(fieldText) > max || Integer.parseInt(fieldText) < min);  
+        if (fieldText.isEmpty()) {
+            return false;
+        }
+        else {
+            return !(Integer.parseInt(fieldText) > max || Integer.parseInt(fieldText) < min);  
+        }
     }
     
     private boolean cardClear(String card) {
@@ -725,10 +765,7 @@ public class iMatController implements Initializable {
     }
     
     private void setCategoriesAllGrey(){
-            startPageButton.getStyleClass().clear();
-            startPageButton.getStyleClass().add("fancyGrey2");
-            startPageButton.setTextFill(Color.BLACK);
-            
+        if (loggedIn) {            
             favortiePageButton.getStyleClass().clear();
             favortiePageButton.getStyleClass().add("fancyGrey2");
             favortiePageButton.setTextFill(Color.BLACK);
@@ -741,30 +778,47 @@ public class iMatController implements Initializable {
             savedListsButton.getStyleClass().add("fancyGrey2");
             savedListsButton.setTextFill(Color.BLACK);
             
-            categoryMeatButton.getStyleClass().clear();
-            categoryMeatButton.getStyleClass().add("fancyGrey2");
-            categoryMeatButton.setTextFill(Color.BLACK);
             
-            categorySeaFoodButton.getStyleClass().clear();
-            categorySeaFoodButton.getStyleClass().add("fancyGrey2");
-            categorySeaFoodButton.setTextFill(Color.BLACK);
+        } else {
+            favortiePageButton.getStyleClass().clear();
+            favortiePageButton.getStyleClass().add("disabledGrey");
+            favortiePageButton.setTextFill(Color.BLACK);
             
-            categoryFruitButton.getStyleClass().clear();
-            categoryFruitButton.getStyleClass().add("fancyGrey2");
-            categoryFruitButton.setTextFill(Color.BLACK);
+            historyPageButton.getStyleClass().clear();
+            historyPageButton.getStyleClass().add("disabledGrey");
+            historyPageButton.setTextFill(Color.BLACK);
             
-            categoryDairyButton.getStyleClass().clear();
-            categoryDairyButton.getStyleClass().add("fancyGrey2");
-            categoryDairyButton.setTextFill(Color.BLACK);
-            
-            categoryDrinkButton.getStyleClass().clear();
-            categoryDrinkButton.getStyleClass().add("fancyGrey2");
-            categoryDrinkButton.setTextFill(Color.BLACK);
-            
-            categoryPantryButton.getStyleClass().clear();
-            categoryPantryButton.getStyleClass().add("fancyGrey2");
-            categoryPantryButton.setTextFill(Color.BLACK);
-            
+            savedListsButton.getStyleClass().clear();
+            savedListsButton.getStyleClass().add("disabledGrey");
+            savedListsButton.setTextFill(Color.BLACK);
+        }  
+        startPageButton.getStyleClass().clear();
+        startPageButton.getStyleClass().add("fancyGrey2");
+        startPageButton.setTextFill(Color.BLACK);
+        
+        categoryMeatButton.getStyleClass().clear();
+        categoryMeatButton.getStyleClass().add("fancyGrey2");
+        categoryMeatButton.setTextFill(Color.BLACK);
+
+        categorySeaFoodButton.getStyleClass().clear();
+        categorySeaFoodButton.getStyleClass().add("fancyGrey2");
+        categorySeaFoodButton.setTextFill(Color.BLACK);
+
+        categoryFruitButton.getStyleClass().clear();
+        categoryFruitButton.getStyleClass().add("fancyGrey2");
+        categoryFruitButton.setTextFill(Color.BLACK);
+
+        categoryDairyButton.getStyleClass().clear();
+        categoryDairyButton.getStyleClass().add("fancyGrey2");
+        categoryDairyButton.setTextFill(Color.BLACK);
+
+        categoryDrinkButton.getStyleClass().clear();
+        categoryDrinkButton.getStyleClass().add("fancyGrey2");
+        categoryDrinkButton.setTextFill(Color.BLACK);
+
+        categoryPantryButton.getStyleClass().clear();
+        categoryPantryButton.getStyleClass().add("fancyGrey2");
+        categoryPantryButton.setTextFill(Color.BLACK);
     }
     
     @FXML
@@ -837,7 +891,6 @@ public class iMatController implements Initializable {
       setCategoriesAllGrey();
       categorySeaFoodButton.getStyleClass().clear();
       categorySeaFoodButton.getStyleClass().add("fancyPink");
-      IMatDataHandler.getInstance().reset();
     }
     
     @FXML
@@ -938,6 +991,10 @@ public class iMatController implements Initializable {
 
     @FXML
     public void addProdToShoppingCart(Product prod, double quantity, ShoppingItem prodAsShopItem){
+        if (currentlyActiveShoppingCart.cartsItems.isEmpty()) {
+            currentlyActiveShoppingCart.cartButton.setDisable(false);
+            currentlyActiveShoppingCart.cartButtonSave.setDisable(false);
+        }
         
         // Have to do this first check to set the total-value correct
         if(currentlyActiveShoppingCart.cartsItems.size() == 0) {
@@ -969,6 +1026,8 @@ public class iMatController implements Initializable {
                     currentlyActiveShoppingCart.cartTotalCost.setText(
                             String.valueOf(Double.valueOf(oldTotal) + prod.getPrice()*quantity));
         currentlyActiveShoppingCart.addCartItem(prod, quantity, prodAsShopItem);
+        
+       
     }
      
     @FXML
@@ -1256,6 +1315,13 @@ public class iMatController implements Initializable {
 
             errorLabel.visibleProperty().set(false);
             IMatDataHandler.getInstance().placeOrder();
+            
+            currentlyActiveShoppingCart.cartsItems.clear();
+            currentlyActiveShoppingCart.cartButton.setDisable(true);
+            currentlyActiveShoppingCart.cartButtonSave.setDisable(true);
+            currentlyActiveShoppingCart.cartList.getChildren().clear();
+            currentlyActiveShoppingCart.cartTotalCost.setText(Double.toString(0.0));
+            
             shoppingCartsHistory.add(shoppingCartFactory(currentlyActiveShoppingCart.cartsItems));
             gzPane.toFront();
         }  
@@ -1424,6 +1490,7 @@ public class iMatController implements Initializable {
             kontoRutaLogOut.setText("Logga ut");
             step3Pane.toFront();
             loggedIn = true;
+            loginAntiDisable();
             resetLabels();
             updateLabels();
             
@@ -1462,6 +1529,7 @@ public class iMatController implements Initializable {
         kontoRutaLogOut.setText("Logga ut");
         step2Pane.toFront();
         loggedIn = true;
+        loginAntiDisable();
         step2LoginEmail.setText("");
         step2LoginPass.setText("");
         }
