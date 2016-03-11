@@ -52,3 +52,9 @@
     -fx-alignment: CENTER;
     -fx-text-fill: black;
 }
+
+.disabledGrey {
+    -fx-background-color: #e5e5e5;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #888888;
+}

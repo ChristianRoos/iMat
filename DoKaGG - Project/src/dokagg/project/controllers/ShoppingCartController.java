@@ -97,16 +97,15 @@ public class ShoppingCartController {
     }
     
     public void cartCheckoutButton() {
-
         ArrayList<CartItemController> cloneBaby = new ArrayList<>(cartsItems);
         ShoppingCartController newShoppingCart = iMatController.shoppingCartFactory(cloneBaby);
-        
+
         newShoppingCart.cartButton.visibleProperty().set(false);
         newShoppingCart.cartButton.disableProperty().set(true);
-        
+
         newShoppingCart.cartButtonSave.visibleProperty().set(false);
         newShoppingCart.cartButtonSave.disableProperty().set(true);
-        
+
         newShoppingCart.cartTextSum.setVisible(false);
         newShoppingCart.cartTextUSaved.setVisible(false);
         newShoppingCart.cartTextUSavedValue.setVisible(false);
